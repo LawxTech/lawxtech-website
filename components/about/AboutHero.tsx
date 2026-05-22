@@ -40,7 +40,7 @@ export default function AboutHero() {
           src="/images/about-us-landing-image.jpeg"
           alt="About Law x Tech"
           fill
-          sizes="100vw"
+          sizes="(max-width: 1024px) 100vw, 50vw"
           className="object-cover"
           priority
         />
