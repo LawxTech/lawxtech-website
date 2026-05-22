@@ -10,30 +10,30 @@ export const metadata = buildMetadata({
 export default function SeriesPage() {
   return (
     <>
-      <section className="bg-white py-20 border-b border-[#e4e8ef]">
+      <section className="bg-white py-20 border-b border-border-brand">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-[#02807e] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-teal text-sm font-semibold uppercase tracking-widest">
             All Episodes
           </span>
-          <h1 className="mt-3 text-4xl sm:text-5xl font-bold text-[#113167] tracking-tight">
+          <h1 className="mt-3 text-4xl sm:text-5xl font-bold text-navy tracking-tight">
             The Series
           </h1>
-          <p className="mt-5 text-[#6b7280] max-w-2xl mx-auto text-base leading-relaxed">
+          <p className="mt-5 text-muted-brand max-w-2xl mx-auto text-base leading-relaxed">
             Expert-led sessions on legal tech, product management, coding, and
             everything at the intersection of law and technology. Available to
             all community members.
           </p>
-          <div className="mt-6 mx-auto w-16 h-1 bg-[#02807e] rounded-full" />
+          <div className="mt-6 mx-auto w-16 h-1 bg-teal rounded-full" />
         </div>
       </section>
 
-      <section className="bg-[#f8f9fb] py-20">
+      <section className="bg-surface py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SeriesClient />
         </div>
       </section>
 
-      <section className="bg-[#113167] py-20">
+      <section className="bg-navy py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
@@ -48,7 +48,7 @@ export default function SeriesPage() {
                 href="https://forms.gle/ee4eCViprcSn4DE87"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-[#02807e] text-white font-semibold rounded-lg hover:bg-[#026e6c] transition-colors text-sm"
+                className="inline-flex items-center px-6 py-3 bg-teal text-white font-semibold rounded-lg hover:bg-teal-dark transition-colors text-sm"
               >
                 Apply to Speak
               </a>

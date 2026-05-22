@@ -10,6 +10,7 @@
   --font-sans: var(--font-montserrat);
   --color-navy: var(--navy);
   --color-teal: var(--teal);
+  --color-teal-dark: var(--teal-dark);
   --color-surface: var(--surface);
   --color-border-brand: var(--border-brand);
   --color-muted-brand: var(--muted-brand);
@@ -32,22 +33,23 @@
 :root {
   --background: #ffffff;
   --foreground: #0a0a0a;
-  --navy: #113167;
-  --teal: #02807e;
+  --navy: #0B1F3A;
+  --teal: #0D7377;
+  --teal-dark: #0b6164;
   --surface: #f8f9fb;
   --border-brand: #e4e8ef;
   --muted-brand: #6b7280;
   --card: #ffffff;
   --card-foreground: #0a0a0a;
-  --primary: #02807e;
+  --primary: #0D7377;
   --primary-foreground: #ffffff;
-  --secondary: #113167;
+  --secondary: #0B1F3A;
   --secondary-foreground: #ffffff;
   --muted: #f8f9fb;
   --muted-foreground: #6b7280;
   --border: #e4e8ef;
   --input: #e4e8ef;
-  --ring: #02807e;
+  --ring: #0D7377;
   --radius: 0.75rem;
 }
 

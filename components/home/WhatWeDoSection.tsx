@@ -33,7 +33,7 @@ const benefits = [
 
 export default function WhatWeDoSection() {
   return (
-    <section className="bg-[#f8f9fb] py-24">
+    <section className="bg-surface py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={slideUp}
@@ -42,13 +42,13 @@ export default function WhatWeDoSection() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center mb-14"
         >
-          <span className="text-[#02807e] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-teal text-sm font-semibold uppercase tracking-widest">
             What We Offer
           </span>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-[#113167] tracking-tight">
+          <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-navy tracking-tight">
             Why Join Our Community?
           </h2>
-          <p className="mt-4 text-[#6b7280] max-w-2xl mx-auto text-base leading-relaxed">
+          <p className="mt-4 text-muted-brand max-w-2xl mx-auto text-base leading-relaxed">
             Law x Tech equips legal professionals with the tools, network, and
             knowledge to thrive in the new digital economy.
           </p>
@@ -65,18 +65,18 @@ export default function WhatWeDoSection() {
             <motion.div
               key={benefit.title}
               variants={scaleIn}
-              className="group bg-white rounded-2xl p-8 border border-[#e4e8ef] hover:border-[#02807e]/30 hover:shadow-lg transition-all duration-300"
+              className="group bg-white rounded-2xl p-8 border border-border-brand hover:border-teal/30 hover:shadow-lg transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-xl bg-[#f0faf9] flex items-center justify-center text-[#02807e] mb-5 group-hover:bg-[#02807e] group-hover:text-white transition-colors duration-300">
+              <div className="w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center text-teal mb-5 group-hover:bg-teal group-hover:text-white transition-colors duration-300">
                 {benefit.icon}
               </div>
-              <h3 className="text-lg font-bold text-[#113167] mb-2">
+              <h3 className="text-lg font-bold text-navy mb-2">
                 {benefit.title}
               </h3>
-              <p className="text-[#6b7280] text-sm leading-relaxed">
+              <p className="text-muted-brand text-sm leading-relaxed">
                 {benefit.description}
               </p>
-              <div className="mt-5 h-0.5 w-0 bg-[#02807e] group-hover:w-full transition-all duration-500 rounded-full" />
+              <div className="mt-5 h-0.5 w-0 bg-teal group-hover:w-full transition-all duration-500 rounded-full" />
             </motion.div>
           ))}
         </motion.div>

@@ -25,13 +25,13 @@ export default function SpeakersWallSection() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center mb-14"
         >
-          <span className="text-[#02807e] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-teal text-sm font-semibold uppercase tracking-widest">
             Our Speakers
           </span>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-[#113167] tracking-tight">
+          <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-navy tracking-tight">
             Learn From the Best
           </h2>
-          <p className="mt-4 text-[#6b7280] max-w-xl mx-auto text-base">
+          <p className="mt-4 text-muted-brand max-w-xl mx-auto text-base">
             Law x Tech brings together legal professionals and tech experts who
             have walked the path you&apos;re on.
           </p>
@@ -56,7 +56,7 @@ export default function SpeakersWallSection() {
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-[#113167]/0 group-hover:bg-[#113167]/60 transition-colors duration-300" />
+              <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/60 transition-colors duration-300" />
               <motion.div
                 className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               >
@@ -79,7 +79,7 @@ export default function SpeakersWallSection() {
             href="https://forms.gle/ee4eCViprcSn4DE87"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3.5 border-2 border-[#113167] text-[#113167] font-semibold rounded-lg hover:bg-[#113167] hover:text-white transition-all duration-200"
+            className="inline-flex items-center gap-2 px-6 py-3.5 border-2 border-navy text-navy font-semibold rounded-lg hover:bg-navy hover:text-white transition-all duration-200"
           >
             Speak at the Series
           </Link>

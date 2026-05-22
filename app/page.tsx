@@ -9,7 +9,7 @@ import JoinMovementSection from "@/components/home/JoinMovementSection";
 import CommunityChannelsSection from "@/components/home/CommunityChannelsSection";
 
 export const metadata = buildMetadata({
-  title: "Law x Tech — Where Law Meets Technology",
+  title: "Law x Tech — Africa's Home for Law & Technology",
 });
 
 export default function HomePage() {

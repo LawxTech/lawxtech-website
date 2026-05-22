@@ -58,7 +58,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#113167] text-white">
+    <footer className="bg-navy text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
@@ -122,7 +122,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#02807e] flex items-center justify-center transition-colors"
+                  className="w-9 h-9 rounded-lg bg-white/10 hover:bg-teal flex items-center justify-center transition-colors"
                 >
                   {s.icon}
                 </a>

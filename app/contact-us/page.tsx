@@ -48,34 +48,34 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <section className="bg-white py-20 border-b border-[#e4e8ef]">
+      <section className="bg-white py-20 border-b border-border-brand">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-[#02807e] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-teal text-sm font-semibold uppercase tracking-widest">
             Reach Out
           </span>
-          <h1 className="mt-3 text-4xl sm:text-5xl font-bold text-[#113167] tracking-tight">
+          <h1 className="mt-3 text-4xl sm:text-5xl font-bold text-navy tracking-tight">
             Get in Touch
           </h1>
-          <p className="mt-5 text-[#6b7280] text-base leading-relaxed">
+          <p className="mt-5 text-muted-brand text-base leading-relaxed">
             Have a question, partnership idea, or just want to say hello? We
             read every message and get back to all inquiries within 48 hours.
           </p>
-          <div className="mt-6 mx-auto w-16 h-1 bg-[#02807e] rounded-full" />
+          <div className="mt-6 mx-auto w-16 h-1 bg-teal rounded-full" />
         </div>
       </section>
 
-      <section className="bg-[#f8f9fb] py-20">
+      <section className="bg-surface py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             <div className="lg:col-span-3">
-              <h2 className="text-xl font-bold text-[#113167] mb-8">
+              <h2 className="text-xl font-bold text-navy mb-8">
                 Send Us a Message
               </h2>
               <ContactForm />
             </div>
 
             <div className="lg:col-span-2">
-              <div className="bg-[#113167] rounded-2xl p-8 text-white h-fit sticky top-24">
+              <div className="bg-navy rounded-2xl p-8 text-white h-fit sticky top-24">
                 <h3 className="text-lg font-bold mb-6">Contact Information</h3>
                 <div className="space-y-6">
                   <div>
@@ -84,7 +84,7 @@ export default function ContactPage() {
                     </p>
                     <a
                       href="mailto:lawxtechseries@gmail.com"
-                      className="text-white hover:text-[#02807e] transition-colors text-sm"
+                      className="text-white hover:text-teal transition-colors text-sm"
                     >
                       lawxtechseries@gmail.com
                     </a>
@@ -95,7 +95,7 @@ export default function ContactPage() {
                     </p>
                     <a
                       href="tel:+2349099030433"
-                      className="text-white hover:text-[#02807e] transition-colors text-sm"
+                      className="text-white hover:text-teal transition-colors text-sm"
                     >
                       +234 909 903 0433
                     </a>
@@ -121,7 +121,7 @@ export default function ContactPage() {
                           href={s.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-[#02807e] text-white text-xs font-medium transition-colors"
+                          className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-teal text-white text-xs font-medium transition-colors"
                         >
                           {s.label}
                         </a>

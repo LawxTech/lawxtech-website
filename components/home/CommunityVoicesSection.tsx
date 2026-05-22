@@ -44,7 +44,7 @@ const testimonials = [
 
 export default function CommunityVoicesSection() {
   return (
-    <section className="bg-[#f8f9fb] py-24 overflow-hidden">
+    <section className="bg-surface py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={slideUp}
@@ -53,10 +53,10 @@ export default function CommunityVoicesSection() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center mb-14"
         >
-          <span className="text-[#02807e] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-teal text-sm font-semibold uppercase tracking-widest">
             Community Voices
           </span>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-[#113167] tracking-tight">
+          <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-navy tracking-tight">
             What Our Members Say
           </h2>
         </motion.div>
@@ -72,17 +72,17 @@ export default function CommunityVoicesSection() {
             <motion.div
               key={i}
               variants={scaleIn}
-              className="bg-white rounded-2xl p-8 border border-[#e4e8ef] hover:shadow-md transition-shadow duration-300 flex flex-col"
+              className="bg-white rounded-2xl p-8 border border-border-brand hover:shadow-md transition-shadow duration-300 flex flex-col"
             >
-              <span className="text-5xl font-serif text-[#02807e] leading-none mb-4 select-none">
+              <span className="text-5xl font-serif text-teal leading-none mb-4 select-none">
                 &ldquo;
               </span>
               <p className="text-[#374151] text-sm leading-relaxed flex-1">
                 {t.quote}
               </p>
-              <div className="mt-6 pt-5 border-t border-[#e4e8ef]">
-                <p className="font-bold text-[#113167] text-sm">{t.name}</p>
-                <p className="text-[#6b7280] text-xs mt-0.5">{t.role}</p>
+              <div className="mt-6 pt-5 border-t border-border-brand">
+                <p className="font-bold text-navy text-sm">{t.name}</p>
+                <p className="text-muted-brand text-xs mt-0.5">{t.role}</p>
               </div>
             </motion.div>
           ))}

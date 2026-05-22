@@ -38,19 +38,19 @@ export default function SeriesClient() {
         animate="visible"
         className="flex justify-center mb-12"
       >
-        <div className="relative flex bg-[#f8f9fb] rounded-full p-1 border border-[#e4e8ef]">
+        <div className="relative flex bg-surface rounded-full p-1 border border-border-brand">
           {(["main", "mini"] as TabKey[]).map((tab) => (
             <button
               key={tab}
               onClick={() => setActive(tab)}
               className={`relative px-6 py-2.5 text-sm font-semibold rounded-full transition-colors duration-200 z-10 ${
-                active === tab ? "text-white" : "text-[#6b7280] hover:text-[#113167]"
+                active === tab ? "text-white" : "text-muted-brand hover:text-navy"
               }`}
             >
               {active === tab && (
                 <motion.div
                   layoutId="tab-indicator"
-                  className="absolute inset-0 bg-[#113167] rounded-full"
+                  className="absolute inset-0 bg-navy rounded-full"
                   style={{ zIndex: -1 }}
                   transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
                 />
@@ -74,7 +74,7 @@ export default function SeriesClient() {
             <motion.div
               key={item.id}
               variants={scaleIn}
-              className="group relative rounded-2xl overflow-hidden border border-[#e4e8ef] bg-white hover:shadow-xl transition-shadow duration-300"
+              className="group relative rounded-2xl overflow-hidden border border-border-brand bg-white hover:shadow-xl transition-shadow duration-300"
             >
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
@@ -85,17 +85,17 @@ export default function SeriesClient() {
                 />
                 {item.upcoming && (
                   <div className="absolute top-3 right-3">
-                    <Badge className="bg-amber-500 text-white border-0 text-xs font-semibold">
+                    <Badge className="bg-teal text-white border-0 text-xs font-semibold">
                       Upcoming
                     </Badge>
                   </div>
                 )}
               </div>
               <div className="p-5">
-                <span className="text-[#02807e] text-xs font-semibold uppercase tracking-widest">
+                <span className="text-teal text-xs font-semibold uppercase tracking-widest">
                   Episode {String(item.id).padStart(2, "0")}
                 </span>
-                <h3 className="mt-1 font-bold text-[#113167] text-base">
+                <h3 className="mt-1 font-bold text-navy text-base">
                   {item.title}
                 </h3>
               </div>

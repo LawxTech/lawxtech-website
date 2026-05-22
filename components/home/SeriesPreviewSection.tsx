@@ -36,16 +36,16 @@ export default function SeriesPreviewSection() {
           className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 gap-4"
         >
           <div>
-            <span className="text-[#02807e] text-sm font-semibold uppercase tracking-widest">
+            <span className="text-teal text-sm font-semibold uppercase tracking-widest">
               The Series
             </span>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-[#113167] tracking-tight">
+            <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-navy tracking-tight">
               Featured Episodes
             </h2>
           </div>
           <Link
             href="/series"
-            className="inline-flex items-center gap-2 text-[#02807e] font-semibold text-sm hover:gap-3 transition-all"
+            className="inline-flex items-center gap-2 text-teal font-semibold text-sm hover:gap-3 transition-all"
           >
             View All Series <ArrowRight size={16} />
           </Link>
@@ -68,9 +68,9 @@ export default function SeriesPreviewSection() {
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#113167]/80 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
-              <span className="text-[#02807e] font-bold text-xs uppercase tracking-widest">
+              <span className="text-teal font-bold text-xs uppercase tracking-widest">
                 Episode {featured[0].number}
               </span>
               <h3 className="text-white font-bold text-xl mt-1">
@@ -92,9 +92,9 @@ export default function SeriesPreviewSection() {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#113167]/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <span className="text-[#02807e] font-bold text-xs uppercase tracking-widest">
+                  <span className="text-teal font-bold text-xs uppercase tracking-widest">
                     Episode {item.number}
                   </span>
                   <h3 className="text-white font-bold text-base mt-0.5">

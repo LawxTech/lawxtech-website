@@ -63,7 +63,7 @@ const channels = [
 
 export default function CommunityChannelsSection() {
   return (
-    <section className="bg-[#f8f9fb] py-24">
+    <section className="bg-surface py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={slideUp}
@@ -72,13 +72,13 @@ export default function CommunityChannelsSection() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center mb-14"
         >
-          <span className="text-[#02807e] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-teal text-sm font-semibold uppercase tracking-widest">
             Stay Connected
           </span>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-[#113167] tracking-tight">
+          <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-navy tracking-tight">
             Join the Conversation
           </h2>
-          <p className="mt-4 text-[#6b7280] max-w-xl mx-auto text-base">
+          <p className="mt-4 text-muted-brand max-w-xl mx-auto text-base">
             Find us across all platforms. Connect, engage, and grow with the
             Law x Tech community wherever you are.
           </p>
@@ -98,7 +98,7 @@ export default function CommunityChannelsSection() {
               href={channel.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-white rounded-2xl p-6 border border-[#e4e8ef] hover:border-transparent hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center gap-3"
+              className="group bg-white rounded-2xl p-6 border border-border-brand hover:border-transparent hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center gap-3"
             >
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-110"
@@ -107,8 +107,8 @@ export default function CommunityChannelsSection() {
                 {channel.icon}
               </div>
               <div>
-                <p className="font-bold text-[#113167] text-sm">{channel.label}</p>
-                <p className="text-[#6b7280] text-xs mt-0.5">{channel.description}</p>
+                <p className="font-bold text-navy text-sm">{channel.label}</p>
+                <p className="text-muted-brand text-xs mt-0.5">{channel.description}</p>
               </div>
             </motion.a>
           ))}

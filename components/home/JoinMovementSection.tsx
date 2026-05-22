@@ -6,7 +6,7 @@ import { slideInLeft, slideInRight } from "@/lib/animations";
 
 export default function JoinMovementSection() {
   return (
-    <section className="bg-[#113167] py-24">
+    <section className="bg-navy py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -19,7 +19,7 @@ export default function JoinMovementSection() {
               Ready to be part of
               <br />
               the future{" "}
-              <span className="text-[#02807e]">of law?</span>
+              <span className="text-teal">of law?</span>
             </h2>
             <p className="mt-5 text-white/70 text-base leading-relaxed max-w-md">
               Join a growing community of lawyers and tech enthusiasts shaping
@@ -38,7 +38,7 @@ export default function JoinMovementSection() {
               href="https://forms.gle/P9jUJr3NaAGnS4Je6"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-7 py-3.5 bg-[#02807e] text-white font-semibold rounded-lg hover:bg-[#026e6c] transition-colors duration-200"
+              className="inline-flex items-center justify-center px-7 py-3.5 bg-teal text-white font-semibold rounded-lg hover:bg-teal-dark transition-colors duration-200"
             >
               Join Community
             </Link>

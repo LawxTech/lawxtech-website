@@ -45,13 +45,13 @@ export default function FaqAccordion() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center mb-12"
         >
-          <span className="text-[#02807e] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-teal text-sm font-semibold uppercase tracking-widest">
             FAQ
           </span>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-[#113167] tracking-tight">
+          <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-navy tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="mt-4 text-[#6b7280] text-base">
+          <p className="mt-4 text-muted-brand text-base">
             Can&apos;t find what you&apos;re looking for? Reach out to us
             directly.
           </p>
@@ -68,17 +68,17 @@ export default function FaqAccordion() {
             <div
               key={i}
               className={`border rounded-xl transition-colors duration-200 ${
-                open === i ? "border-[#02807e]/40" : "border-[#e4e8ef]"
+                open === i ? "border-teal/40" : "border-border-brand"
               }`}
             >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between px-6 py-5 text-left"
               >
-                <span className="font-semibold text-[#113167] text-sm pr-4">
+                <span className="font-semibold text-navy text-sm pr-4">
                   {faq.q}
                 </span>
-                <span className="shrink-0 text-[#02807e]">
+                <span className="shrink-0 text-teal">
                   {open === i ? <Minus size={16} /> : <Plus size={16} />}
                 </span>
               </button>

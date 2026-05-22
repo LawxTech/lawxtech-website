@@ -10,15 +10,17 @@ export function buildMetadata(overrides: Partial<Metadata> = {}): Metadata {
       template: "%s | Law x Tech",
     },
     description:
-      "Empowering lawyers and tech enthusiasts to thrive at the intersection of law and technology. Join Law x Tech for insightful sessions, expert guidance, and collaborative networking.",
+      "Law x Tech is Africa's leading platform at the intersection of law and technology - powering events, training, and recognition for lawyers in legal tech across Nigeria and beyond.",
     keywords: [
+      "Law x Tech",
+      "Legal Tech Africa",
+      "Legal Technology Nigeria",
       "Law and Technology",
-      "Legal Tech",
-      "Tech-Savvy Lawyers",
-      "Law x Tech Series",
       "Legal Innovation",
-      "Legal Profession",
+      "Lawyers in Tech",
       "Nigeria Legal Tech",
+      "Legal Tech Events",
+      "Legal Tech Training",
     ],
     authors: [{ name: "Sopuruchi Rufus", url: baseUrl }],
     creator: "Law x Tech",
@@ -29,9 +31,9 @@ export function buildMetadata(overrides: Partial<Metadata> = {}): Metadata {
       locale: "en_NG",
       url: baseUrl,
       siteName: "Law x Tech",
-      title: "Law x Tech — Where Law Meets Technology",
+      title: "Law x Tech — Africa's Home for Law & Technology",
       description:
-        "Empowering lawyers and tech enthusiasts to thrive at the intersection of law and technology.",
+        "Law x Tech is Africa's leading platform at the intersection of law and technology - powering events, training, and recognition for lawyers in legal tech across Nigeria and beyond.",
       images: [
         {
           url: "/assets/logo/logo_2.JPG",
@@ -44,11 +46,11 @@ export function buildMetadata(overrides: Partial<Metadata> = {}): Metadata {
     },
     twitter: {
       card: "summary_large_image",
-      site: "@lawxtech",
-      creator: "@lawxtech",
-      title: "Law x Tech — Where Law Meets Technology",
+      site: "@LawxTech",
+      creator: "@LawxTech",
+      title: "Law x Tech — Africa's Home for Law & Technology",
       description:
-        "Empowering lawyers and tech enthusiasts to thrive at the intersection of law and technology.",
+        "Law x Tech is Africa's leading platform at the intersection of law and technology - powering events, training, and recognition for lawyers in legal tech across Nigeria and beyond.",
       images: ["/assets/logo/logo_2.JPG"],
       ...overrides.twitter,
     },
@@ -63,7 +65,7 @@ export const organizationJsonLd = {
   url: baseUrl,
   logo: `${baseUrl}/assets/logo/logo_2.JPG`,
   description:
-    "Empowering lawyers and tech enthusiasts to thrive at the intersection of law and technology.",
+    "Law x Tech is Africa's leading platform at the intersection of law and technology - powering events, training, and recognition for lawyers in legal tech across Nigeria and beyond.",
   foundingDate: "2023",
   founder: { "@type": "Person", name: "Sopuruchi Rufus" },
   sameAs: [

@@ -37,7 +37,7 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-white/95 backdrop-blur-md border-b border-[#e4e8ef] shadow-sm"
+            ? "bg-white/95 backdrop-blur-md border-b border-border-brand shadow-sm"
             : "bg-white"
         }`}
       >
@@ -50,7 +50,7 @@ export default function Header() {
               height={40}
               className="rounded-md object-cover"
             />
-            <span className="font-bold text-[#113167] text-lg tracking-tight hidden sm:block">
+            <span className="font-bold text-navy text-lg tracking-tight hidden sm:block">
               Law x Tech
             </span>
           </Link>
@@ -67,15 +67,15 @@ export default function Header() {
                   href={link.href}
                   className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 ${
                     isActive
-                      ? "text-[#02807e]"
-                      : "text-[#113167] hover:text-[#02807e]"
+                      ? "text-teal"
+                      : "text-navy hover:text-teal"
                   }`}
                 >
                   {link.label}
                   {isActive && (
                     <motion.div
                       layoutId="nav-underline"
-                      className="absolute bottom-0 left-4 right-4 h-0.5 bg-[#02807e] rounded-full"
+                      className="absolute bottom-0 left-4 right-4 h-0.5 bg-teal rounded-full"
                     />
                   )}
                 </Link>
@@ -88,14 +88,14 @@ export default function Header() {
               href="https://forms.gle/P9jUJr3NaAGnS4Je6"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2 bg-[#02807e] text-white text-sm font-semibold rounded-lg hover:bg-[#026e6c] transition-colors duration-200"
+              className="px-5 py-2 bg-teal text-white text-sm font-semibold rounded-lg hover:bg-teal-dark transition-colors duration-200"
             >
               Join Community
             </Link>
           </div>
 
           <button
-            className="md:hidden p-2 text-[#113167] rounded-md hover:bg-[#f8f9fb] transition-colors"
+            className="md:hidden p-2 text-navy rounded-md hover:bg-surface transition-colors"
             onClick={() => setMobileOpen(true)}
             aria-label="Open menu"
           >
@@ -113,7 +113,7 @@ export default function Header() {
             exit="hidden"
             variants={slideInLeft}
           >
-            <div className="flex items-center justify-between px-6 h-16 border-b border-[#e4e8ef]">
+            <div className="flex items-center justify-between px-6 h-16 border-b border-border-brand">
               <Link href="/" className="flex items-center gap-2">
                 <Image
                   src="/assets/logo/logo_2.JPG"
@@ -122,13 +122,13 @@ export default function Header() {
                   height={36}
                   className="rounded-md object-cover"
                 />
-                <span className="font-bold text-[#113167] text-lg">
+                <span className="font-bold text-navy text-lg">
                   Law x Tech
                 </span>
               </Link>
               <button
                 onClick={() => setMobileOpen(false)}
-                className="p-2 text-[#113167] hover:bg-[#f8f9fb] rounded-md transition-colors"
+                className="p-2 text-navy hover:bg-surface rounded-md transition-colors"
                 aria-label="Close menu"
               >
                 <X size={22} />
@@ -150,8 +150,8 @@ export default function Header() {
                   <motion.div key={link.href} variants={fadeIn}>
                     <Link
                       href={link.href}
-                      className={`block py-4 text-xl font-semibold border-b border-[#e4e8ef] transition-colors ${
-                        isActive ? "text-[#02807e]" : "text-[#113167]"
+                      className={`block py-4 text-xl font-semibold border-b border-border-brand transition-colors ${
+                        isActive ? "text-teal" : "text-navy"
                       }`}
                     >
                       {link.label}
@@ -165,7 +165,7 @@ export default function Header() {
                   href="https://forms.gle/P9jUJr3NaAGnS4Je6"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center px-6 py-3 bg-[#02807e] text-white font-semibold rounded-lg hover:bg-[#026e6c] transition-colors"
+                  className="block w-full text-center px-6 py-3 bg-teal text-white font-semibold rounded-lg hover:bg-teal-dark transition-colors"
                 >
                   Join Community
                 </Link>

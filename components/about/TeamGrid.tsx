@@ -26,13 +26,13 @@ export default function TeamGrid() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center mb-14"
         >
-          <span className="text-[#02807e] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-teal text-sm font-semibold uppercase tracking-widest">
             The People
           </span>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-[#113167] tracking-tight">
+          <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-navy tracking-tight">
             Our Volunteers
           </h2>
-          <p className="mt-4 text-[#6b7280] max-w-xl mx-auto text-base">
+          <p className="mt-4 text-muted-brand max-w-xl mx-auto text-base">
             Law x Tech is powered by passionate volunteers who believe in the
             future of law and technology in Nigeria.
           </p>
@@ -51,7 +51,7 @@ export default function TeamGrid() {
               variants={scaleIn}
               className="group flex flex-col items-center text-center"
             >
-              <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border-2 border-transparent group-hover:border-[#02807e] transition-all duration-300 group-hover:shadow-lg">
+              <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border-2 border-transparent group-hover:border-teal transition-all duration-300 group-hover:shadow-lg">
                 <Image
                   src={`/assets/${member.dir}/${member.image}`}
                   alt={member.name}
@@ -60,8 +60,8 @@ export default function TeamGrid() {
                 />
               </div>
               <div className="mt-4">
-                <p className="font-bold text-[#113167] text-sm">{member.name}</p>
-                <p className="text-[#6b7280] text-xs mt-0.5">{member.role}</p>
+                <p className="font-bold text-navy text-sm">{member.name}</p>
+                <p className="text-muted-brand text-xs mt-0.5">{member.role}</p>
               </div>
             </motion.div>
           ))}

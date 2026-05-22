@@ -39,7 +39,7 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
 
 export default function StatsStrip() {
   return (
-    <section className="bg-[#113167] py-16">
+    <section className="bg-navy py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={staggerContainer(0.12)}

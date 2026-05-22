@@ -67,13 +67,13 @@ export default async function BlogDetailPage({ params }: Props) {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <Link
             href="/blogs"
-            className="inline-flex items-center gap-2 text-[#6b7280] hover:text-[#113167] text-sm font-medium mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-muted-brand hover:text-navy text-sm font-medium mb-8 transition-colors"
           >
             <ArrowLeft size={16} />
             Back to articles
           </Link>
 
-          <div className="flex items-center gap-4 text-[#6b7280] text-sm mb-6">
+          <div className="flex items-center gap-4 text-muted-brand text-sm mb-6">
             <span className="flex items-center gap-1.5">
               <Calendar size={14} />
               {blog.date}
@@ -84,7 +84,7 @@ export default async function BlogDetailPage({ params }: Props) {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-bold text-[#113167] leading-tight tracking-tight mb-8">
+          <h1 className="text-3xl sm:text-4xl font-bold text-navy leading-tight tracking-tight mb-8">
             {blog.title}
           </h1>
 
@@ -106,21 +106,21 @@ export default async function BlogDetailPage({ params }: Props) {
                 dangerouslySetInnerHTML={{
                   __html: para.p.replace(
                     /\*\*(.*?)\*\*/g,
-                    '<strong class="text-[#113167] font-semibold">$1</strong>'
+                    '<strong class="text-navy font-semibold">$1</strong>'
                   ),
                 }}
               />
             ))}
           </article>
 
-          <div className="mt-12 pt-8 border-t border-[#e4e8ef]">
-            <div className="flex items-center gap-4 bg-[#f8f9fb] rounded-2xl p-6">
-              <div className="w-12 h-12 rounded-xl bg-[#113167] flex items-center justify-center flex-shrink-0">
+          <div className="mt-12 pt-8 border-t border-border-brand">
+            <div className="flex items-center gap-4 bg-surface rounded-2xl p-6">
+              <div className="w-12 h-12 rounded-xl bg-navy flex items-center justify-center flex-shrink-0">
                 <span className="text-white font-bold text-sm">L×T</span>
               </div>
               <div>
-                <p className="font-bold text-[#113167] text-sm">Law x Tech</p>
-                <p className="text-[#6b7280] text-xs mt-0.5">
+                <p className="font-bold text-navy text-sm">Law x Tech</p>
+                <p className="text-muted-brand text-xs mt-0.5">
                   Nigeria&apos;s community for legal tech enthusiasts
                 </p>
               </div>

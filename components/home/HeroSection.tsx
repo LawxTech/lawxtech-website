@@ -18,24 +18,24 @@ export default function HeroSection() {
             className="order-2 lg:order-1"
           >
             <motion.div variants={slideUp}>
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#f0faf9] border border-[#02807e]/20 text-[#02807e] text-xs font-semibold rounded-full tracking-wide uppercase mb-6">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-teal/10 border border-teal/20 text-teal text-xs font-semibold rounded-full tracking-wide uppercase mb-6">
                 Nigeria&apos;s Legal Tech Community
               </span>
             </motion.div>
 
             <motion.h1
               variants={slideUp}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#113167] leading-[1.1] tracking-tight"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy leading-[1.1] tracking-tight"
             >
-              Where Law
+              Africa&apos;s Home for{" "}
               <br />
-              Meets{" "}
-              <span className="text-[#02807e]">Technology</span>
+              Law &amp;{" "}
+              <span className="text-teal">Technology</span>
             </motion.h1>
 
             <motion.p
               variants={slideUp}
-              className="mt-6 text-base sm:text-lg text-[#6b7280] leading-relaxed max-w-lg"
+              className="mt-6 text-base sm:text-lg text-muted-brand leading-relaxed max-w-lg"
             >
               Are you a lawyer looking to embrace the dynamic world of
               technology? Law x Tech is your gateway to a thriving career at
@@ -50,14 +50,14 @@ export default function HeroSection() {
                 href="https://forms.gle/P9jUJr3NaAGnS4Je6"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#02807e] text-white font-semibold rounded-lg hover:bg-[#026e6c] transition-colors duration-200"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-teal text-white font-semibold rounded-lg hover:bg-teal-dark transition-colors duration-200"
               >
                 Join Our Community
                 <ArrowRight size={16} />
               </Link>
               <Link
                 href="/series"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-[#e4e8ef] text-[#113167] font-semibold rounded-lg hover:border-[#113167] transition-colors duration-200"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-border-brand text-navy font-semibold rounded-lg hover:border-navy transition-colors duration-200"
               >
                 Watch the Series
               </Link>
@@ -78,10 +78,10 @@ export default function HeroSection() {
                 className="object-cover"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#113167]/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                  <div className="w-10 h-10 rounded-full bg-[#02807e] flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-teal flex items-center justify-center flex-shrink-0">
                     <span className="text-white font-bold text-sm">12+</span>
                   </div>
                   <div>
@@ -92,8 +92,8 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#02807e]/10 rounded-full blur-2xl" />
-            <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-[#113167]/10 rounded-full blur-3xl" />
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-teal/10 rounded-full blur-2xl" />
+            <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-navy/10 rounded-full blur-3xl" />
           </motion.div>
         </div>
       </div>
