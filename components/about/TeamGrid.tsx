@@ -56,6 +56,7 @@ export default function TeamGrid() {
                   src={`/assets/${member.dir}/${member.image}`}
                   alt={member.name}
                   fill
+                  sizes="144px"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>

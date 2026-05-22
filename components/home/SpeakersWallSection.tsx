@@ -54,6 +54,7 @@ export default function SpeakersWallSection() {
                 src={speaker.src}
                 alt={speaker.name}
                 fill
+                sizes="(max-width: 768px) 33vw, (max-width: 1280px) 16vw, 200px"
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/60 transition-colors duration-300" />

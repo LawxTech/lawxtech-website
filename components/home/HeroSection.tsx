@@ -75,13 +75,14 @@ export default function HeroSection() {
                 src="/images/landing-image.jpg"
                 alt="Law x Tech community"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                  <div className="w-10 h-10 rounded-full bg-teal flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-teal flex items-center justify-center shrink-0">
                     <span className="text-white font-bold text-sm">12+</span>
                   </div>
                   <div>

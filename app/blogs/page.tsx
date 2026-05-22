@@ -50,11 +50,12 @@ export default function BlogsPage() {
                   href={`/blogs/${blog.id}`}
                   className="group bg-white rounded-2xl overflow-hidden border border-border-brand hover:border-teal/30 hover:shadow-xl transition-all duration-300 flex flex-col"
                 >
-                  <div className="relative aspect-[16/9] overflow-hidden">
+                  <div className="relative aspect-video overflow-hidden">
                     <Image
                       src={blog.image}
                       alt={blog.title}
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>

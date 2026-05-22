@@ -60,15 +60,16 @@ export default function SeriesPreviewSection() {
         >
           <motion.div
             variants={scaleIn}
-            className="lg:col-span-3 relative aspect-[4/3] rounded-2xl overflow-hidden group cursor-pointer"
+            className="lg:col-span-3 relative aspect-4/3 rounded-2xl overflow-hidden group cursor-pointer"
           >
             <Image
               src={featured[0].src}
               alt={featured[0].title}
               fill
+              sizes="(max-width: 1024px) 100vw, 60vw"
               className="object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-navy/80 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <span className="text-teal font-bold text-xs uppercase tracking-widest">
                 Episode {featured[0].number}
@@ -84,15 +85,16 @@ export default function SeriesPreviewSection() {
               <motion.div
                 key={item.number}
                 variants={scaleIn}
-                className="relative aspect-[16/9] rounded-2xl overflow-hidden group cursor-pointer flex-1"
+                className="relative aspect-video rounded-2xl overflow-hidden group cursor-pointer flex-1"
               >
                 <Image
                   src={item.src}
                   alt={item.title}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-navy/80 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <span className="text-teal font-bold text-xs uppercase tracking-widest">
                     Episode {item.number}

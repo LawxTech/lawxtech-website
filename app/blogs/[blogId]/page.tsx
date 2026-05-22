@@ -88,11 +88,12 @@ export default async function BlogDetailPage({ params }: Props) {
             {blog.title}
           </h1>
 
-          <div className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-10">
+          <div className="relative aspect-video rounded-2xl overflow-hidden mb-10">
             <Image
               src={blog.image}
               alt={blog.title}
               fill
+              sizes="(max-width: 768px) 100vw, 768px"
               className="object-cover"
               priority
             />
@@ -115,7 +116,7 @@ export default async function BlogDetailPage({ params }: Props) {
 
           <div className="mt-12 pt-8 border-t border-border-brand">
             <div className="flex items-center gap-4 bg-surface rounded-2xl p-6">
-              <div className="w-12 h-12 rounded-xl bg-navy flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-navy flex items-center justify-center shrink-0">
                 <span className="text-white font-bold text-sm">L×T</span>
               </div>
               <div>
