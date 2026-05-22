@@ -1,0 +1,92 @@
+import Image from "next/image";
+import Link from "next/link";
+import { buildMetadata } from "@/lib/metadata";
+import { blogs } from "@/lib/data/blogs";
+import { Clock, Calendar } from "lucide-react";
+
+export const metadata = buildMetadata({
+  title: "Newsletters & Articles",
+  description:
+    "Read newsletters and articles from the Law x Tech community on legal technology, career transitions, and thriving at the intersection of law and tech.",
+  robots: { index: false, follow: true },
+});
+
+export default function BlogsPage() {
+  return (
+    <>
+      <section className="bg-white py-20 border-b border-[#e4e8ef]">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="text-[#02807e] text-sm font-semibold uppercase tracking-widest">
+            From the Community
+          </span>
+          <h1 className="mt-3 text-4xl sm:text-5xl font-bold text-[#113167] tracking-tight">
+            Newsletters &amp; Articles
+          </h1>
+          <p className="mt-5 text-[#6b7280] text-base leading-relaxed">
+            Insights, stories, and practical advice for legal professionals
+            navigating the world of technology.
+          </p>
+          <div className="mt-6 mx-auto w-16 h-1 bg-[#02807e] rounded-full" />
+        </div>
+      </section>
+
+      <section className="bg-[#f8f9fb] py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {blogs.length === 0 ? (
+            <div className="text-center py-20">
+              <p className="text-4xl mb-4">📖</p>
+              <h3 className="text-xl font-bold text-[#113167]">
+                Articles coming soon
+              </h3>
+              <p className="mt-2 text-[#6b7280]">
+                Check back soon for new newsletters and articles.
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {blogs.map((blog) => (
+                <Link
+                  key={blog.id}
+                  href={`/blogs/${blog.id}`}
+                  className="group bg-white rounded-2xl overflow-hidden border border-[#e4e8ef] hover:border-[#02807e]/30 hover:shadow-xl transition-all duration-300 flex flex-col"
+                >
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    <Image
+                      src={blog.image}
+                      alt={blog.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex items-center gap-4 text-[#6b7280] text-xs mb-3">
+                      <span className="flex items-center gap-1.5">
+                        <Calendar size={12} />
+                        {blog.date}
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <Clock size={12} />
+                        {blog.duration} read
+                      </span>
+                    </div>
+                    <h2 className="font-bold text-[#113167] text-base leading-snug mb-3 group-hover:text-[#02807e] transition-colors line-clamp-2">
+                      {blog.title}
+                    </h2>
+                    <p className="text-[#6b7280] text-sm leading-relaxed line-clamp-3 flex-1">
+                      {blog.excerpt}
+                    </p>
+                    <div className="mt-4 pt-4 border-t border-[#e4e8ef]">
+                      <span className="text-[#02807e] text-sm font-semibold">
+                        Read article →
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+    </>
+  );
+}

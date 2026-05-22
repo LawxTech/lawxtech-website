@@ -1,26 +1,75 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-montserrat);
+  --color-navy: var(--navy);
+  --color-teal: var(--teal);
+  --color-surface: var(--surface);
+  --color-border-brand: var(--border-brand);
+  --color-muted-brand: var(--muted-brand);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --navy: #113167;
+  --teal: #02807e;
+  --surface: #f8f9fb;
+  --border-brand: #e4e8ef;
+  --muted-brand: #6b7280;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --primary: #02807e;
+  --primary-foreground: #ffffff;
+  --secondary: #113167;
+  --secondary-foreground: #ffffff;
+  --muted: #f8f9fb;
+  --muted-foreground: #6b7280;
+  --border: #e4e8ef;
+  --input: #e4e8ef;
+  --ring: #02807e;
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-montserrat), sans-serif;
+  }
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-navy { color: var(--navy); }
+  .text-teal { color: var(--teal); }
+  .bg-navy { background-color: var(--navy); }
+  .bg-teal { background-color: var(--teal); }
+  .bg-surface { background-color: var(--surface); }
+  .border-brand { border-color: var(--border-brand); }
+  .text-muted-brand { color: var(--muted-brand); }
 }
