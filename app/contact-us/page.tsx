@@ -83,10 +83,10 @@ export default function ContactPage() {
                       Email
                     </p>
                     <a
-                      href="mailto:lawxtechseries@gmail.com"
+                      href="mailto:info@lawxtech.org"
                       className="text-white hover:text-teal transition-colors text-sm"
                     >
-                      lawxtechseries@gmail.com
+                      info@lawxtech.org
                     </a>
                   </div>
                   <div>

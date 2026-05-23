@@ -44,7 +44,7 @@ export default function ContactForm() {
         <h3 className="text-2xl font-bold text-navy">Message Sent!</h3>
         <p className="mt-3 text-muted-brand max-w-sm">
           Thanks for reaching out. We&apos;ll get back to you at{" "}
-          <span className="font-medium">lawxtechseries@gmail.com</span> within
+          <span className="font-medium">info@lawxtech.org</span> within
           24–48 hours.
         </p>
       </motion.div>

@@ -13,7 +13,7 @@ const UPCOMING_MINI = [5];
 const mainSeries = Array.from({ length: 8 }, (_, i) => ({
   id: i + 1,
   src: `/assets/series/LxT Series ${i + 1}.jpeg`,
-  title: `LawXTech Series ${i + 1}`,
+  title: `Law x Tech Series ${i + 1}`,
   upcoming: UPCOMING_SERIES.includes(i + 1),
 }));
 
@@ -55,7 +55,7 @@ export default function SeriesClient() {
                   transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
                 />
               )}
-              {tab === "main" ? "LawXTech Series" : "Mini Series"}
+              {tab === "main" ? "Law x Tech Series" : "Mini Series"}
             </button>
           ))}
         </div>

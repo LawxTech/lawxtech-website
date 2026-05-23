@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about-us", label: "About Us" },
   { href: "/series", label: "Series" },
+  { href: "/summit-awards", label: "Summit & Awards" },
   // { href: "/blogs", label: "Blogs" },
   { href: "/contact-us", label: "Contact Us" },
 ];

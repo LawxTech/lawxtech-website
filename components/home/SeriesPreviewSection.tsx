@@ -9,17 +9,17 @@ import { ArrowRight } from "lucide-react";
 const featured = [
   {
     src: "/assets/series/LxT Series 1.jpeg",
-    title: "LawXTech Series 1",
+    title: "Law x Tech Series 1",
     number: "01",
   },
   {
     src: "/assets/series/LxT Series 2.jpeg",
-    title: "LawXTech Series 2",
+    title: "Law x Tech Series 2",
     number: "02",
   },
   {
     src: "/assets/series/LxT Series 3.jpeg",
-    title: "LawXTech Series 3",
+    title: "Law x Tech Series 3",
     number: "03",
   },
 ];

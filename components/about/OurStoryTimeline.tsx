@@ -20,25 +20,25 @@ const milestones = [
     year: "2023",
     title: "Community Grows to 300+",
     description:
-      "From a small gathering of curious legal minds to a thriving community of 300+ members — lawyers, law students, and tech professionals all working at the intersection.",
+      "From a small gathering of curious legal minds to a thriving community of 300+ members: lawyers, law students, and tech professionals all working at the intersection.",
   },
   {
     year: "2024",
     title: "Mini Series Introduced",
     description:
-      "Launched the Mini Series format for bite-sized, focused sessions on niche topics at the law-tech intersection — making learning more accessible for busy professionals.",
+      "Launched the Mini Series format for bite-sized, focused sessions on niche topics at the law-tech intersection, making learning more accessible for busy professionals.",
   },
   {
     year: "2025",
     title: "12+ Major Series Completed",
     description:
-      "Reached a landmark of 12 major series and 12 mini series — cementing Law x Tech as Nigeria's leading legal tech community platform.",
+      "Reached a landmark of 12 major series and 12 mini series, cementing Law x Tech as Nigeria's leading legal tech community platform.",
   },
 ];
 
 export default function OurStoryTimeline() {
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-12 lg:py-24">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={slideUp}
@@ -88,14 +88,14 @@ export default function OurStoryTimeline() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-60px" }}
-                    className={`flex ${
+                    className={`flex order-first ${
                       isLeft
                         ? "lg:order-2 lg:justify-start"
                         : "lg:order-1 lg:justify-end"
                     } items-center`}
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-full bg-teal flex items-center justify-center flex-shrink-0">
+                      <div className="w-14 h-14 rounded-full bg-teal flex items-center justify-center shrink-0">
                         <span className="text-white font-bold text-sm">
                           {milestone.year}
                         </span>

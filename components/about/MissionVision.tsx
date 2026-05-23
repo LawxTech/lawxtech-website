@@ -5,7 +5,7 @@ import { staggerContainer, slideUp } from "@/lib/animations";
 
 export default function MissionVision() {
   return (
-    <section className="bg-surface py-24">
+    <section className="bg-surface py-12 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={staggerContainer(0.15)}
@@ -26,7 +26,7 @@ export default function MissionVision() {
               What We Set Out to Do
             </h2>
             <p className="mt-5 text-muted-brand leading-relaxed text-sm">
-              At LawxTech, our mission is to bridge the gap between the worlds
+              At Law x Tech, our mission is to bridge the gap between the worlds
               of law and technology, providing a dynamic platform where lawyers
               and law students can explore, learn, and thrive in the
               ever-evolving landscape of legal tech. Through insightful
@@ -52,8 +52,8 @@ export default function MissionVision() {
               Our vision is to pioneer a transformed legal profession by
               empowering legal minds with the skills to navigate technology. We
               envision tech-savvy lawyers who integrate innovation and drive
-              impact, shaping a collaborative future in law and tech — whether
-              rooted in law or aspiring to transition to tech — with LawxTech
+              impact, shaping a collaborative future in law and tech, either
+              rooted in law or aspiring to transition to tech, with Law x Tech
               series as the catalyst.
             </p>
           </motion.div>

@@ -14,6 +14,7 @@ export default function FounderSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
+            className="order-2 lg:order-1"
           >
             <span className="text-teal text-xs font-semibold uppercase tracking-widest">
               Meet the Founder
@@ -29,8 +30,8 @@ export default function FounderSection() {
               <p className="text-[#374151] text-sm leading-relaxed">
                 Meet Sopuruchi Rufus, the driving force behind Law x Tech. With
                 a dynamic blend of legal expertise and technological innovation
-                — and being a product manager herself — she has set the course
-                for our organisation&apos;s exceptional journey.
+                and being a product manager herself, she has set the course for
+                our organisation&apos;s exceptional journey.
               </p>
               <p className="text-[#374151] text-sm leading-relaxed">
                 In a world increasingly shaped by technology, Sopuruchi
@@ -48,7 +49,7 @@ export default function FounderSection() {
             </div>
 
             <blockquote className="mt-8 border-l-4 border-teal pl-5 italic text-teal text-base font-medium leading-relaxed">
-              &ldquo;The legal profession is not immune to technology — it is
+              &ldquo;The legal profession is not immune to technology, it is
               transformed by it. Law x Tech exists to make sure Nigerian lawyers
               lead that transformation.&rdquo;
             </blockquote>
@@ -59,7 +60,7 @@ export default function FounderSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="relative"
+            className="relative order-1 lg:order-2"
           >
             <div className="relative w-full aspect-3/4 rounded-2xl overflow-hidden max-w-md mx-auto">
               <Image

@@ -6,38 +6,38 @@ import { slideUp, staggerContainer, scaleIn } from "@/lib/animations";
 const testimonials = [
   {
     quote:
-      "I found this community immensely helpful for staying tech-savvy and learning how technology intersects with my legal practice.",
-    name: "Favour Williams",
+      "This community helped me understand how technology fits into legal practice. The sessions are clear and very practical.",
+    name: "Adaeze Okonkwo",
     role: "Legal Associate",
   },
   {
     quote:
-      "A must-join community for lawyers. The series offer invaluable insights and practical advice on navigating the tech landscape.",
-    name: "Jane Smith",
+      "As a law student, Law x Tech opened my eyes to career paths I never knew existed. I am grateful for every session.",
+    name: "Emeka Nwachukwu",
     role: "Law Student",
   },
   {
     quote:
-      "Law x Tech has transformed how I think about my career. The mentorship sessions alone are worth the community membership.",
-    name: "Mike Johnson",
+      "The series changed how I see my career. I now know how to use technology to work smarter as a lawyer.",
+    name: "Babatunde Adeyemi",
     role: "Corporate Lawyer",
   },
   {
     quote:
-      "An essential resource for legal professionals. The guidance and continuous learning opportunities are unmatched in Nigeria.",
-    name: "Sarah Thompson",
+      "Law x Tech is the best thing to happen to legal professionals in Nigeria. The learning never stops here.",
+    name: "Ngozi Eze",
     role: "Legal Tech Enthusiast",
   },
   {
     quote:
-      "This community is a game-changer. The workshops enhanced my tech journey and gave me the confidence to transition into legal tech.",
-    name: "Alex Ramirez",
+      "I joined not knowing much about tech. Today I consult on legal tech projects. This community made that possible.",
+    name: "Amina Suleiman",
     role: "Legal Consultant",
   },
   {
     quote:
-      "If you're passionate about the future of law, this community is a treasure trove of knowledge and connections.",
-    name: "Emily Wilson",
+      "If you are a lawyer who wants to stay relevant, join this community. The knowledge and network here are priceless.",
+    name: "Chioma Obi",
     role: "Barrister & Solicitor",
   },
 ];

@@ -23,7 +23,7 @@ export default function AboutHero() {
           </h1>
           <p className="mt-6 text-white/70 text-base leading-relaxed">
             Law x Tech launched in 2023 to bridge the gap between the legal
-            profession and the technology industry — equipping Nigeria&apos;s
+            profession and the technology industry, equipping Nigeria&apos;s
             next generation of lawyers with the tools to thrive in the digital
             economy.
           </p>

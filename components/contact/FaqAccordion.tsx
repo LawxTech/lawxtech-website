@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     q: "Are the series sessions free?",
-    a: "Yes — all Law x Tech Series and Mini Series sessions are free for community members. Simply join the community and you'll have access to all upcoming and past sessions.",
+    a: "Yes, all Law x Tech Series and Mini Series sessions are free for community members. Simply join the community and you'll have access to all upcoming and past sessions.",
   },
   {
     q: "How can I speak at a series?",
@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     q: "Where are you based?",
-    a: "Law x Tech is based in Lagos, Nigeria, but our community and sessions are fully online — open to legal professionals across Nigeria and Africa.",
+    a: "Law x Tech is based in Lagos, Nigeria, but our community and sessions are fully online, open to legal professionals across Nigeria and Africa.",
   },
 ];
 

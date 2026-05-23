@@ -3,101 +3,96 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { slideUp, scaleIn, staggerContainer } from "@/lib/animations";
 import { ArrowRight } from "lucide-react";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 32 },
+  visible: (delay: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1], delay },
+  }),
+};
 
 export default function HeroSection() {
   return (
-    <section className="min-h-[calc(100vh-4rem)] flex items-center bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 lg:py-0">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <motion.div
-            variants={staggerContainer(0.12)}
-            initial="hidden"
-            animate="visible"
-            className="order-2 lg:order-1"
+    <section className="relative min-h-screen flex flex-col justify-end overflow-hidden">
+      {/* Background image */}
+      <Image
+        src="/images/about.jpeg"
+        alt="Law x Tech community"
+        fill
+        sizes="100vw"
+        className="object-cover object-center"
+        priority
+      />
+
+      {/* Layered overlays for depth */}
+      <div className="absolute inset-0 bg-linear-to-t from-[#030d1a] via-[#030d1a]/60 to-[#030d1a]/10" />
+      <div className="absolute inset-0 bg-linear-to-r from-[#030d1a]/40 via-transparent to-transparent" />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16 sm:pb-20 lg:pb-28 pt-32">
+        <motion.span
+          custom={0}
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="inline-flex items-center gap-2 px-3 py-1.5 border border-white/20 bg-white/5 backdrop-blur-sm text-white/80 text-xs font-semibold rounded-full tracking-widest uppercase mb-6"
+        >
+          Nigeria&apos;s Legal Tech Community
+        </motion.span>
+
+        <motion.h1
+          custom={0.1}
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.05] tracking-tight max-w-4xl"
+        >
+          Africa&apos;s Home for{" "}
+          <br className="hidden sm:block" />
+          Law &amp;{" "}
+          <span className="text-teal">Technology</span>
+        </motion.h1>
+
+        <motion.p
+          custom={0.2}
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="mt-6 text-base sm:text-lg text-white/60 leading-relaxed max-w-xl"
+        >
+          Are you a lawyer looking to embrace the dynamic world of technology?
+          Law x Tech is your gateway to a thriving career at the intersection
+          of law and technology.
+        </motion.p>
+
+        <motion.div
+          custom={0.3}
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="mt-8 flex flex-col sm:flex-row gap-4"
+        >
+          <Link
+            href="https://forms.gle/P9jUJr3NaAGnS4Je6"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-teal text-white font-semibold rounded-lg hover:bg-teal-dark transition-colors duration-200"
           >
-            <motion.div variants={slideUp}>
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-teal/10 border border-teal/20 text-teal text-xs font-semibold rounded-full tracking-wide uppercase mb-6">
-                Nigeria&apos;s Legal Tech Community
-              </span>
-            </motion.div>
-
-            <motion.h1
-              variants={slideUp}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy leading-[1.1] tracking-tight"
-            >
-              Africa&apos;s Home for{" "}
-              <br />
-              Law &amp;{" "}
-              <span className="text-teal">Technology</span>
-            </motion.h1>
-
-            <motion.p
-              variants={slideUp}
-              className="mt-6 text-base sm:text-lg text-muted-brand leading-relaxed max-w-lg"
-            >
-              Are you a lawyer looking to embrace the dynamic world of
-              technology? Law x Tech is your gateway to a thriving career at
-              the intersection of law and technology.
-            </motion.p>
-
-            <motion.div
-              variants={slideUp}
-              className="mt-8 flex flex-col sm:flex-row gap-4"
-            >
-              <Link
-                href="https://forms.gle/P9jUJr3NaAGnS4Je6"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-teal text-white font-semibold rounded-lg hover:bg-teal-dark transition-colors duration-200"
-              >
-                Join Our Community
-                <ArrowRight size={16} />
-              </Link>
-              <Link
-                href="/series"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-border-brand text-navy font-semibold rounded-lg hover:border-navy transition-colors duration-200"
-              >
-                Watch the Series
-              </Link>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            variants={scaleIn}
-            initial="hidden"
-            animate="visible"
-            className="order-1 lg:order-2 relative"
+            Join Our Community
+            <ArrowRight size={16} />
+          </Link>
+          <Link
+            href="/series"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors duration-200 backdrop-blur-sm"
           >
-            <div className="relative w-full aspect-[4/3] lg:aspect-[4/5] rounded-2xl overflow-hidden">
-              <Image
-                src="/images/landing-image.jpg"
-                alt="Law x Tech community"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                  <div className="w-10 h-10 rounded-full bg-teal flex items-center justify-center shrink-0">
-                    <span className="text-white font-bold text-sm">12+</span>
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold text-sm">Series Completed</p>
-                    <p className="text-white/70 text-xs">Across law & technology topics</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-teal/10 rounded-full blur-2xl" />
-            <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-navy/10 rounded-full blur-3xl" />
-          </motion.div>
-        </div>
+            Watch the Series
+          </Link>
+        </motion.div>
       </div>
+
     </section>
   );
 }
