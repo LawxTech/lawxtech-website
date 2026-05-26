@@ -64,7 +64,7 @@ export default function FounderSection() {
           >
             <div className="relative w-full aspect-3/4 rounded-2xl overflow-hidden max-w-md mx-auto">
               <Image
-                src="/images/sopuruchi.jpeg"
+                src="/images/sopuruchi-new.jpeg"
                 alt="Sopuruchi Rufus, Founder of Law x Tech"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

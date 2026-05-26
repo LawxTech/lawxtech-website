@@ -51,7 +51,7 @@ export default function HeroSection() {
           className="text-[41px] sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.05] tracking-tight max-w-4xl"
         >
           Africa&apos;s Home for <br className="hidden sm:block" />
-          Law &amp; <span className="text-teal">Technology</span>
+          Law x <span className="text-teal">Technology</span>
         </motion.h1>
 
         <motion.p

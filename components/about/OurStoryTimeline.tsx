@@ -34,6 +34,24 @@ const milestones = [
     description:
       "Reached a landmark of 12 major series and 12 mini series, cementing Law x Tech as Nigeria's leading legal tech community platform.",
   },
+  {
+    year: "2025",
+    title: "Official Website Launched",
+    description:
+      "Law x Tech launched its official website, giving the community a permanent digital home and expanding our reach beyond social media.",
+  },
+  {
+    year: "2026",
+    title: "Community Grows to 2000+",
+    description:
+      "We grew to over 2,000 community members — lawyers, law students, and tech professionals united by a shared belief in the future of legal tech in Africa.",
+  },
+  {
+    year: "2026",
+    title: "Recognized Thought Leader",
+    description:
+      "Law x Tech rebranded from just a community to a recognized thought leader in legal tech, shaping conversations and setting the agenda for law and technology across Africa.",
+  },
 ];
 
 export default function OurStoryTimeline() {

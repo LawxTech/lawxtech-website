@@ -4,6 +4,7 @@ import MissionVision from "@/components/about/MissionVision";
 import OurStoryTimeline from "@/components/about/OurStoryTimeline";
 import FounderSection from "@/components/about/FounderSection";
 import TeamGrid from "@/components/about/TeamGrid";
+import RecruitmentBanner from "@/components/about/RecruitmentBanner";
 
 export const metadata = buildMetadata({
   title: "About Us",
@@ -19,6 +20,7 @@ export default function AboutPage() {
       <OurStoryTimeline />
       <FounderSection />
       <TeamGrid />
+      <RecruitmentBanner />
     </>
   );
 }
