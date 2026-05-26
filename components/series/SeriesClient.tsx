@@ -5,23 +5,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { slideUp, staggerContainer, scaleIn, tabContent } from "@/lib/animations";
-import { Badge } from "@/components/ui/badge";
-
-const UPCOMING_SERIES = [7, 8];
-const UPCOMING_MINI = [5];
 
 const mainSeries = Array.from({ length: 8 }, (_, i) => ({
   id: i + 1,
   src: `/assets/series/LxT Series ${i + 1}.jpeg`,
   title: `Law x Tech Series ${i + 1}`,
-  upcoming: UPCOMING_SERIES.includes(i + 1),
 }));
 
 const miniSeries = Array.from({ length: 5 }, (_, i) => ({
   id: i + 1,
   src: `/assets/series/Mini Series ${i + 1}.jpeg`,
   title: `Mini Series ${i + 1}`,
-  upcoming: UPCOMING_MINI.includes(i + 1),
 }));
 
 type TabKey = "main" | "mini";
@@ -84,13 +78,6 @@ export default function SeriesClient() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
-                {item.upcoming && (
-                  <div className="absolute top-3 right-3">
-                    <Badge className="bg-teal text-white border-0 text-xs font-semibold">
-                      Upcoming
-                    </Badge>
-                  </div>
-                )}
               </div>
               <div className="p-5">
                 <span className="text-teal text-xs font-semibold uppercase tracking-widest">

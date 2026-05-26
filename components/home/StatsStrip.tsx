@@ -5,10 +5,10 @@ import { motion, useInView } from "framer-motion";
 import { staggerContainer, slideUp } from "@/lib/animations";
 
 const stats = [
-  { value: 12, label: "Mini Series", suffix: "+" },
-  { value: 12, label: "Major Series", suffix: "+" },
-  { value: 300, label: "Community Members", suffix: "+" },
-  { value: 10, label: "Team Members", suffix: "+" },
+  { value: 5, label: "Mini Series", suffix: "" },
+  { value: 8, label: "Major Series", suffix: "" },
+  { value: 2000, label: "Community Members", suffix: "+" },
+  { value: 3, label: "Team Members", suffix: "+" },
 ];
 
 function Counter({ target, suffix }: { target: number; suffix: string }) {

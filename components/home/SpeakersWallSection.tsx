@@ -6,12 +6,12 @@ import { motion } from "framer-motion";
 import { slideUp, staggerContainer, scaleIn } from "@/lib/animations";
 
 const speakers = [
-  { src: "/assets/speakers/Speaker(1).jpg", name: "Speaker 1" },
-  { src: "/assets/speakers/Speaker(2).jpg", name: "Speaker 2" },
-  { src: "/assets/speakers/Speaker(3).jpg", name: "Speaker 3" },
-  { src: "/assets/speakers/Speaker(4).jpg", name: "Speaker 4" },
-  { src: "/assets/speakers/Speaker(5).jpg", name: "Speaker 5" },
-  { src: "/assets/speakers/Speaker(6).jpg", name: "Speaker 6" },
+  { src: "/assets/speakers/Speaker(1).jpg", name: "Series 1" },
+  { src: "/assets/speakers/Speaker(2).jpg", name: "Series 2" },
+  { src: "/assets/speakers/Speaker(3).jpg", name: "Series 3" },
+  { src: "/assets/speakers/Speaker(4).jpg", name: "Series 4" },
+  { src: "/assets/speakers/Speaker(5).jpg", name: "Series 5" },
+  { src: "/assets/speakers/Speaker(6).jpg", name: "Series 6" },
 ];
 
 export default function SpeakersWallSection() {
@@ -58,9 +58,7 @@ export default function SpeakersWallSection() {
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/60 transition-colors duration-300" />
-              <motion.div
-                className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              >
+              <motion.div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <span className="text-white font-semibold text-xs text-center px-2">
                   {speaker.name}
                 </span>

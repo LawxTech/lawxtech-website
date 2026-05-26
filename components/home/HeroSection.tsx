@@ -32,7 +32,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-linear-to-r from-[#030d1a]/40 via-transparent to-transparent" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16 sm:pb-20 lg:pb-28 pt-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16 pt-40">
         {/* <motion.span
           custom={0}
           variants={fadeUp}
@@ -61,9 +61,8 @@ export default function HeroSection() {
           animate="visible"
           className="mt-6 text-sm sm:text-base lg:text-[17px] text-white/80 leading-relaxed max-w-xl"
         >
-          Are you a lawyer looking to embrace the dynamic world of technology?
-          Law x Tech is your gateway to a thriving career at the intersection of
-          law and technology.
+          Connecting lawyers, founders, and innovators building the future of
+          law across Nigeria and Africa
         </motion.p>
 
         <motion.div
