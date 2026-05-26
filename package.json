@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",
+    "@databuddy/sdk": "^2.4.20",
     "@hookform/resolvers": "^5.2.2",
     "@vercel/analytics": "^2.0.1",
     "class-variance-authority": "^0.7.1",

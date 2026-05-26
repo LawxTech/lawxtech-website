@@ -273,6 +273,11 @@
     reselect "^5.1.1"
     use-sync-external-store "^1.6.0"
 
+"@databuddy/sdk@^2.4.20":
+  version "2.4.20"
+  resolved "https://registry.yarnpkg.com/@databuddy/sdk/-/sdk-2.4.20.tgz#84bee173d5e163977240fadfc6babcfbf86c7296"
+  integrity sha512-gp8PLX7ZlVP7nKey0OuVtSKAdmDm5RcZbcpW5cmUqRoDcKQ6CnF0U3vi9fh7GwtXABIACq8FWunJthT1NmcTfQ==
+
 "@dotenvx/dotenvx@^1.48.4":
   version "1.67.0"
   resolved "https://registry.yarnpkg.com/@dotenvx/dotenvx/-/dotenvx-1.67.0.tgz#0cf9dde12d7f8771b2f2808653158ae89a67d130"

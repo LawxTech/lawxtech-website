@@ -23,7 +23,7 @@ export default function HeroSection() {
         alt="Law x Tech community"
         fill
         sizes="100vw"
-        className="object-cover object-center "
+        className="object-cover object-[50%_15%]"
         priority
       />
 
@@ -48,7 +48,7 @@ export default function HeroSection() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.05] tracking-tight max-w-4xl"
+          className="text-[41px] sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.05] tracking-tight max-w-4xl"
         >
           Africa&apos;s Home for <br className="hidden sm:block" />
           Law &amp; <span className="text-teal">Technology</span>
@@ -59,7 +59,7 @@ export default function HeroSection() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="mt-6 text-base sm:text-[17px] text-white/80 leading-relaxed max-w-xl"
+          className="mt-6 text-sm sm:text-base lg:text-[17px] text-white/80 leading-relaxed max-w-xl"
         >
           Are you a lawyer looking to embrace the dynamic world of technology?
           Law x Tech is your gateway to a thriving career at the intersection of
@@ -82,6 +82,7 @@ export default function HeroSection() {
             Join Our Community
             <ArrowRight size={16} />
           </Link>
+
           <Link
             href="/series"
             className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors duration-200 backdrop-blur-sm"
