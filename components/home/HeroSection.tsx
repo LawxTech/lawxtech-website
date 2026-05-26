@@ -19,7 +19,7 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex flex-col justify-end overflow-hidden -mt-16">
       {/* Background image */}
       <Image
-        src="/images/hero-image.jpg"
+        src="/images/hero-image.jpeg"
         alt="Law x Tech community"
         fill
         sizes="100vw"
