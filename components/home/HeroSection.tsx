@@ -16,14 +16,14 @@ const fadeUp = {
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-end overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-end overflow-hidden -mt-16">
       {/* Background image */}
       <Image
-        src="/images/about.jpeg"
+        src="/images/hero-image.jpg"
         alt="Law x Tech community"
         fill
         sizes="100vw"
-        className="object-cover object-center"
+        className="object-cover object-center "
         priority
       />
 
@@ -33,7 +33,7 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16 sm:pb-20 lg:pb-28 pt-32">
-        <motion.span
+        {/* <motion.span
           custom={0}
           variants={fadeUp}
           initial="hidden"
@@ -41,19 +41,17 @@ export default function HeroSection() {
           className="inline-flex items-center gap-2 px-3 py-1.5 border border-white/20 bg-white/5 backdrop-blur-sm text-white/80 text-xs font-semibold rounded-full tracking-widest uppercase mb-6"
         >
           Nigeria&apos;s Legal Tech Community
-        </motion.span>
+        </motion.span> */}
 
         <motion.h1
           custom={0.1}
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.05] tracking-tight max-w-4xl"
+          className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.05] tracking-tight max-w-4xl"
         >
-          Africa&apos;s Home for{" "}
-          <br className="hidden sm:block" />
-          Law &amp;{" "}
-          <span className="text-teal">Technology</span>
+          Africa&apos;s Home for <br className="hidden sm:block" />
+          Law &amp; <span className="text-teal">Technology</span>
         </motion.h1>
 
         <motion.p
@@ -61,11 +59,11 @@ export default function HeroSection() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="mt-6 text-base sm:text-lg text-white/60 leading-relaxed max-w-xl"
+          className="mt-6 text-base sm:text-[17px] text-white/80 leading-relaxed max-w-xl"
         >
           Are you a lawyer looking to embrace the dynamic world of technology?
-          Law x Tech is your gateway to a thriving career at the intersection
-          of law and technology.
+          Law x Tech is your gateway to a thriving career at the intersection of
+          law and technology.
         </motion.p>
 
         <motion.div
@@ -92,7 +90,6 @@ export default function HeroSection() {
           </Link>
         </motion.div>
       </div>
-
     </section>
   );
 }

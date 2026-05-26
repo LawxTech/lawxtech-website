@@ -18,7 +18,7 @@ const channels = [
   {
     label: "LinkedIn",
     description: "Connect professionally",
-    href: "https://www.linkedin.com/company/lawxtech",
+    href: "https://www.linkedin.com/company/law-x-tech",
     color: "#0A66C2",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
