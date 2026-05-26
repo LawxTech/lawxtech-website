@@ -37,7 +37,7 @@ export default function AboutHero() {
         className="relative min-h-[40vh] lg:min-h-full"
       >
         <Image
-          src="/images/about-us-landing-image.jpeg"
+          src="/images/about-us-landing-image.jpg"
           alt="About Law x Tech"
           fill
           sizes="(max-width: 1024px) 100vw, 50vw"
