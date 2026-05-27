@@ -30,7 +30,7 @@ const milestones = [
   },
   {
     year: "2025",
-    title: "12+ Major Series Completed",
+    title: "8+ Major Series Completed",
     description:
       "Reached a landmark of 12 major series and 12 mini series, cementing Law x Tech as Nigeria's leading legal tech community platform.",
   },

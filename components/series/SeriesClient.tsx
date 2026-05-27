@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { slideUp, staggerContainer, scaleIn, tabContent } from "@/lib/animations";
+import { slideUp, staggerContainer, scaleIn } from "@/lib/animations";
 
 const mainSeries = Array.from({ length: 8 }, (_, i) => ({
   id: i + 1,
@@ -38,7 +37,9 @@ export default function SeriesClient() {
               key={tab}
               onClick={() => setActive(tab)}
               className={`relative px-6 py-2.5 text-sm font-semibold rounded-full transition-colors duration-200 z-10 ${
-                active === tab ? "text-white" : "text-muted-brand hover:text-navy"
+                active === tab
+                  ? "text-white"
+                  : "text-muted-brand hover:text-navy"
               }`}
             >
               {active === tab && (
@@ -70,7 +71,7 @@ export default function SeriesClient() {
               variants={scaleIn}
               className="group relative rounded-2xl overflow-hidden border border-border-brand bg-white hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="relative aspect-[16/10] overflow-hidden">
+              <div className="relative aspect-16/10 overflow-hidden">
                 <Image
                   src={item.src}
                   alt={item.title}

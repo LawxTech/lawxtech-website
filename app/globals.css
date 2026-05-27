@@ -8,6 +8,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-montserrat);
+  --font-serif: var(--font-playfair);
   --color-navy: var(--navy);
   --color-teal: var(--teal);
   --color-teal-dark: var(--teal-dark);
@@ -74,4 +75,8 @@
   .bg-surface { background-color: var(--surface); }
   .border-brand { border-color: var(--border-brand); }
   .text-muted-brand { color: var(--muted-brand); }
+}
+
+@keyframes border-spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
 }

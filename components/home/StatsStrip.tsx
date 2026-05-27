@@ -8,7 +8,7 @@ const stats = [
   { value: 5, label: "Mini Series", suffix: "" },
   { value: 8, label: "Major Series", suffix: "" },
   { value: 2000, label: "Community Members", suffix: "+" },
-  { value: 3, label: "Team Members", suffix: "+" },
+  { value: 5, label: "Team Members", suffix: "+" },
 ];
 
 function Counter({ target, suffix }: { target: number; suffix: string }) {

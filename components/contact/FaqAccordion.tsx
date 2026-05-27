@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: "How do I join the community?",
-    a: "Click the 'Join Community' button on our website to fill out our registration form. Once submitted, you'll receive an invitation to our Slack community where all the action happens.",
+    a: "Click the 'Join Community' button on our website to fill out our registration form. Once submitted, you'll receive an invitation to our WhatsApp community where all the action happens.",
   },
   {
     q: "Are the series sessions free?",

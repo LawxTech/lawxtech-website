@@ -5,11 +5,16 @@ import { motion } from "framer-motion";
 import { slideUp, staggerContainer, scaleIn } from "@/lib/animations";
 
 const coreTeam = [
-  { name: "Sopuruchi Rufus", role: "Founder / Project Coordinator", image: "ruchi-rufus.jpeg", dir: "members" },
+  {
+    name: "Sopuruchi Rufus",
+    role: "Founder",
+    image: "sopuruchi-new.jpeg",
+    dir: "members",
+  },
 ];
 
 const volunteerRoles = [
-  "Graphics Designer",
+  "Graphics & Creative Lead",
   "Communications & Social Media Lead",
   "Partnerships & Outreach Lead",
   "Projects Coordinator",
@@ -53,8 +58,8 @@ export default function TeamGrid() {
             Our Team
           </h2>
           <p className="mt-4 text-muted-brand max-w-xl mx-auto text-base">
-            Law x Tech is powered by passionate people who believe in the
-            future of law and technology in Nigeria.
+            Law x Tech is powered by passionate people who believe in the future
+            of law and technology in Nigeria.
           </p>
         </motion.div>
 

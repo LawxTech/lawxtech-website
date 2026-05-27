@@ -6,12 +6,12 @@ import { motion } from "framer-motion";
 import { slideUp, staggerContainer, scaleIn } from "@/lib/animations";
 
 const speakers = [
-  { src: "/assets/speakers/Speaker(1).jpg", name: "Series 1" },
-  { src: "/assets/speakers/Speaker(2).jpg", name: "Series 2" },
-  { src: "/assets/speakers/Speaker(3).jpg", name: "Series 3" },
-  { src: "/assets/speakers/Speaker(4).jpg", name: "Series 4" },
-  { src: "/assets/speakers/Speaker(5).jpg", name: "Series 5" },
-  { src: "/assets/speakers/Speaker(6).jpg", name: "Series 6" },
+  { src: "/assets/speakers/Speaker-1.jpeg", name: "Series 1" },
+  { src: "/assets/speakers/Speaker-2.jpeg", name: "Series 2" },
+  { src: "/assets/speakers/Speaker-3.jpeg", name: "Series 3" },
+  { src: "/assets/speakers/Speaker-4.jpeg", name: "Series 4" },
+  { src: "/assets/speakers/Speaker-5.jpeg", name: "Series 5" },
+  { src: "/assets/speakers/Speaker-6.jpeg", name: "Series 6" },
 ];
 
 export default function SpeakersWallSection() {

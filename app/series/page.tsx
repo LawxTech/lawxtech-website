@@ -19,9 +19,9 @@ export default function SeriesPage() {
             The Series
           </h1>
           <p className="mt-5 text-muted-brand max-w-2xl mx-auto text-base leading-relaxed">
-            Expert-led sessions on legal tech, product management, coding, and
-            everything at the intersection of law and technology. Available to
-            all community members.
+            Expert-led training for lawyers navigating the world of technology,
+            from AI in legal practice to breaking into legal tech careers. Built
+            specifically for lawyers, by people who&lsquo;ve made the journey.
           </p>
           <div className="mt-6 mx-auto w-16 h-1 bg-teal rounded-full" />
         </div>

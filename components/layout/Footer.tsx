@@ -5,6 +5,7 @@ const pageLinks = [
   { href: "/", label: "Home" },
   { href: "/about-us", label: "About Us" },
   { href: "/series", label: "Series" },
+  { href: "/careers", label: "Careers" },
   { href: "/contact-us", label: "Contact Us" },
 ];
 
@@ -104,7 +105,7 @@ export default function Footer() {
             <div className="space-y-3 mb-6">
               <a
                 href="mailto:info@lawxtech.org"
-                className="flex items-center gap-3 text-white/80 hover:text-white text-sm transition-colors"
+                className="flex items-center gap-3 text-white/80 hover:text-teal text-sm transition-colors underline underline-offset-2 decoration-white/30 hover:decoration-teal"
               >
                 info@lawxtech.org
               </a>

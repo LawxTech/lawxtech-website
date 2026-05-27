@@ -21,14 +21,16 @@ export default function SummitAwardsPage() {
             The Law x Tech Summit
           </h1>
           <p className="mt-5 text-muted-brand text-base leading-relaxed">
-            Our flagship annual event — bringing together legal tech leaders, celebrating excellence, and shaping the future of law and technology in Africa.
+            Our flagship annual event — bringing together legal tech leaders,
+            celebrating excellence, and shaping the future of law and technology
+            in Africa.
           </p>
           <div className="mt-6 mx-auto w-16 h-1 bg-teal rounded-full" />
         </div>
       </section>
 
       <UpcomingSummitSection />
-      <PastEditionsSection />
+      {/* <PastEditionsSection /> */}
 
       {/* Bottom CTA */}
       <section className="bg-navy py-20">
@@ -39,7 +41,9 @@ export default function SummitAwardsPage() {
                 Sponsor the Summit
               </h3>
               <p className="text-white/70 text-sm leading-relaxed mb-6">
-                Partner with us to put your brand in front of Nigeria&apos;s most engaged legal tech community. Reach decision-makers, innovators, and the next generation of legal professionals.
+                Partner with us to put your brand in front of Nigeria&apos;s
+                most engaged legal tech community. Reach decision-makers,
+                innovators, and the next generation of legal professionals.
               </p>
               <a
                 href="mailto:info@lawxtech.org?subject=Summit Sponsorship Enquiry"
@@ -53,7 +57,9 @@ export default function SummitAwardsPage() {
                 Speak or Partner
               </h3>
               <p className="text-white/70 text-sm leading-relaxed mb-6">
-                Are you a legal tech expert, founder, or organisation? Join us as a speaker, nominator, or event partner and help us raise the bar for legal tech in Africa.
+                Are you a legal tech expert, founder, or organisation? Join us
+                as a speaker, nominator, or event partner and help us raise the
+                bar for legal tech in Africa.
               </p>
               <a
                 href="mailto:info@lawxtech.org?subject=Summit Speaker / Partner Enquiry"

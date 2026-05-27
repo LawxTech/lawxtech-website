@@ -16,7 +16,7 @@ export default function UpcomingSummitSection() {
           className="mb-12"
         >
           <span className="text-teal text-sm font-semibold uppercase tracking-widest">
-            Next Edition
+            New Edition
           </span>
           <h2 className="mt-2 text-3xl sm:text-4xl font-bold text-navy tracking-tight">
             What&apos;s Coming
@@ -36,14 +36,17 @@ export default function UpcomingSummitSection() {
                 <span className="px-3 py-1 bg-teal text-white text-xs font-bold rounded-full uppercase tracking-wider">
                   Coming Soon
                 </span>
-                <span className="text-white/50 text-sm">Law x Tech Summit 3</span>
+                {/* <span className="text-white/50 text-sm">Law x Tech Summit 3</span> */}
               </div>
 
-              <h3 className="text-3xl sm:text-4xl font-bold text-white leading-tight mb-4">
-                The Law x Tech Summit
+              <h3 className="text-3xl sm:text-[32px] font-bold text-white leading-tight mb-4">
+                The Law x Tech Summit & Awards
               </h3>
               <p className="text-white/70 text-base leading-relaxed mb-8">
-                The third edition of Africa&apos;s premier gathering for lawyers and technologists is being planned. Stay close — we&apos;ll announce the date, theme, speakers, and award categories soon.
+                The maiden edition of Africa&apos;s premier gathering for
+                lawyers and technologists is being planned. Stay close,
+                we&apos;ll announce the date, theme, speakers, and award
+                categories soon.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -68,15 +71,23 @@ export default function UpcomingSummitSection() {
 
             <div className="lg:col-span-2 bg-white/5 border-t lg:border-t-0 lg:border-l border-white/10 p-10 lg:p-14 flex flex-col justify-center gap-6">
               <div>
-                <p className="text-white/40 text-xs uppercase tracking-widest mb-1">Format</p>
+                <p className="text-white/40 text-xs uppercase tracking-widest mb-1">
+                  Format
+                </p>
                 <p className="text-white font-semibold">In-person + Virtual</p>
               </div>
               <div>
-                <p className="text-white/40 text-xs uppercase tracking-widest mb-1">Includes</p>
-                <p className="text-white font-semibold">Keynotes, Panels & Awards</p>
+                <p className="text-white/40 text-xs uppercase tracking-widest mb-1">
+                  Includes
+                </p>
+                <p className="text-white font-semibold">
+                  Keynotes, Panels & Awards
+                </p>
               </div>
               <div>
-                <p className="text-white/40 text-xs uppercase tracking-widest mb-1">Enquiries</p>
+                <p className="text-white/40 text-xs uppercase tracking-widest mb-1">
+                  Enquiries
+                </p>
                 <a
                   href="mailto:info@lawxtech.org"
                   className="text-teal hover:text-white transition-colors font-semibold text-sm"

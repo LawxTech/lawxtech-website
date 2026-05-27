@@ -62,7 +62,7 @@ export default function HeroSection() {
           className="mt-6 text-sm sm:text-base lg:text-[17px] text-white/80 leading-relaxed max-w-xl"
         >
           Connecting lawyers, founders, and innovators building the future of
-          law across Nigeria and Africa
+          law across Nigeria and Africa.
         </motion.p>
 
         <motion.div
@@ -79,14 +79,14 @@ export default function HeroSection() {
             className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-teal text-white font-semibold rounded-lg hover:bg-teal-dark transition-colors duration-200"
           >
             Join Our Community
-            <ArrowRight size={16} />
+            {/* <ArrowRight size={16} /> */}
           </Link>
 
           <Link
             href="/series"
             className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors duration-200 backdrop-blur-sm"
           >
-            Watch the Series
+            Register (Summit 2026)
           </Link>
         </motion.div>
       </div>

@@ -41,7 +41,7 @@ export default function RecruitmentBanner() {
           <div className="w-full lg:w-1/2 relative rounded-2xl overflow-hidden shadow-lg border border-border-brand">
             <Image
               src="/images/recruiting.png"
-              alt="Law x Tech is Recruiting — Graphics Designer, Communications & Social Media Lead, Partnerships & Outreach Lead, Projects Coordinator"
+              alt="Law x Tech is Recruiting — Graphics & Creative Lead, Communications & Social Media Lead, Partnerships & Outreach Lead, Projects Coordinator"
               width={800}
               height={960}
               className="w-full h-auto"
@@ -51,7 +51,7 @@ export default function RecruitmentBanner() {
           <div className="w-full lg:w-1/2 space-y-6">
             <div className="space-y-4">
               {[
-                "Graphics Designer",
+                "Graphics & Creative Lead",
                 "Communications & Social Media Lead",
                 "Partnerships & Outreach Lead",
                 "Projects Coordinator",

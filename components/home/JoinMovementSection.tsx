@@ -18,8 +18,7 @@ export default function JoinMovementSection() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight">
               Ready to be part of
               <br />
-              the future{" "}
-              <span className="text-teal">of law?</span>
+              the future <span className="text-teal">of law?</span>
             </h2>
             <p className="mt-5 text-white/70 text-base leading-relaxed max-w-md">
               Join a growing community of lawyers and tech enthusiasts shaping
@@ -32,7 +31,7 @@ export default function JoinMovementSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="flex flex-col sm:flex-row gap-4 lg:justify-end"
+            className="flex flex-col sm:flex-row gap-4 lg:justify-start"
           >
             <Link
               href="https://forms.gle/P9jUJr3NaAGnS4Je6"
