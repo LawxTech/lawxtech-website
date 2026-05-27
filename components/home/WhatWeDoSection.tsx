@@ -45,7 +45,7 @@ const services = [
 
 export default function WhatWeDoSection() {
   return (
-    <section className="bg-surface py-24">
+    <section className="bg-surface py-12 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={slideUp}

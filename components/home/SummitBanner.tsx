@@ -26,30 +26,49 @@ export default function SummitBanner() {
       >
         {/* Outer ring — slow breathe */}
         <motion.circle
-          cx="300" cy="300" r="300"
-          stroke="white" strokeWidth="1"
+          cx="300"
+          cy="300"
+          r="300"
+          stroke="white"
+          strokeWidth="1"
           animate={{ opacity: [0.06, 0.13, 0.06], scale: [1, 1.03, 1] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           style={{ transformOrigin: "300px 300px" }}
         />
         {/* Middle ring — dashed, slow rotation */}
         <motion.circle
-          cx="300" cy="300" r="230"
-          stroke="white" strokeWidth="1"
+          cx="300"
+          cy="300"
+          r="230"
+          stroke="white"
+          strokeWidth="1"
           strokeDasharray="18 10"
           animate={{ opacity: [0.08, 0.16, 0.08], rotate: 360 }}
           transition={{
-            opacity: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 },
+            opacity: {
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1,
+            },
             rotate: { duration: 22, repeat: Infinity, ease: "linear" },
           }}
           style={{ transformOrigin: "300px 300px" }}
         />
         {/* Inner ring — faster breathe, offset phase */}
         <motion.circle
-          cx="300" cy="300" r="160"
-          stroke="white" strokeWidth="1"
+          cx="300"
+          cy="300"
+          r="160"
+          stroke="white"
+          strokeWidth="1"
           animate={{ opacity: [0.12, 0.05, 0.12], scale: [1, 1.05, 1] }}
-          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          transition={{
+            duration: 4.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2,
+          }}
           style={{ transformOrigin: "300px 300px" }}
         />
       </svg>
@@ -85,7 +104,7 @@ export default function SummitBanner() {
             className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight"
             // style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}
           >
-            Law x Tech Summit 2026
+            Law x Tech Summit & Awards 2026
           </motion.h2>
 
           {/* Subtitle */}

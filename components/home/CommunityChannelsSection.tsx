@@ -50,7 +50,7 @@ const channels = [
   },
   {
     label: "Instagram",
-    description: "Behind the scenes",
+    description: "Stay Connected",
     href: "https://www.instagram.com/lawxtech",
     color: "#E1306C",
     icon: (
