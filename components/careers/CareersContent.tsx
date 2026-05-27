@@ -10,8 +10,7 @@ import {
   scaleIn,
 } from "@/lib/animations";
 
-// TODO: Replace with actual application form URL before June 1st
-const APPLICATION_LINK = "#apply";
+const APPLICATION_LINK = "https://surveymars.com/q/y2hFxhumV";
 
 const roles = [
   {
@@ -302,7 +301,7 @@ export default function CareersContent() {
                       </p>
                     </div>
                     <div>
-                      <h4 className="font-bold text-navy text-sm mb-3 uppercase tracking-wider text-xs">
+                      <h4 className="font-bold text-navy text-sm mb-3 uppercase tracking-wider">
                         What You&apos;ll Do
                       </h4>
                       <ul className="space-y-2">
@@ -317,7 +316,7 @@ export default function CareersContent() {
                       </ul>
                     </div>
                     <div className="lg:col-span-2">
-                      <h4 className="font-bold text-navy text-sm mb-3 uppercase tracking-wider text-xs">
+                      <h4 className="font-bold text-navy text-sm mb-3 uppercase tracking-wider">
                         What We&apos;re Looking For
                       </h4>
                       <ul className="space-y-2">

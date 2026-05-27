@@ -5,8 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { slideUp } from "@/lib/animations";
 
-// TODO: Replace with the actual application form URL before going live on June 1st
-const APPLICATION_LINK = "#apply";
+const APPLICATION_LINK = "https://surveymars.com/q/y2hFxhumV";
 
 export default function RecruitmentBanner() {
   return (
@@ -40,7 +39,7 @@ export default function RecruitmentBanner() {
         >
           <div className="w-full lg:w-1/2 relative rounded-2xl overflow-hidden shadow-lg border border-border-brand">
             <Image
-              src="/images/recruiting.png"
+              src="/images/recruiting.jpg"
               alt="Law x Tech is Recruiting — Graphics & Creative Lead, Communications & Social Media Lead, Partnerships & Outreach Lead, Projects Coordinator"
               width={800}
               height={960}
