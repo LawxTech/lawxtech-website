@@ -75,6 +75,8 @@ export default function RecruitmentBanner() {
 
             <Link
               href={APPLICATION_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-navy text-white font-semibold text-sm px-7 py-3.5 rounded-xl hover:bg-teal transition-colors duration-300"
             >
               Apply Now

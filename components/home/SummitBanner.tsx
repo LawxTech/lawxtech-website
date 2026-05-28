@@ -133,7 +133,9 @@ export default function SummitBanner() {
             className="mt-8 flex flex-wrap gap-3"
           >
             <Link
-              href="#"
+              href="https://luma.com/ftzpb2ki"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3.5 bg-navy text-white text-sm font-semibold rounded-lg hover:bg-navy/80 transition-colors duration-200"
             >
               Register Interest

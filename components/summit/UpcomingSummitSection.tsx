@@ -61,7 +61,9 @@ export default function UpcomingSummitSection() {
               </div>
 
               <a
-                href="mailto:info@lawxtech.org?subject=Law x Tech Summit 3 — Expression of Interest"
+                href="https://luma.com/ftzpb2ki"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-teal text-white font-semibold rounded-xl hover:bg-teal-dark transition-colors duration-200 text-sm"
               >
                 <Mail size={16} />

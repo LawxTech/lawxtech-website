@@ -274,6 +274,8 @@ export default function CareersContent() {
                     </div>
                     <Link
                       href={APPLICATION_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-5 py-2.5 bg-teal text-white text-sm font-semibold rounded-lg hover:bg-teal-dark transition-colors shrink-0"
                     >
                       Apply Now
@@ -366,6 +368,8 @@ export default function CareersContent() {
             >
               <Link
                 href={APPLICATION_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-teal text-white font-semibold rounded-lg hover:bg-teal-dark transition-colors"
               >
                 Apply Now
