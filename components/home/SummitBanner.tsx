@@ -141,7 +141,7 @@ export default function SummitBanner() {
               Register Interest
             </Link>
             <Link
-              href="#"
+              href="mailto:info@lawxtech.org"
               className="inline-flex items-center justify-center px-6 py-3.5 border border-white/40 text-white text-sm font-semibold rounded-lg hover:bg-white/10 hover:border-white/60 transition-all duration-200"
             >
               Become a Sponsor

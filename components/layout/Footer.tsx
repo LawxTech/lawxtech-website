@@ -74,9 +74,9 @@ export default function Footer() {
               <span className="font-bold text-xl">Law x Tech</span>
             </div>
             <p className="text-white/70 text-sm leading-relaxed max-w-xs">
-              {/* Empowering lawyers and tech enthusiasts to thrive at the
-              intersection of law and technology. */}
-              Africa&lsquo;s Home for Law x Technology
+              Empowering lawyers and tech enthusiasts to thrive at the
+              intersection of law and technology.
+              {/* Africa&lsquo;s Home for Law x Technology */}
             </p>
           </div>
 
