@@ -1,21 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { sql } from "@/lib/db";
+import { getAllUsers } from "@/lib/db";
 import { createUserAction } from "./actions";
 
 export const metadata: Metadata = { title: "Users" };
 
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  created_at: string;
-}
-
 export default async function UsersPage() {
-  const users = (await sql`
-    SELECT id, name, email, created_at FROM users ORDER BY created_at ASC
-  `) as User[];
+  const users = await getAllUsers();
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">

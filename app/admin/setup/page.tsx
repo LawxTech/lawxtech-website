@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { sql } from "@/lib/db";
+import { userExists } from "@/lib/db";
 import { setupAction } from "./actions";
 import type { Metadata } from "next";
 
@@ -11,8 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default async function SetupPage() {
-  const rows = await sql`SELECT id FROM users LIMIT 1`;
-  if (rows.length > 0) redirect("/admin/login");
+  if (await userExists()) redirect("/admin/login");
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">

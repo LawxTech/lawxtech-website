@@ -1,16 +1,19 @@
 import { neon } from "@neondatabase/serverless";
 
-// channel_binding is a wire-protocol param unsupported by the HTTP driver
-function getNeonUrl() {
-  const url = process.env.DATABASE_URL_UNPOOLED ??
+function db() {
+  const url =
+    process.env.DATABASE_URL_UNPOOLED ??
     process.env.DATABASE_URL ??
     process.env.POSTGRES_URL_NON_POOLING ??
     process.env.POSTGRES_URL ??
     "";
-  return url.replace(/[?&]channel_binding=[^&]*/g, "").replace(/\?&/, "?").replace(/[?&]$/, "");
+  // channel_binding is a wire-protocol param unsupported by the HTTP driver
+  const clean = url
+    .replace(/[?&]channel_binding=[^&]*/g, "")
+    .replace(/\?&/, "?")
+    .replace(/[?&]$/, "");
+  return neon(clean);
 }
-
-export const sql = neon(getNeonUrl());
 
 export interface Post {
   id: number;
@@ -27,6 +30,13 @@ export interface Post {
   updated_at: Date;
 }
 
+export interface AdminUser {
+  id: string;
+  name: string;
+  email: string;
+  created_at: string;
+}
+
 export function generateSlug(title: string): string {
   return title
     .toLowerCase()
@@ -38,28 +48,28 @@ export function generateSlug(title: string): string {
 }
 
 export async function getPublishedPosts(): Promise<Post[]> {
-  const rows = await sql`
+  const rows = await db()`
     SELECT * FROM posts WHERE published = true ORDER BY created_at DESC
   `;
   return rows as Post[];
 }
 
 export async function getAllPosts(): Promise<Post[]> {
-  const rows = await sql`
+  const rows = await db()`
     SELECT * FROM posts ORDER BY created_at DESC
   `;
   return rows as Post[];
 }
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {
-  const rows = await sql`
+  const rows = await db()`
     SELECT * FROM posts WHERE slug = ${slug} LIMIT 1
   `;
   return (rows[0] as Post) ?? null;
 }
 
 export async function getPostById(id: number): Promise<Post | null> {
-  const rows = await sql`
+  const rows = await db()`
     SELECT * FROM posts WHERE id = ${id} LIMIT 1
   `;
   return (rows[0] as Post) ?? null;
@@ -75,7 +85,7 @@ export async function createPost(data: {
   read_time: string;
   author_id: string | null;
 }): Promise<Post> {
-  const rows = await sql`
+  const rows = await db()`
     INSERT INTO posts (slug, title, excerpt, content, image_url, image_key, read_time, author_id)
     VALUES (${data.slug}, ${data.title}, ${data.excerpt}, ${data.content},
             ${data.image_url}, ${data.image_key}, ${data.read_time}, ${data.author_id})
@@ -96,7 +106,7 @@ export async function updatePost(
     read_time: string;
   }
 ): Promise<Post> {
-  const rows = await sql`
+  const rows = await db()`
     UPDATE posts
     SET slug = ${data.slug}, title = ${data.title}, excerpt = ${data.excerpt},
         content = ${data.content}, image_url = ${data.image_url},
@@ -112,11 +122,45 @@ export async function setPostPublished(
   id: number,
   published: boolean
 ): Promise<void> {
-  await sql`
+  await db()`
     UPDATE posts SET published = ${published}, updated_at = NOW() WHERE id = ${id}
   `;
 }
 
 export async function deletePost(id: number): Promise<void> {
-  await sql`DELETE FROM posts WHERE id = ${id}`;
+  await db()`DELETE FROM posts WHERE id = ${id}`;
+}
+
+export async function getAllUsers(): Promise<AdminUser[]> {
+  const rows = await db()`
+    SELECT id, name, email, created_at FROM users ORDER BY created_at ASC
+  `;
+  return rows as AdminUser[];
+}
+
+export async function userExists(): Promise<boolean> {
+  const rows = await db()`SELECT id FROM users LIMIT 1`;
+  return rows.length > 0;
+}
+
+export async function getUserByEmail(
+  email: string
+): Promise<{ id: string; name: string; email: string; password_hash: string } | null> {
+  const rows = await db()`
+    SELECT id, name, email, password_hash FROM users
+    WHERE email = ${email} LIMIT 1
+  `;
+  return (rows[0] as { id: string; name: string; email: string; password_hash: string }) ?? null;
+}
+
+export async function createUser(data: {
+  name: string;
+  email: string;
+  passwordHash: string;
+}): Promise<void> {
+  await db()`
+    INSERT INTO users (id, name, email, password_hash)
+    VALUES (gen_random_uuid()::text, ${data.name}, ${data.email}, ${data.passwordHash})
+    ON CONFLICT (email) DO NOTHING
+  `;
 }
