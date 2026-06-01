@@ -5,12 +5,8 @@ import type { NextRequest } from "next/server";
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Allow auth routes and setup page through unconditionally
-  if (
-    pathname === "/admin/login" ||
-    pathname === "/admin/setup" ||
-    pathname.startsWith("/api/auth")
-  ) {
+  // Allow auth routes through unconditionally
+  if (pathname === "/admin/login" || pathname.startsWith("/api/auth")) {
     return NextResponse.next();
   }
 

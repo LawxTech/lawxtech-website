@@ -4,6 +4,7 @@ import Image from "next/image";
 const pageLinks = [
   { href: "/", label: "Home" },
   { href: "/about-us", label: "About Us" },
+  { href: "/blogs", label: "Blogs" },
   { href: "/series", label: "Series" },
   { href: "/careers", label: "Careers" },
   { href: "/contact-us", label: "Contact Us" },
