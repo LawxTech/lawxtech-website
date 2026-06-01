@@ -1,21 +1,10 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import PostgresAdapter from "@auth/pg-adapter";
-import { Pool } from "pg";
 import bcrypt from "bcryptjs";
 import { sql } from "@/lib/db";
 
-// pg.Pool for the adapter (manages DB sessions table)
-const pool = new Pool({
-  connectionString:
-    process.env.POSTGRES_URL_NON_POOLING ??
-    process.env.DATABASE_URL_UNPOOLED ??
-    process.env.POSTGRES_URL,
-});
-
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  adapter: PostgresAdapter(pool),
-  session: { strategy: "database" },
+  session: { strategy: "jwt" },
   providers: [
     Credentials({
       credentials: {
