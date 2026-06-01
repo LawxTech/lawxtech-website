@@ -3,9 +3,7 @@ import Credentials from "next-auth/providers/credentials";
 import PostgresAdapter from "@auth/pg-adapter";
 import { Pool } from "pg";
 import bcrypt from "bcryptjs";
-import { neon } from "@neondatabase/serverless";
-
-const sql = neon(process.env.DATABASE_URL ?? process.env.POSTGRES_URL!);
+import { sql } from "@/lib/db";
 
 // pg.Pool for the adapter (manages DB sessions table)
 const pool = new Pool({

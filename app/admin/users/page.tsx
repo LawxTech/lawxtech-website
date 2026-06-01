@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { neon } from "@neondatabase/serverless";
+import { sql } from "@/lib/db";
 import { createUserAction } from "./actions";
 
 export const metadata: Metadata = { title: "Users" };
@@ -13,7 +13,6 @@ interface User {
 }
 
 export default async function UsersPage() {
-  const sql = neon(process.env.DATABASE_URL ?? process.env.POSTGRES_URL!);
   const users = (await sql`
     SELECT id, name, email, created_at FROM users ORDER BY created_at ASC
   `) as User[];

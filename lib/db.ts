@@ -1,6 +1,16 @@
 import { neon } from "@neondatabase/serverless";
 
-const sql = neon(process.env.DATABASE_URL ?? process.env.POSTGRES_URL!);
+// channel_binding is a wire-protocol param unsupported by the HTTP driver
+function getNeonUrl() {
+  const url = process.env.DATABASE_URL_UNPOOLED ??
+    process.env.DATABASE_URL ??
+    process.env.POSTGRES_URL_NON_POOLING ??
+    process.env.POSTGRES_URL ??
+    "";
+  return url.replace(/[?&]channel_binding=[^&]*/g, "").replace(/\?&/, "?").replace(/[?&]$/, "");
+}
+
+export const sql = neon(getNeonUrl());
 
 export interface Post {
   id: number;
