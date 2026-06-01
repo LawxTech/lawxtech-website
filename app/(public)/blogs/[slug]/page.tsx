@@ -2,50 +2,56 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { blogs } from "@/lib/data/blogs";
+import { getPostBySlug, getPublishedPosts } from "@/lib/db";
 import { buildMetadata } from "@/lib/metadata";
 import { ArrowLeft, Clock, Calendar } from "lucide-react";
 
 interface Props {
-  params: Promise<{ blogId: string }>;
+  params: Promise<{ slug: string }>;
 }
 
+export const revalidate = 60;
+
 export async function generateStaticParams() {
-  return blogs.map((b) => ({ blogId: String(b.id) }));
+  try {
+    const posts = await getPublishedPosts();
+    return posts.map((p) => ({ slug: p.slug }));
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { blogId } = await params;
-  const blog = blogs.find((b) => b.id === Number(blogId));
-  if (!blog) return {};
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
+  if (!post || !post.published) return {};
   return buildMetadata({
-    title: blog.title,
-    description: blog.excerpt,
+    title: post.title,
+    description: post.excerpt,
     openGraph: {
       type: "article",
-      title: blog.title,
-      description: blog.excerpt,
-      images: [{ url: blog.image, alt: blog.title }],
+      title: post.title,
+      description: post.excerpt,
+      images: post.image_url
+        ? [{ url: post.image_url, alt: post.title }]
+        : [],
     },
   });
 }
 
 export default async function BlogDetailPage({ params }: Props) {
-  const { blogId } = await params;
-  const blog = blogs.find((b) => b.id === Number(blogId));
-  if (!blog) notFound();
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
+  if (!post || !post.published) notFound();
 
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: blog.title,
-    description: blog.excerpt,
-    image: blog.image,
-    datePublished: blog.date,
-    author: {
-      "@type": "Organization",
-      name: "Law x Tech",
-    },
+    headline: post.title,
+    description: post.excerpt,
+    image: post.image_url,
+    datePublished: new Date(post.created_at).toISOString(),
+    author: { "@type": "Organization", name: "Law x Tech" },
     publisher: {
       "@type": "Organization",
       name: "Law x Tech",
@@ -76,43 +82,39 @@ export default async function BlogDetailPage({ params }: Props) {
           <div className="flex items-center gap-4 text-muted-brand text-sm mb-6">
             <span className="flex items-center gap-1.5">
               <Calendar size={14} />
-              {blog.date}
+              {new Date(post.created_at).toLocaleDateString("en-GB", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })}
             </span>
             <span className="flex items-center gap-1.5">
               <Clock size={14} />
-              {blog.duration} read
+              {post.read_time} read
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-bold text-navy leading-tight tracking-tight mb-8">
-            {blog.title}
+            {post.title}
           </h1>
 
-          <div className="relative aspect-video rounded-2xl overflow-hidden mb-10">
-            <Image
-              src={blog.image}
-              alt={blog.title}
-              fill
-              sizes="(max-width: 768px) 100vw, 768px"
-              className="object-cover"
-              priority
-            />
-          </div>
-
-          <article className="prose prose-slate max-w-none">
-            {blog.article.map((para, i) => (
-              <p
-                key={i}
-                className="text-[#374151] text-base leading-relaxed mb-5"
-                dangerouslySetInnerHTML={{
-                  __html: para.p.replace(
-                    /\*\*(.*?)\*\*/g,
-                    '<strong class="text-navy font-semibold">$1</strong>'
-                  ),
-                }}
+          {post.image_url && (
+            <div className="relative aspect-video rounded-2xl overflow-hidden mb-10">
+              <Image
+                src={post.image_url}
+                alt={post.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="object-cover"
+                priority
               />
-            ))}
-          </article>
+            </div>
+          )}
+
+          <article
+            className="prose prose-slate max-w-none text-[#374151] text-base leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
 
           <div className="mt-12 pt-8 border-t border-border-brand">
             <div className="flex items-center gap-4 bg-surface rounded-2xl p-6">
