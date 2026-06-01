@@ -25,7 +25,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   callbacks: {
     jwt({ token, user }) {
       if (user) {
-        token.id = user.id;
+        // token.sub is Auth.js's standard field for user ID
+        token.sub = user.id;
         token.role = (user as { role?: string }).role ?? "admin";
       }
       return token;
@@ -33,7 +34,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     session({ session, token }) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const user = session.user as any;
-      user.id = token.id ?? "";
+      user.id = token.sub ?? "";
       user.role = token.role ?? "admin";
       return session;
     },
