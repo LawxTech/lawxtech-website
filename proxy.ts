@@ -16,6 +16,11 @@ export async function proxy(request: NextRequest) {
     if (!session) {
       return NextResponse.redirect(new URL("/admin/login", request.url));
     }
+
+    // User management is admin-role only
+    if (pathname.startsWith("/admin/users") && session.user.role !== "admin") {
+      return NextResponse.redirect(new URL("/admin/blog", request.url));
+    }
   }
 
   return NextResponse.next();

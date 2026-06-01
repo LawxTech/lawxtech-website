@@ -72,8 +72,8 @@ async function run() {
       }
     } else {
       await db.query(
-        `INSERT INTO users (id, name, email, password_hash)
-         VALUES (gen_random_uuid()::text, 'Admin', $1, $2)`,
+        `INSERT INTO users (id, name, email, password_hash, role)
+         VALUES (gen_random_uuid()::text, 'Admin', $1, $2, 'admin')`,
         [email, hash]
       );
       console.log(`✓ Created admin user: ${email}`);

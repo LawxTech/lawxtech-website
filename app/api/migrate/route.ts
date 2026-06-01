@@ -73,5 +73,10 @@ export async function GET() {
     CREATE INDEX IF NOT EXISTS posts_published_created ON posts (published, created_at DESC)
   `;
 
+  // Add role column to users (idempotent)
+  await sql`
+    ALTER TABLE users ADD COLUMN IF NOT EXISTS role TEXT NOT NULL DEFAULT 'admin'
+  `;
+
   return NextResponse.json({ ok: true, message: "Migration complete" });
 }

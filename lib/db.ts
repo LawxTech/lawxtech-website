@@ -34,6 +34,7 @@ export interface AdminUser {
   id: string;
   name: string;
   email: string;
+  role: string;
   created_at: string;
 }
 
@@ -133,7 +134,7 @@ export async function deletePost(id: number): Promise<void> {
 
 export async function getAllUsers(): Promise<AdminUser[]> {
   const rows = await db()`
-    SELECT id, name, email, created_at FROM users ORDER BY created_at ASC
+    SELECT id, name, email, role, created_at FROM users ORDER BY created_at ASC
   `;
   return rows as AdminUser[];
 }
@@ -157,10 +158,27 @@ export async function createUser(data: {
   name: string;
   email: string;
   passwordHash: string;
+  role?: string;
 }): Promise<void> {
+  const role = data.role ?? "editor";
   await db()`
-    INSERT INTO users (id, name, email, password_hash)
-    VALUES (gen_random_uuid()::text, ${data.name}, ${data.email}, ${data.passwordHash})
+    INSERT INTO users (id, name, email, password_hash, role)
+    VALUES (gen_random_uuid()::text, ${data.name}, ${data.email}, ${data.passwordHash}, ${role})
     ON CONFLICT (email) DO NOTHING
   `;
+}
+
+export async function setUserRole(userId: string, role: string): Promise<void> {
+  await db()`
+    UPDATE users SET role = ${role} WHERE id = ${userId}
+  `;
+}
+
+export async function deleteUser(userId: string): Promise<void> {
+  await db()`DELETE FROM users WHERE id = ${userId}`;
+}
+
+export async function countAdmins(): Promise<number> {
+  const rows = await db()`SELECT COUNT(*) AS n FROM users WHERE role = 'admin'`;
+  return Number((rows[0] as { n: string }).n);
 }

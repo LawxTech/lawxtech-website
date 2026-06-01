@@ -15,13 +15,15 @@ export default async function AdminBlogPage() {
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Blog Posts</h1>
           <p className="text-sm text-gray-500 mt-1">
-            {session?.user?.email} ·{" "}
-            <Link
-              href="/admin/users"
-              className="hover:text-gray-700 underline"
-            >
-              Users
-            </Link>
+            {session?.user?.email}
+            {session?.user?.role === "admin" && (
+              <>
+                {" · "}
+                <Link href="/admin/users" className="hover:text-gray-700 underline">
+                  Users
+                </Link>
+              </>
+            )}
           </p>
         </div>
         <div className="flex items-center gap-3">
