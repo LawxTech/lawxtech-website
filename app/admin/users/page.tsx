@@ -49,41 +49,45 @@ export default async function UsersPage() {
             </div>
 
             <div className="flex items-center gap-3 shrink-0">
-              {/* Promote / Demote */}
-              {u.id !== currentUserId && (
-                <form
-                  action={async () => {
-                    "use server";
-                    await setUserRoleAction(
-                      u.id,
-                      u.role === "admin" ? "editor" : "admin"
-                    );
-                  }}
-                >
-                  <button
-                    type="submit"
-                    className="text-xs font-medium text-navy hover:underline"
+              {u.id === currentUserId ? (
+                <span className="text-xs text-gray-300 italic">
+                  no actions on own account
+                </span>
+              ) : (
+                <>
+                  {/* Promote / Demote */}
+                  <form
+                    action={async () => {
+                      "use server";
+                      await setUserRoleAction(
+                        u.id,
+                        u.role === "admin" ? "editor" : "admin"
+                      );
+                    }}
                   >
-                    {u.role === "admin" ? "Demote to editor" : "Promote to admin"}
-                  </button>
-                </form>
-              )}
+                    <button
+                      type="submit"
+                      className="text-xs font-medium text-navy hover:underline"
+                    >
+                      {u.role === "admin" ? "Demote to editor" : "Promote to admin"}
+                    </button>
+                  </form>
 
-              {/* Delete */}
-              {u.id !== currentUserId && (
-                <form
-                  action={async () => {
-                    "use server";
-                    await deleteUserAction(u.id);
-                  }}
-                >
-                  <button
-                    type="submit"
-                    className="text-xs font-medium text-red-500 hover:text-red-700"
+                  {/* Remove */}
+                  <form
+                    action={async () => {
+                      "use server";
+                      await deleteUserAction(u.id);
+                    }}
                   >
-                    Remove
-                  </button>
-                </form>
+                    <button
+                      type="submit"
+                      className="text-xs font-medium text-red-500 hover:text-red-700"
+                    >
+                      Remove
+                    </button>
+                  </form>
+                </>
               )}
             </div>
           </div>
