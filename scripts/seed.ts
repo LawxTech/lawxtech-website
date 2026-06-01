@@ -3,10 +3,11 @@
  * Create the first admin user and seed initial blog posts.
  *
  * Usage:
- *   npm run seed -- <email> <password>
+ *   npm run seed -- <email> <password> [--reset]
  *
- * Example:
+ * Examples:
  *   npm run seed -- admin@lawxtech.org mypassword123
+ *   npm run seed -- admin@lawxtech.org newpassword --reset   (update existing password)
  */
 
 import { Client } from "pg";
@@ -18,9 +19,10 @@ config({ path: resolve(process.cwd(), ".env.local") });
 
 const email = process.argv[2];
 const password = process.argv[3];
+const reset = process.argv.includes("--reset");
 
 if (!email || !password) {
-  console.error("Usage: npm run seed -- <email> <password>");
+  console.error("Usage: npm run seed -- <email> <password> [--reset]");
   process.exit(1);
 }
 
@@ -29,7 +31,6 @@ if (password.length < 8) {
   process.exit(1);
 }
 
-// POSTGRES_URL_NO_SSL has no sslmode or channel_binding — cleanest for pg
 const connectionString =
   process.env.POSTGRES_URL_NO_SSL ??
   process.env.DATABASE_URL_UNPOOLED ??
@@ -55,11 +56,21 @@ async function run() {
       "SELECT id FROM users WHERE email = $1 LIMIT 1",
       [email]
     );
+    const hash = await bcrypt.hash(password, 12);
 
     if (existing.length > 0) {
-      console.log(`User ${email} already exists — skipping user creation.`);
+      if (reset) {
+        await db.query(
+          "UPDATE users SET password_hash = $1 WHERE email = $2",
+          [hash, email]
+        );
+        console.log(`✓ Password updated for: ${email}`);
+      } else {
+        console.log(
+          `User ${email} already exists — skipping. Pass --reset to update the password.`
+        );
+      }
     } else {
-      const hash = await bcrypt.hash(password, 12);
       await db.query(
         `INSERT INTO users (id, name, email, password_hash)
          VALUES (gen_random_uuid()::text, 'Admin', $1, $2)`,
@@ -68,7 +79,7 @@ async function run() {
       console.log(`✓ Created admin user: ${email}`);
     }
 
-    // ── Blog posts ────────────────────────────────────────────────────────
+    // ── Blog posts (idempotent via ON CONFLICT) ───────────────────────────
     const posts = [
       {
         slug: "welcome-to-law-x-tech",
