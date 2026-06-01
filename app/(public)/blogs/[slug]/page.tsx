@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getPostBySlug, getPublishedPosts } from "@/lib/db";
+import { getPostBySlug } from "@/lib/db";
 import { buildMetadata } from "@/lib/metadata";
 import { ArrowLeft, Clock, Calendar } from "lucide-react";
 
@@ -11,15 +11,6 @@ interface Props {
 }
 
 export const revalidate = 60;
-
-export async function generateStaticParams() {
-  try {
-    const posts = await getPublishedPosts();
-    return posts.map((p) => ({ slug: p.slug }));
-  } catch {
-    return [];
-  }
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
