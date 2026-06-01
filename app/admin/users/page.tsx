@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { auth } from "@/auth";
 import { getAllUsers } from "@/lib/db";
-import { createUserAction, setUserRoleAction, deleteUserAction } from "./actions";
+import {
+  createUserAction,
+  setUserRoleAction,
+  deleteUserAction,
+} from "./actions";
 
 export const metadata: Metadata = { title: "Users" };
 
@@ -17,7 +21,10 @@ export default async function UsersPage() {
     <div className="max-w-3xl mx-auto px-4 py-10">
       <div className="flex items-center justify-between mb-8">
         <h1 className="text-2xl font-bold text-gray-900">Users</h1>
-        <Link href="/admin/blog" className="text-sm text-gray-500 hover:text-gray-700">
+        <Link
+          href="/admin/blog"
+          className="text-sm text-gray-500 hover:text-gray-700"
+        >
           ← Posts
         </Link>
       </div>
@@ -31,7 +38,9 @@ export default async function UsersPage() {
           >
             <div className="min-w-0 mr-4">
               <div className="flex items-center gap-2">
-                <p className="font-medium text-gray-900 text-sm truncate">{u.name}</p>
+                <p className="font-medium text-gray-900 text-sm truncate">
+                  {u.name}
+                </p>
                 <span
                   className={`shrink-0 inline-flex text-xs font-semibold px-2 py-0.5 rounded-full ${
                     u.role === "admin"
@@ -50,9 +59,7 @@ export default async function UsersPage() {
 
             <div className="flex items-center gap-3 shrink-0">
               {u.id === currentUserId ? (
-                <span className="text-xs text-gray-300 italic">
-                  no actions on own account
-                </span>
+                <span className="text-xs text-gray-300 italic">logged in</span>
               ) : (
                 <>
                   {/* Promote / Demote */}
@@ -61,7 +68,7 @@ export default async function UsersPage() {
                       "use server";
                       await setUserRoleAction(
                         u.id,
-                        u.role === "admin" ? "editor" : "admin"
+                        u.role === "admin" ? "editor" : "admin",
                       );
                     }}
                   >
@@ -69,7 +76,7 @@ export default async function UsersPage() {
                       type="submit"
                       className="text-xs font-medium text-navy hover:underline"
                     >
-                      {u.role === "admin" ? "Demote to editor" : "Promote to admin"}
+                      {u.role === "admin" ? "Demote" : "Promote"}
                     </button>
                   </form>
 
@@ -106,13 +113,25 @@ export default async function UsersPage() {
               <label className="block text-xs font-medium text-gray-600 mb-1.5">
                 Name
               </label>
-              <input name="name" type="text" required placeholder="Full name" className={inputClass} />
+              <input
+                name="name"
+                type="text"
+                required
+                placeholder="Full name"
+                className={inputClass}
+              />
             </div>
             <div>
               <label className="block text-xs font-medium text-gray-600 mb-1.5">
                 Email
               </label>
-              <input name="email" type="email" required placeholder="email@example.com" className={inputClass} />
+              <input
+                name="email"
+                type="email"
+                required
+                placeholder="email@example.com"
+                className={inputClass}
+              />
             </div>
           </div>
 
@@ -135,8 +154,12 @@ export default async function UsersPage() {
                 Role
               </label>
               <select name="role" defaultValue="editor" className={inputClass}>
-                <option value="editor">Editor — can write &amp; publish posts</option>
-                <option value="admin">Admin — full access incl. user management</option>
+                <option value="editor">
+                  Editor — can write &amp; publish posts
+                </option>
+                <option value="admin">
+                  Admin — full access &amp; user management
+                </option>
               </select>
             </div>
           </div>

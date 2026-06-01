@@ -10,6 +10,29 @@ const pageLinks = [
   { href: "/contact-us", label: "Contact Us" },
 ];
 
+const getInvolvedLinks = [
+  {
+    href: "https://forms.gle/P9jUJr3NaAGnS4Je6",
+    label: "Join the Community",
+  },
+  {
+    href: "https://forms.gle/Uba4R8QKKeiufVUj6",
+    label: "Volunteer With Us",
+  },
+  {
+    href: "https://surveymars.com/q/y2hFxhumV",
+    label: "Apply for Careers",
+  },
+  {
+    href: "https://luma.com/ftzpb2ki",
+    label: "Register for Summit",
+  },
+  {
+    href: "https://forms.gle/ee4eCViprcSn4DE87",
+    label: "Register for Series",
+  },
+];
+
 const socialLinks = [
   {
     label: "Twitter / X",
@@ -29,15 +52,6 @@ const socialLinks = [
       </svg>
     ),
   },
-  /* {
-    label: "YouTube",
-    href: "https://www.youtube.com/@lawxtech",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-      </svg>
-    ),
-  }, */
   {
     label: "Instagram",
     href: "https://www.instagram.com/lawxtech",
@@ -47,23 +61,16 @@ const socialLinks = [
       </svg>
     ),
   },
-  /* {
-    label: "Slack",
-    href: "https://join.slack.com/t/lawxtech/shared_invite/zt-20u7mvfqu-EWVec2Qip3XhYoUyVtyvpA",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zm10.122 2.521a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zm-1.268 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zm-2.523 10.122a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zm0-1.268a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z" />
-      </svg>
-    ),
-  }, */
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-navy text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          <div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+
+          {/* Brand */}
+          <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
               <Image
                 src="/assets/logo/logo_2.JPG"
@@ -77,10 +84,10 @@ export default function Footer() {
             <p className="text-white/70 text-sm leading-relaxed max-w-xs">
               Empowering lawyers and tech enthusiasts to thrive at the
               intersection of law and technology.
-              {/* Africa&lsquo;s Home for Law x Technology */}
             </p>
           </div>
 
+          {/* Pages */}
           <div>
             <h4 className="font-semibold text-sm uppercase tracking-widest text-white/50 mb-5">
               Pages
@@ -99,6 +106,28 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Get Involved */}
+          <div>
+            <h4 className="font-semibold text-sm uppercase tracking-widest text-white/50 mb-5">
+              Get Involved
+            </h4>
+            <ul className="space-y-3">
+              {getInvolvedLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/80 hover:text-teal text-sm transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Connect */}
           <div>
             <h4 className="font-semibold text-sm uppercase tracking-widest text-white/50 mb-5">
               Connect
@@ -132,13 +161,13 @@ export default function Footer() {
               ))}
             </div>
           </div>
+
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/70 text-sm">
             © 2026 Law x Tech. All rights reserved.
           </p>
-          {/* <p className="text-white/30 text-xs">Lagos, Nigeria</p> */}
         </div>
       </div>
     </footer>
