@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { signIn } from "@/auth";
 import { AuthError } from "next-auth";
 import { redirect } from "next/navigation";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Login",
@@ -16,24 +18,27 @@ export default async function LoginPage({
   const { error } = await searchParams;
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-      <div className="w-full max-w-sm">
+    <div className="min-h-screen flex items-center justify-center bg-surface px-4">
+      <div className="w-full max-w-sm animate-in fade-in duration-300">
+        {/* Logo */}
         <div className="mb-8 text-center">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-navy mb-4">
-            <span className="text-white font-bold text-sm">L×T</span>
+          <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-navy mb-4">
+            <span className="text-white font-bold text-xs tracking-tight">L×T</span>
           </div>
-          <h1 className="text-2xl font-bold text-gray-900">Admin Access</h1>
-          <p className="mt-1 text-sm text-gray-500">
-            Sign in to manage blog posts
+          <h1 className="text-xl font-semibold text-foreground">Admin Access</h1>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Sign in to manage LawxTech
           </p>
         </div>
 
+        {/* Error */}
         {error && (
-          <div className="mb-4 rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
+          <div className="mb-4 rounded-lg bg-destructive/8 border border-destructive/20 px-4 py-3 text-sm text-destructive">
             Invalid email or password. Please try again.
           </div>
         )}
 
+        {/* Form */}
         <form
           action={async (formData) => {
             "use server";
@@ -50,45 +55,44 @@ export default async function LoginPage({
               throw e;
             }
           }}
-          className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 space-y-4"
+          className="bg-white rounded-xl ring-1 ring-foreground/10 p-7 space-y-4"
         >
-          <div>
+          <div className="space-y-1.5">
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700 mb-1.5"
+              className="text-xs font-medium text-muted-foreground"
             >
               Email
             </label>
-            <input
+            <Input
               id="email"
               name="email"
               type="email"
               required
               autoFocus
-              className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-navy focus:border-transparent"
+              placeholder="you@example.com"
+              className="h-9 focus-visible:ring-teal/50 focus-visible:border-teal"
             />
           </div>
-          <div>
+          <div className="space-y-1.5">
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-gray-700 mb-1.5"
+              className="text-xs font-medium text-muted-foreground"
             >
               Password
             </label>
-            <input
+            <Input
               id="password"
               name="password"
               type="password"
               required
-              className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-navy focus:border-transparent"
+              placeholder="••••••••"
+              className="h-9 focus-visible:ring-teal/50 focus-visible:border-teal"
             />
           </div>
-          <button
-            type="submit"
-            className="w-full rounded-lg bg-navy text-white text-sm font-semibold py-2.5 hover:bg-navy/90 transition-colors"
-          >
+          <Button type="submit" className="w-full">
             Sign in
-          </button>
+          </Button>
         </form>
       </div>
     </div>
