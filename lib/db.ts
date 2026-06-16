@@ -1,18 +1,18 @@
 import { neon } from "@neondatabase/serverless";
 
 function db() {
+  // The neon() HTTP driver must use the POOLED connection string (…-pooler…).
+  // The unpooled/direct endpoint fails inside Vercel Functions, so prefer the
+  // pooled URLs first and only fall back to the direct ones.
   const url =
-    process.env.DATABASE_URL_UNPOOLED ??
     process.env.DATABASE_URL ??
-    process.env.POSTGRES_URL_NON_POOLING ??
     process.env.POSTGRES_URL ??
+    process.env.DATABASE_URL_UNPOOLED ??
+    process.env.POSTGRES_URL_NON_POOLING ??
     "";
-  // channel_binding is a wire-protocol param unsupported by the HTTP driver
-  const clean = url
-    .replace(/[?&]channel_binding=[^&]*/g, "")
-    .replace(/\?&/, "?")
-    .replace(/[?&]$/, "");
-  return neon(clean);
+  // Pass the connection string through untouched — neon() accepts the
+  // channel_binding/sslmode params as-is (the /api/migrate route proves this).
+  return neon(url);
 }
 
 export interface Post {
