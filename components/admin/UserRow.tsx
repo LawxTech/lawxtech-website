@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { MoreHorizontal, ShieldCheck, ShieldMinus, Trash2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -32,6 +33,8 @@ export default function UserRow({
   setRoleAction,
   deleteAction,
 }: UserRowProps) {
+  const [roleOpen, setRoleOpen] = useState(false);
+  const [deleteOpen, setDeleteOpen] = useState(false);
   const initial = user.name?.[0]?.toUpperCase() ?? "U";
   const isAdmin = user.role === "admin";
 
@@ -64,46 +67,57 @@ export default function UserRow({
       {isCurrentUser ? (
         <span className="text-xs text-muted-foreground/50 italic shrink-0">logged in</span>
       ) : (
-        <DropdownMenu>
-          <DropdownMenuTrigger
-            render={
-              <Button variant="ghost" size="icon-sm" aria-label="User actions" />
-            }
-          >
-            <MoreHorizontal className="size-4" />
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-40">
-            <ConfirmDialog
-              title={isAdmin ? "Demote to editor?" : "Promote to admin?"}
-              description={
-                isAdmin
-                  ? `${user.name} will lose admin access and user management privileges.`
-                  : `${user.name} will gain full admin access including user management.`
+        <>
+          <DropdownMenu>
+            <DropdownMenuTrigger
+              render={
+                <Button variant="ghost" size="icon-sm" aria-label="User actions" />
               }
-              confirmLabel={isAdmin ? "Demote" : "Promote"}
-              onConfirm={setRoleAction}
             >
-              <DropdownMenuItem>
+              <MoreHorizontal className="size-4" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-40">
+              <DropdownMenuItem onClick={() => setRoleOpen(true)}>
                 {isAdmin ? (
                   <><ShieldMinus className="size-3.5" /> Demote</>
                 ) : (
                   <><ShieldCheck className="size-3.5" /> Promote</>
                 )}
               </DropdownMenuItem>
-            </ConfirmDialog>
-            <DropdownMenuSeparator />
-            <ConfirmDialog
-              title="Remove user?"
-              description={`${user.name} will lose all access. This cannot be undone.`}
-              confirmLabel="Remove"
-              onConfirm={deleteAction}
-            >
-              <DropdownMenuItem variant="destructive">
+              <DropdownMenuSeparator />
+              <DropdownMenuItem
+                variant="destructive"
+                onClick={() => setDeleteOpen(true)}
+              >
                 <Trash2 className="size-3.5" /> Remove
               </DropdownMenuItem>
-            </ConfirmDialog>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* Dialogs are rendered as siblings of the menu and opened
+              imperatively — Base UI unmounts menu contents on item click,
+              so a dialog nested inside the menu never mounts. */}
+          <ConfirmDialog
+            open={roleOpen}
+            onOpenChange={setRoleOpen}
+            title={isAdmin ? "Demote to editor?" : "Promote to admin?"}
+            description={
+              isAdmin
+                ? `${user.name} will lose admin access and user management privileges.`
+                : `${user.name} will gain full admin access including user management.`
+            }
+            confirmLabel={isAdmin ? "Demote" : "Promote"}
+            onConfirm={setRoleAction}
+          />
+          <ConfirmDialog
+            open={deleteOpen}
+            onOpenChange={setDeleteOpen}
+            title="Remove user?"
+            description={`${user.name} will lose all access. This cannot be undone.`}
+            confirmLabel="Remove"
+            onConfirm={deleteAction}
+          />
+        </>
       )}
     </div>
   );

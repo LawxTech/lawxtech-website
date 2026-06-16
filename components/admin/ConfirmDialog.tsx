@@ -19,7 +19,17 @@ interface ConfirmDialogProps {
   confirmLabel?: string;
   cancelLabel?: string;
   onConfirm: () => Promise<void> | void;
-  children: React.ReactElement;
+  /**
+   * Controlled open state. When provided (together with `onOpenChange`) the
+   * dialog is opened imperatively and no internal trigger is rendered.
+   *
+   * Base UI unmounts a menu's contents when an item is activated, so a dialog
+   * nested inside a menu never mounts. Per Base UI guidance, open it from the
+   * menu item's `onClick` and render the dialog as a sibling of the menu.
+   */
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  children?: React.ReactElement;
 }
 
 export default function ConfirmDialog({
@@ -28,6 +38,8 @@ export default function ConfirmDialog({
   confirmLabel = "Delete",
   cancelLabel = "Cancel",
   onConfirm,
+  open,
+  onOpenChange,
   children,
 }: ConfirmDialogProps) {
   const [isPending, startTransition] = useTransition();
@@ -35,12 +47,13 @@ export default function ConfirmDialog({
   function handleConfirm() {
     startTransition(async () => {
       await onConfirm();
+      onOpenChange?.(false);
     });
   }
 
   return (
-    <Dialog>
-      <DialogTrigger render={children} />
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      {children ? <DialogTrigger render={children} /> : null}
       <DialogContent showCloseButton={false} className="max-w-sm">
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
