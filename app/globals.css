@@ -23,6 +23,13 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-input: var(--input);
   --color-border: var(--border);
   --color-ring: var(--ring);
   --radius-sm: calc(var(--radius) * 0.6);
@@ -48,6 +55,12 @@
   --secondary-foreground: #ffffff;
   --muted: #f8f9fb;
   --muted-foreground: #6b7280;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+  --accent: #f1f4f9;
+  --accent-foreground: #0a0a0a;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
   --border: #e4e8ef;
   --input: #e4e8ef;
   --ring: #0D7377;

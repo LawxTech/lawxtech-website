@@ -104,7 +104,7 @@ export default async function BlogDetailPage({ params }: Props) {
 
           <article
             className="prose prose-slate max-w-none text-[#374151] text-base leading-8 text-justify
-              prose-p:text-justify prose-p:leading-8 prose-p:my-6
+              prose-p:text-justify prose-p:leading-8 prose-p:my-[1.5lh]
               prose-headings:text-navy prose-headings:mt-10 prose-headings:mb-4
               prose-li:my-2 prose-li:leading-8 prose-ul:my-6 prose-ol:my-6
               [hyphens:auto]"

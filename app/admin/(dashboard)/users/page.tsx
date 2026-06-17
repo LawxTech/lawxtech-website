@@ -3,6 +3,7 @@ import { auth } from "@/auth";
 import { getAllUsers } from "@/lib/db";
 import {
   createUserAction,
+  updateUserAction,
   setUserRoleAction,
   deleteUserAction,
 } from "./actions";
@@ -45,6 +46,7 @@ export default async function UsersPage() {
       ) : (
         <div className="space-y-2 mb-10">
           {users.map((u) => {
+            const updateAction = updateUserAction.bind(null, u.id);
             const setRoleAction = setUserRoleAction.bind(
               null,
               u.id,
@@ -56,6 +58,7 @@ export default async function UsersPage() {
                 key={u.id}
                 user={u}
                 isCurrentUser={u.id === currentUserId}
+                updateAction={updateAction}
                 setRoleAction={setRoleAction}
                 deleteAction={deleteAction}
               />

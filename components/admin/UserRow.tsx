@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MoreHorizontal, ShieldCheck, ShieldMinus, Trash2 } from "lucide-react";
+import { MoreHorizontal, Pencil, ShieldCheck, ShieldMinus, Trash2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,6 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import ConfirmDialog from "./ConfirmDialog";
+import EditUserDialog from "./EditUserDialog";
 
 interface User {
   id: string;
@@ -23,6 +24,7 @@ interface User {
 interface UserRowProps {
   user: User;
   isCurrentUser: boolean;
+  updateAction: (formData: FormData) => Promise<{ error?: string } | void>;
   setRoleAction: () => Promise<void>;
   deleteAction: () => Promise<void>;
 }
@@ -30,9 +32,11 @@ interface UserRowProps {
 export default function UserRow({
   user,
   isCurrentUser,
+  updateAction,
   setRoleAction,
   deleteAction,
 }: UserRowProps) {
+  const [editOpen, setEditOpen] = useState(false);
   const [roleOpen, setRoleOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const initial = user.name?.[0]?.toUpperCase() ?? "U";
@@ -64,19 +68,21 @@ export default function UserRow({
         </div>
       </div>
 
-      {isCurrentUser ? (
-        <span className="text-xs text-muted-foreground/50 italic shrink-0">logged in</span>
-      ) : (
-        <>
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              render={
-                <Button variant="ghost" size="icon-sm" aria-label="User actions" />
-              }
-            >
-              <MoreHorizontal className="size-4" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-40">
+      <DropdownMenu>
+        <DropdownMenuTrigger
+          render={
+            <Button variant="ghost" size="icon-sm" aria-label="User actions" />
+          }
+        >
+          <MoreHorizontal className="size-4" />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end" className="w-40">
+          <DropdownMenuItem onClick={() => setEditOpen(true)}>
+            <Pencil className="size-3.5" /> Edit
+          </DropdownMenuItem>
+          {!isCurrentUser && (
+            <>
+              <DropdownMenuSeparator />
               <DropdownMenuItem onClick={() => setRoleOpen(true)}>
                 {isAdmin ? (
                   <><ShieldMinus className="size-3.5" /> Demote</>
@@ -84,19 +90,28 @@ export default function UserRow({
                   <><ShieldCheck className="size-3.5" /> Promote</>
                 )}
               </DropdownMenuItem>
-              <DropdownMenuSeparator />
               <DropdownMenuItem
                 variant="destructive"
                 onClick={() => setDeleteOpen(true)}
               >
                 <Trash2 className="size-3.5" /> Remove
               </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+            </>
+          )}
+        </DropdownMenuContent>
+      </DropdownMenu>
 
-          {/* Dialogs are rendered as siblings of the menu and opened
-              imperatively — Base UI unmounts menu contents on item click,
-              so a dialog nested inside the menu never mounts. */}
+      {/* Dialogs are rendered as siblings of the menu and opened
+          imperatively — Base UI unmounts menu contents on item click,
+          so a dialog nested inside the menu never mounts. */}
+      <EditUserDialog
+        user={user}
+        updateAction={updateAction}
+        open={editOpen}
+        onOpenChange={setEditOpen}
+      />
+      {!isCurrentUser && (
+        <>
           <ConfirmDialog
             open={roleOpen}
             onOpenChange={setRoleOpen}

@@ -168,6 +168,20 @@ export async function createUser(data: {
   `;
 }
 
+export async function updateUserProfile(
+  userId: string,
+  data: { name: string; passwordHash?: string }
+): Promise<void> {
+  if (data.passwordHash) {
+    await db()`
+      UPDATE users SET name = ${data.name}, password_hash = ${data.passwordHash}
+      WHERE id = ${userId}
+    `;
+  } else {
+    await db()`UPDATE users SET name = ${data.name} WHERE id = ${userId}`;
+  }
+}
+
 export async function setUserRole(userId: string, role: string): Promise<void> {
   await db()`
     UPDATE users SET role = ${role} WHERE id = ${userId}

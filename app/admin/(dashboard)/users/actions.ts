@@ -3,13 +3,25 @@
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
-import { createUser, setUserRole, deleteUser, countAdmins } from "@/lib/db";
+import {
+  createUser,
+  setUserRole,
+  deleteUser,
+  countAdmins,
+  updateUserProfile,
+} from "@/lib/db";
 import bcrypt from "bcryptjs";
 
 async function requireAdmin() {
   const session = await auth();
   if (!session) redirect("/admin/login");
   if (session.user.role !== "admin") redirect("/admin/blog");
+  return session;
+}
+
+async function requireSession() {
+  const session = await auth();
+  if (!session) redirect("/admin/login");
   return session;
 }
 
@@ -24,6 +36,28 @@ export async function createUserAction(formData: FormData) {
   await createUser({ name, email, passwordHash, role });
   revalidatePath("/admin/users");
   redirect("/admin/users");
+}
+
+export async function updateUserAction(userId: string, formData: FormData) {
+  const session = await requireSession();
+
+  // Allow admins to edit anyone; everyone else may only edit their own account.
+  const isSelf = session.user.id === userId;
+  if (session.user.role !== "admin" && !isSelf) {
+    return { error: "You do not have permission to edit this user." };
+  }
+
+  const name = String(formData.get("name") ?? "").trim();
+  const password = String(formData.get("password") ?? "");
+
+  if (!name) return { error: "Name is required." };
+  if (password && password.length < 8) {
+    return { error: "Password must be at least 8 characters." };
+  }
+
+  const passwordHash = password ? await bcrypt.hash(password, 12) : undefined;
+  await updateUserProfile(userId, { name, passwordHash });
+  revalidatePath("/admin/users");
 }
 
 export async function setUserRoleAction(userId: string, role: string) {
