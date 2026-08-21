@@ -138,11 +138,11 @@ export default function SeriesClient() {
           className="mt-8 w-full rounded-2xl border border-border-brand bg-surface p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
         >
           <div>
-            <span className="text-teal text-xs font-semibold uppercase tracking-widest">
+            {/* <span className="text-teal text-xs font-semibold uppercase tracking-widest">
               Up Next
-            </span>
+            </span> */}
             <h3 className="mt-1 font-bold text-navy text-lg">
-              From Law2Tech Conversations — Aug 20, 2026
+              From Law2Tech Conversations
             </h3>
             <p className="mt-1 text-muted-brand text-sm">
               Join us live on LinkedIn. Set a reminder so you don&apos;t miss
