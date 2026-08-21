@@ -24,6 +24,7 @@ miniSeries[5].title = "Lawexa";
 miniSeries[5].href =
   "https://www.linkedin.com/video/event/urn:li:ugcPost:7481685800481431552";
 
+miniSeries[6].title = "Case Rader";
 miniSeries[6].href =
   "https://www.linkedin.com/video/event/urn:li:ugcPost:7488884253838106626";
 
