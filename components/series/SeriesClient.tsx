@@ -20,8 +20,9 @@ const miniSeries = Array.from({ length: 8 }, (_, i) => ({
   href: undefined as string | undefined,
 }));
 
+miniSeries[6].title = "Case Rader";
 miniSeries[6].href =
-  "https://www.linkedin.com/posts/lawxtech-legaltech-share-7490646769970774016-tEU5";
+  "https://www.linkedin.com/video/event/urn:li:ugcPost:7488884253838106626";
 
 miniSeries[7].href =
   "https://www.linkedin.com/video/event/urn:li:ugcPost:7492835892722659328";
