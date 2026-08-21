@@ -24,10 +24,10 @@ miniSeries[6].href =
   "https://www.linkedin.com/posts/lawxtech-legaltech-share-7490646769970774016-tEU5";
 
 miniSeries[7].href =
-  "https://www.linkedin.com/posts/law-x-tech_from-law2tech-conversations-are-back-activity-7492835895079772174-ocKS";
-
-const WEBINAR_REMINDER_URL =
   "https://www.linkedin.com/video/event/urn:li:ugcPost:7492835892722659328";
+
+// const WEBINAR_REMINDER_URL =
+//   "https://www.linkedin.com/video/event/urn:li:ugcPost:7492835892722659328";
 
 type TabKey = "main" | "mini";
 
@@ -130,7 +130,7 @@ export default function SeriesClient() {
         </motion.div>
       </AnimatePresence>
 
-      {active === "mini" && (
+      {/* {active === "mini" && (
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -142,7 +142,7 @@ export default function SeriesClient() {
               Up Next
             </span>
             <h3 className="mt-1 font-bold text-navy text-lg">
-              From Law2Tech Conversations — Aug 20, 2026
+              From Law2Tech Conversations
             </h3>
             <p className="mt-1 text-muted-brand text-sm">
               Join us live on LinkedIn. Set a reminder so you don&apos;t miss
@@ -158,7 +158,7 @@ export default function SeriesClient() {
             Set a Reminder <ArrowUpRight size={16} />
           </a>
         </motion.div>
-      )}
+      )} */}
     </div>
   );
 }
