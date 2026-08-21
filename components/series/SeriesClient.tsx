@@ -31,9 +31,6 @@ miniSeries[6].href =
 miniSeries[7].href =
   "https://www.linkedin.com/video/event/urn:li:ugcPost:7492835892722659328";
 
-// const WEBINAR_REMINDER_URL =
-//   "https://www.linkedin.com/video/event/urn:li:ugcPost:7492835892722659328";
-
 type TabKey = "main" | "mini";
 
 export default function SeriesClient() {
@@ -135,35 +132,6 @@ export default function SeriesClient() {
         </motion.div>
       </AnimatePresence>
 
-      {/* {active === "mini" && (
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="mt-8 w-full rounded-2xl border border-border-brand bg-surface p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
-        >
-          <div>
-            {/* <span className="text-teal text-xs font-semibold uppercase tracking-widest">
-              Up Next
-            </span> */}
-            <h3 className="mt-1 font-bold text-navy text-lg">
-              From Law2Tech Conversations
-            </h3>
-            <p className="mt-1 text-muted-brand text-sm">
-              Join us live on LinkedIn. Set a reminder so you don&apos;t miss
-              it.
-            </p>
-          </div>
-          <a
-            href={WEBINAR_REMINDER_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-teal text-white font-semibold rounded-lg hover:bg-teal-dark transition-colors text-sm shrink-0"
-          >
-            Set a Reminder <ArrowUpRight size={16} />
-          </a>
-        </motion.div>
-      )} */}
     </div>
   );
 }
