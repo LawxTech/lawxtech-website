@@ -13,17 +13,17 @@ const mainSeries = Array.from({ length: 8 }, (_, i) => ({
   href: undefined as string | undefined,
 }));
 
-const miniSeries = Array.from({ length: 7 }, (_, i) => ({
+const miniSeries = Array.from({ length: 8 }, (_, i) => ({
   id: i + 1,
   src: `/assets/series/Mini Series ${i + 1}.jpeg`,
   title: `Mini Series ${i + 1}`,
   href: undefined as string | undefined,
 }));
 
-miniSeries[5].href =
+miniSeries[6].href =
   "https://www.linkedin.com/posts/lawxtech-legaltech-share-7490646769970774016-tEU5";
 
-miniSeries[6].href =
+miniSeries[7].href =
   "https://www.linkedin.com/posts/law-x-tech_from-law2tech-conversations-are-back-activity-7492835895079772174-ocKS";
 
 const WEBINAR_REMINDER_URL =
