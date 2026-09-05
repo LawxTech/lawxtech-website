@@ -14,6 +14,7 @@ import {
 } from "framer-motion";
 import { slideInLeft, fadeIn, staggerContainer } from "@/lib/animations";
 import { Menu, X } from "lucide-react";
+import AnnouncementMarquee from "../home/AnnouncementMarquee";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -92,10 +93,8 @@ export default function Header() {
 
   const headerClassName = isHome
     ? "fixed top-0 left-0 right-0 z-50"
-    : `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-md border-b border-border-brand shadow-sm"
-          : "bg-white"
+    : `fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95! backdrop-blur-md ${
+        scrolled ? "border-b border-border-brand shadow-sm" : ""
       }`;
 
   const logoTextCls = isHome && lightText ? "text-white" : "text-navy";
@@ -113,6 +112,7 @@ export default function Header() {
   return (
     <>
       <motion.header className={headerClassName} style={headerMotionStyle}>
+        <AnnouncementMarquee />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 min-h-18 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <Image
