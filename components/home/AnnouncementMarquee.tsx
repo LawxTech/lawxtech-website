@@ -10,7 +10,7 @@ function MarqueeGroup({ hidden }: { hidden?: boolean }) {
       {Array.from({ length: 4 }).map((_, i) => (
         <span key={i} className="flex items-center">
           <span className="mx-6 text-sm font-semibold text-white whitespace-nowrap">
-            Save the date - Law x Tech Summit &amp; Awards - {SUMMIT_DATE_LABEL}
+            Law x Tech Summit &amp; Awards - {SUMMIT_DATE_LABEL}
             {!hidden && (
               <>
                 {" "}
