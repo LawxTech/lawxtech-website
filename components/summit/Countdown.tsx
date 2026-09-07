@@ -62,7 +62,7 @@ export default function Countdown({
           key={key}
           className="flex flex-col items-center bg-white/5 border border-white/10 rounded-2xl px-2 py-6 sm:px-8 sm:py-10"
         >
-          <span className="text-4xl sm:text-6xl lg:text-7xl font-bold text-teal tabular-nums">
+          <span className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white tabular-nums">
             {time
               ? key === "days"
                 ? time[key]
