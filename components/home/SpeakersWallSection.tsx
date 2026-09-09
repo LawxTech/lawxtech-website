@@ -12,6 +12,8 @@ const speakers = [
   { src: "/assets/speakers/speaker-4.jpeg", name: "Series 4" },
   { src: "/assets/speakers/speaker-5.jpeg", name: "Series 5" },
   { src: "/assets/speakers/speaker-6.jpeg", name: "Series 6" },
+  { src: "/assets/speakers/abiola-ogodo.jpeg", name: "Abiola Ogodo" },
+  { src: "/assets/speakers/samuel-fadahunsi.jpeg", name: "Samuel Fadahunsi" },
 ];
 
 export default function SpeakersWallSection() {
