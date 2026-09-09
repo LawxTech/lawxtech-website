@@ -13,7 +13,7 @@ const mainSeries = Array.from({ length: 8 }, (_, i) => ({
   href: undefined as string | undefined,
 }));
 
-const miniSeries = Array.from({ length: 8 }, (_, i) => ({
+const miniSeries = Array.from({ length: 9 }, (_, i) => ({
   id: i + 1,
   src: `/assets/series/Mini Series ${i + 1}.jpeg`,
   title: `Mini Series ${i + 1}`,
@@ -30,6 +30,10 @@ miniSeries[6].href =
 
 miniSeries[7].href =
   "https://www.linkedin.com/video/event/urn:li:ugcPost:7492835892722659328";
+
+miniSeries[8].title = "Legaltech Product Demo";
+miniSeries[8].href =
+  "https://www.linkedin.com/events/legaltechproductdemo7502741357711564800";
 
 type TabKey = "main" | "mini";
 
