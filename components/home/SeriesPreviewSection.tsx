@@ -8,19 +8,19 @@ import { ArrowRight } from "lucide-react";
 
 const featured = [
   {
-    src: "/assets/series/LxT Series 1.jpeg",
-    title: "Law x Tech Series 1",
-    number: "01",
+    src: "/assets/series/Mini Series 9.jpeg",
+    title: "Legaltech Product Demo",
+    number: "09",
   },
   {
-    src: "/assets/series/LxT Series 2.jpeg",
-    title: "Law x Tech Series 2",
-    number: "02",
+    src: "/assets/series/Mini Series 8.jpeg",
+    title: "Mini Series 8",
+    number: "08",
   },
   {
-    src: "/assets/series/LxT Series 3.jpeg",
-    title: "Law x Tech Series 3",
-    number: "03",
+    src: "/assets/series/Mini Series 7.jpeg",
+    title: "Case Rader",
+    number: "07",
   },
 ];
 
@@ -40,7 +40,7 @@ export default function SeriesPreviewSection() {
               The Series
             </span>
             <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-navy tracking-tight">
-              Featured Episodes
+              Featured Mini Series
             </h2>
           </div>
           <Link
@@ -72,7 +72,7 @@ export default function SeriesPreviewSection() {
             <div className="absolute inset-0 bg-linear-to-t from-navy/80 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <span className="text-teal font-bold text-xs uppercase tracking-widest">
-                Episode {featured[0].number}
+                Mini Series {featured[0].number}
               </span>
               <h3 className="text-white font-bold text-xl mt-1">
                 {featured[0].title}
@@ -97,7 +97,7 @@ export default function SeriesPreviewSection() {
                 <div className="absolute inset-0 bg-linear-to-t from-navy/80 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <span className="text-teal font-bold text-xs uppercase tracking-widest">
-                    Episode {item.number}
+                    Mini Series {item.number}
                   </span>
                   <h3 className="text-white font-bold text-base mt-0.5">
                     {item.title}
