@@ -9,6 +9,7 @@ import {
   slideUp,
 } from "@/lib/animations";
 import Countdown from "@/components/summit/Countdown";
+import { SUMMIT_DATE_LABEL } from "@/lib/constants";
 
 export default function SummitBanner() {
   return (
@@ -97,7 +98,7 @@ export default function SummitBanner() {
               variants={slideUp}
               className="block text-xs font-semibold uppercase tracking-[0.2em] text-white/60 mb-4"
             >
-              November 2026
+              {SUMMIT_DATE_LABEL}
             </motion.span>
 
             {/* Title */}
@@ -152,7 +153,10 @@ export default function SummitBanner() {
           </div>
 
           {/* Countdown */}
-          <motion.div variants={slideInRight} className="w-full lg:w-auto lg:shrink-0">
+          <motion.div
+            variants={slideInRight}
+            className="w-full lg:w-auto lg:shrink-0"
+          >
             <Countdown />
           </motion.div>
         </motion.div>

@@ -4,38 +4,82 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { slideUp, staggerContainer, scaleIn } from "@/lib/animations";
 
-const coreTeam = [
+const team = [
   {
     name: "Sopuruchi Rufus",
     role: "Founder",
-    image: "sopuruchi-new.jpeg",
+    image: "sopuruchi-rufus.jpg",
     dir: "members",
   },
   {
-    name: "Madubugwu Ozioma",
-    role: "Graphics & Creative Lead",
-    image: "Madubugwu Ozioma, Graphics & Creative Lead.png",
+    name: "Mofe",
+    role: "Partnerships Facilitator",
+    image: "mofe.jpg",
     dir: "members",
   },
   {
     name: "Victoria Sogade",
-    role: "Communications & Social Media Lead",
-    image: "Victoria Sogade, Communications & Social Media Lead.jpeg",
+    role: "Projects Manager",
+    image: "victoria-sogade.jpg",
     dir: "members",
   },
   {
-    name: "Chidimma M. Chukwuani",
-    role: "Partnerships & Outreach Lead",
-    image: "Chidimma M. Chukwuani, Partnerships & Outreach Lead.jpeg",
+    name: "Joel Akhonani",
+    role: "Projects Manager II",
+    image: "joel-akhonani.jpg",
+    dir: "members",
+  },
+  {
+    name: "Chidimma Chukwuani",
+    role: "Creative Director",
+    image: "chidimma-chukwuani.jpg",
+    dir: "members",
+  },
+  {
+    name: "Joy Shehu",
+    role: "Social Media Manager",
+    image: "joy-shehu.jpg",
     dir: "members",
   },
   {
     name: "Favour Babatunde",
-    role: "Projects Coordinator",
-    image: "Favour Babatunde, Projects Coordinator.jpeg",
+    role: "Community Manager",
+    image: "favour-babatunde.jpg",
+    dir: "members",
+  },
+  {
+    name: "Matthew Onuchukwu",
+    role: "Brand Designer",
+    image: "matthew-onuchukwu.jpg",
+    dir: "members",
+  },
+  {
+    name: "Madubugwu Ozioma",
+    role: "Volunteer",
+    image: "madubugwu-ozioma.jpg",
     dir: "members",
   },
 ];
+
+function PlaceholderAvatar() {
+  return (
+    <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl border-2 border-dashed border-teal/40 bg-teal/5 flex items-center justify-center group-hover:border-teal group-hover:bg-teal/10 transition-all duration-300">
+      <svg
+        className="w-12 h-12 text-teal/40 group-hover:text-teal/60 transition-colors duration-300"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+        />
+      </svg>
+    </div>
+  );
+}
 
 export default function TeamGrid() {
   return (
@@ -65,25 +109,33 @@ export default function TeamGrid() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center"
+          className="max-w-4xl mx-auto flex flex-wrap justify-center gap-6 gap-y-10"
         >
-          {coreTeam.map((member) => (
+          {team.map((member, index) => (
             <motion.div
               key={member.name}
               variants={scaleIn}
-              className="group flex flex-col items-center text-center"
+              className={`group flex flex-col items-center text-center basis-[calc(50%-0.75rem)] sm:basis-[calc(33.333%-1rem)] lg:basis-[calc(20%-1.2rem)] ${
+                index >= 5 ? "lg:mx-4" : ""
+              }`}
             >
-              <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border-2 border-transparent group-hover:border-teal transition-all duration-300 group-hover:shadow-lg">
-                <Image
-                  src={`/assets/${member.dir}/${member.image}`}
-                  alt={member.name}
-                  fill
-                  sizes="144px"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+              {member.image ? (
+                <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border-2 border-transparent group-hover:border-teal transition-all duration-300 group-hover:shadow-lg">
+                  <Image
+                    src={`/assets/${member.dir}/${member.image}`}
+                    alt={member.name}
+                    fill
+                    sizes="(min-width: 640px) 144px, 112px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              ) : (
+                <PlaceholderAvatar />
+              )}
               <div className="mt-4">
-                <p className="font-bold text-navy text-sm">{member.name}</p>
+                <p className="font-bold text-navy text-[13.6px] ">
+                  {member.name}
+                </p>
                 <p className="text-muted-brand text-xs mt-0.5">{member.role}</p>
               </div>
             </motion.div>
