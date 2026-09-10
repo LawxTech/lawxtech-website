@@ -8,58 +8,55 @@ const team = [
   {
     name: "Sopuruchi Rufus",
     role: "Founder",
-    image: "sopuruchi-new.jpeg",
+    image: "sopuruchi-rufus.jpg",
     dir: "members",
   },
   {
-    name: "Favour Babatunde",
-    role: "Community Manager",
-    image: "Favour Babatunde, Projects Coordinator.jpeg",
+    name: "Mofe",
+    role: "Partnerships Facilitator",
+    image: "mofe.jpg",
     dir: "members",
   },
   {
     name: "Victoria Sogade",
     role: "Projects Manager",
-    image: "Victoria Sogade, Communications & Social Media Lead.jpeg",
+    image: "victoria-sogade.jpg",
     dir: "members",
   },
   {
     name: "Joel Akhonani",
     role: "Projects Manager II",
-    image: "Joel Akhonani, Projects Manager II.jpeg",
+    image: "joel-akhonani.jpg",
     dir: "members",
   },
   {
     name: "Chidimma Chukwuani",
     role: "Creative Director",
-    image: "Chidimma M. Chukwuani, Partnerships & Outreach Lead.jpeg",
+    image: "chidimma-chukwuani.jpg",
     dir: "members",
   },
-
   {
     name: "Joy Shehu",
     role: "Social Media Manager",
     image: "",
     dir: "members",
   },
-
   {
-    name: "Mofe",
-    role: "Partnerships Facilitator",
-    image: "Mofe, Partnerships Facilitator.jpeg",
+    name: "Favour Babatunde",
+    role: "Community Manager",
+    image: "favour-babatunde.jpg",
     dir: "members",
   },
-
   {
     name: "Matthew Onuchukwu",
     role: "Brand Designer",
-    image: "Matthew Onuchukwu, Brand Designer.jpeg",
+    image: "matthew-onuchukwu.jpg",
     dir: "members",
   },
   {
     name: "Madubugwu Ozioma",
     role: "Volunteer",
-    image: "Madubugwu Ozioma, Graphics & Creative Lead.png",
+    image: "madubugwu-ozioma.jpg",
     dir: "members",
   },
 ];
@@ -128,7 +125,7 @@ export default function TeamGrid() {
                     src={`/assets/${member.dir}/${member.image}`}
                     alt={member.name}
                     fill
-                    sizes="144px"
+                    sizes="(min-width: 640px) 144px, 112px"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
