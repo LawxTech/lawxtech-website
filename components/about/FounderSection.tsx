@@ -22,9 +22,7 @@ export default function FounderSection() {
             <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-navy tracking-tight">
               Sopuruchi Rufus
             </h2>
-            <p className="mt-1 text-muted-brand font-medium">
-              Founder & Project Coordinator
-            </p>
+            <p className="mt-1 text-muted-brand font-medium">Founder</p>
 
             <div className="mt-8 space-y-4">
               <p className="text-[#374151] text-sm leading-relaxed">

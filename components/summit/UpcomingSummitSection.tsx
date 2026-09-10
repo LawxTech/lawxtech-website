@@ -46,9 +46,8 @@ export default function UpcomingSummitSection() {
               </h3>
               <p className="text-white/70 text-base leading-relaxed mb-8">
                 Africa&apos;s premier gathering for lawyers and technologists
-                returns on {SUMMIT_DATE_LABEL}. Join us in Lagos for
-                keynotes, panels, and the industry&apos;s biggest awards
-                night.
+                returns on {SUMMIT_DATE_LABEL}. Join us in Lagos for keynotes,
+                panels, and the industry&apos;s biggest awards night.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -58,7 +57,7 @@ export default function UpcomingSummitSection() {
                 </div>
                 <div className="flex items-center gap-2 text-white/60 text-sm">
                   <MapPin size={16} className="text-teal shrink-0" />
-                  <span>Lagos, Nigeria</span>
+                  <span>The Zone, Lagos</span>
                 </div>
               </div>
 
