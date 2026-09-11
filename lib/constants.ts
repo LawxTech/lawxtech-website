@@ -1,6 +1,7 @@
 export const SUMMIT_DATE_ISO = "2026-11-28T09:00:00+01:00";
 export const SUMMIT_DATE = new Date(SUMMIT_DATE_ISO);
 export const SUMMIT_DATE_LABEL = "November 28, 2026";
+export const SUMMIT_TIME_LABEL = "9:00 AM WAT";
 
 export const MINI_SERIES_9_DATE_ISO = "2026-09-24T16:00:00+01:00";
 export const MINI_SERIES_9_DATE = new Date(MINI_SERIES_9_DATE_ISO);
