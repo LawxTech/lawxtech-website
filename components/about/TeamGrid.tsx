@@ -12,7 +12,7 @@ const team = [
     dir: "members",
   },
   {
-    name: "Mofe",
+    name: "Mofehintoluwa Agbonyin",
     role: "Partnerships Facilitator",
     image: "mofe.jpg",
     dir: "members",
