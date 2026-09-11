@@ -9,7 +9,7 @@ import {
   slideUp,
 } from "@/lib/animations";
 import Countdown from "@/components/summit/Countdown";
-import { SUMMIT_DATE_LABEL } from "@/lib/constants";
+import { SUMMIT_DATE_LABEL, SUMMIT_TIME_LABEL } from "@/lib/constants";
 
 export default function SummitBanner() {
   return (
@@ -123,9 +123,9 @@ export default function SummitBanner() {
               variants={slideUp}
               className="mt-2 text-white/50 text-sm flex flex-wrap items-center gap-x-2"
             >
-              <span>Lagos, Nigeria</span>
+              <span>The Zone, Lagos</span>
               <span className="opacity-40">·</span>
-              <span>October / November 2026</span>
+              <span>{SUMMIT_TIME_LABEL}</span>
               <span className="opacity-40">·</span>
               <span>Hybrid — Physical + Livestream</span>
             </motion.p>
