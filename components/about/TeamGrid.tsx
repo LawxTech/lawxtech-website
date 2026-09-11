@@ -4,20 +4,61 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { slideUp, staggerContainer, scaleIn } from "@/lib/animations";
 
-const coreTeam = [
+const team = [
   {
     name: "Sopuruchi Rufus",
     role: "Founder",
-    image: "sopuruchi-new.jpeg",
+    image: "sopuruchi-rufus.jpg",
     dir: "members",
   },
-];
-
-const volunteerRoles = [
-  "Graphics & Creative Lead",
-  "Communications & Social Media Lead",
-  "Partnerships & Outreach Lead",
-  "Projects Coordinator",
+  {
+    name: "Mofe",
+    role: "Partnerships Facilitator",
+    image: "mofe.jpg",
+    dir: "members",
+  },
+  {
+    name: "Victoria Sogade",
+    role: "Projects Manager",
+    image: "victoria-sogade.jpg",
+    dir: "members",
+  },
+  {
+    name: "Joel Akhonani",
+    role: "Projects Manager II",
+    image: "joel-akhonani.jpg",
+    dir: "members",
+  },
+  {
+    name: "Chidimma Chukwuani",
+    role: "Creative Director",
+    image: "chidimma-chukwuani.jpg",
+    dir: "members",
+  },
+  {
+    name: "Joy Shehu",
+    role: "Social Media Manager",
+    image: "joy-shehu.jpg",
+    dir: "members",
+  },
+  {
+    name: "Favour Babatunde",
+    role: "Community Manager",
+    image: "favour-babatunde.jpg",
+    dir: "members",
+  },
+  {
+    name: "Matthew Onuchukwu",
+    role: "Brand Designer",
+    image: "matthew-onuchukwu.jpg",
+    dir: "members",
+  },
+  {
+    name: "Madubugwu Ozioma",
+    role: "Volunteer",
+    image: "madubugwu-ozioma.jpg",
+    dir: "members",
+  },
 ];
 
 function PlaceholderAvatar() {
@@ -68,40 +109,34 @@ export default function TeamGrid() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center"
+          className="max-w-4xl mx-auto flex flex-wrap justify-center gap-6 gap-y-10"
         >
-          {coreTeam.map((member) => (
+          {team.map((member, index) => (
             <motion.div
               key={member.name}
               variants={scaleIn}
-              className="group flex flex-col items-center text-center"
+              className={`group flex flex-col items-center text-center basis-[calc(50%-0.75rem)] sm:basis-[calc(33.333%-1rem)] lg:basis-[calc(20%-1.2rem)] ${
+                index >= 5 ? "lg:mx-4" : ""
+              }`}
             >
-              <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border-2 border-transparent group-hover:border-teal transition-all duration-300 group-hover:shadow-lg">
-                <Image
-                  src={`/assets/${member.dir}/${member.image}`}
-                  alt={member.name}
-                  fill
-                  sizes="144px"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+              {member.image ? (
+                <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border-2 border-transparent group-hover:border-teal transition-all duration-300 group-hover:shadow-lg">
+                  <Image
+                    src={`/assets/${member.dir}/${member.image}`}
+                    alt={member.name}
+                    fill
+                    sizes="(min-width: 640px) 144px, 112px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              ) : (
+                <PlaceholderAvatar />
+              )}
               <div className="mt-4">
-                <p className="font-bold text-navy text-sm">{member.name}</p>
+                <p className="font-bold text-navy text-[13.6px] ">
+                  {member.name}
+                </p>
                 <p className="text-muted-brand text-xs mt-0.5">{member.role}</p>
-              </div>
-            </motion.div>
-          ))}
-
-          {volunteerRoles.map((role) => (
-            <motion.div
-              key={role}
-              variants={scaleIn}
-              className="group flex flex-col items-center text-center"
-            >
-              <PlaceholderAvatar />
-              <div className="mt-4">
-                <p className="font-bold text-navy text-sm">Coming Soon</p>
-                <p className="text-muted-brand text-xs mt-0.5">{role}</p>
               </div>
             </motion.div>
           ))}

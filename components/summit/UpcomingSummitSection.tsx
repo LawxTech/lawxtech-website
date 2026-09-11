@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { fadeIn, slideInLeft } from "@/lib/animations";
 import { CalendarDays, MapPin, Mail } from "lucide-react";
+import { SUMMIT_DATE_LABEL } from "@/lib/constants";
+import Countdown from "./Countdown";
 
 export default function UpcomingSummitSection() {
   return (
@@ -34,7 +36,7 @@ export default function UpcomingSummitSection() {
             <div className="lg:col-span-3 p-10 lg:p-14">
               <div className="flex items-center gap-3 mb-6">
                 <span className="px-3 py-1 bg-teal text-white text-xs font-bold rounded-full uppercase tracking-wider">
-                  Coming Soon
+                  Save the Date
                 </span>
                 {/* <span className="text-white/50 text-sm">Law x Tech Summit 3</span> */}
               </div>
@@ -43,20 +45,19 @@ export default function UpcomingSummitSection() {
                 The Law x Tech Summit & Awards
               </h3>
               <p className="text-white/70 text-base leading-relaxed mb-8">
-                The maiden edition of Africa&apos;s premier gathering for
-                lawyers and technologists is being planned. Stay close,
-                we&apos;ll announce the date, theme, speakers, and award
-                categories soon.
+                Africa&apos;s premier gathering for lawyers and technologists
+                returns on {SUMMIT_DATE_LABEL}. Join us in Lagos for keynotes,
+                panels, and the industry&apos;s biggest awards night.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
                 <div className="flex items-center gap-2 text-white/60 text-sm">
                   <CalendarDays size={16} className="text-teal shrink-0" />
-                  <span>Date to be announced</span>
+                  <span>{SUMMIT_DATE_LABEL}</span>
                 </div>
                 <div className="flex items-center gap-2 text-white/60 text-sm">
                   <MapPin size={16} className="text-teal shrink-0" />
-                  <span>Lagos, Nigeria</span>
+                  <span>The Zone, Lagos</span>
                 </div>
               </div>
 
@@ -98,6 +99,13 @@ export default function UpcomingSummitSection() {
                 </a>
               </div>
             </div>
+          </div>
+
+          <div className="border-t border-white/10 px-10 py-10 lg:px-14 lg:py-12">
+            <p className="text-white/40 text-xs uppercase tracking-widest mb-6 text-center">
+              Counting Down To The Summit
+            </p>
+            <Countdown />
           </div>
         </motion.div>
       </div>

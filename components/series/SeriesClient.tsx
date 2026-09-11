@@ -1,10 +1,13 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { slideUp, staggerContainer, scaleIn } from "@/lib/animations";
 import { ArrowUpRight } from "lucide-react";
+import { getTimeRemaining } from "@/lib/countdown";
+import { MINI_SERIES_9_DATE, MINI_SERIES_9_DATE_LABEL } from "@/lib/constants";
 
 const mainSeries = Array.from({ length: 8 }, (_, i) => ({
   id: i + 1,
@@ -13,7 +16,7 @@ const mainSeries = Array.from({ length: 8 }, (_, i) => ({
   href: undefined as string | undefined,
 }));
 
-const miniSeries = Array.from({ length: 8 }, (_, i) => ({
+const miniSeries = Array.from({ length: 9 }, (_, i) => ({
   id: i + 1,
   src: `/assets/series/Mini Series ${i + 1}.jpeg`,
   title: `Mini Series ${i + 1}`,
@@ -31,11 +34,22 @@ miniSeries[6].href =
 miniSeries[7].href =
   "https://www.linkedin.com/video/event/urn:li:ugcPost:7492835892722659328";
 
+miniSeries[8].title = "Legaltech Product Demo";
+miniSeries[8].href =
+  "https://www.linkedin.com/events/legaltechproductdemo7502741357711564800";
+
 type TabKey = "main" | "mini";
 
 export default function SeriesClient() {
   const [active, setActive] = useState<TabKey>("main");
-  const items = active === "main" ? mainSeries : miniSeries;
+  const [reminderPast, setReminderPast] = useState<boolean | null>(null);
+  const items = (active === "main" ? mainSeries : miniSeries)
+    .slice()
+    .reverse();
+
+  useEffect(() => {
+    setReminderPast(getTimeRemaining(MINI_SERIES_9_DATE).isPast);
+  }, []);
 
   return (
     <div>
@@ -132,6 +146,35 @@ export default function SeriesClient() {
         </motion.div>
       </AnimatePresence>
 
+      {active === "mini" && reminderPast === false && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="mt-8 w-full rounded-2xl border border-border-brand bg-surface p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+        >
+          <div>
+            <span className="text-teal text-xs font-semibold uppercase tracking-widest">
+              Up Next
+            </span>
+            <h3 className="mt-1 font-bold text-navy text-lg">
+              Legaltech Product Demo featuring ModulawAI
+            </h3>
+            <p className="mt-1 text-muted-brand text-sm">
+              Join us live on LinkedIn — {MINI_SERIES_9_DATE_LABEL}. Set a
+              reminder so you don&apos;t miss it.
+            </p>
+          </div>
+          <a
+            href={miniSeries[8].href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-teal text-white font-semibold rounded-lg hover:bg-teal-dark transition-colors text-sm shrink-0"
+          >
+            Set a Reminder <ArrowUpRight size={16} />
+          </a>
+        </motion.div>
+      )}
     </div>
   );
 }

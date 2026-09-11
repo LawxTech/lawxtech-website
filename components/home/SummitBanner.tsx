@@ -8,6 +8,8 @@ import {
   staggerContainer,
   slideUp,
 } from "@/lib/animations";
+import Countdown from "@/components/summit/Countdown";
+import { SUMMIT_DATE_LABEL } from "@/lib/constants";
 
 export default function SummitBanner() {
   return (
@@ -88,64 +90,74 @@ export default function SummitBanner() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="max-w-2xl"
+          className="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16"
         >
-          {/* Label */}
-          <motion.span
-            variants={slideUp}
-            className="block text-xs font-semibold uppercase tracking-[0.2em] text-white/60 mb-4"
-          >
-            Coming 2026
-          </motion.span>
+          <div className="max-w-2xl">
+            {/* Label */}
+            <motion.span
+              variants={slideUp}
+              className="block text-xs font-semibold uppercase tracking-[0.2em] text-white/60 mb-4"
+            >
+              {SUMMIT_DATE_LABEL}
+            </motion.span>
 
-          {/* Title */}
-          <motion.h2
-            variants={slideInLeft}
-            className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight"
-            // style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}
-          >
-            Law x Tech Summit & Awards 2026
-          </motion.h2>
+            {/* Title */}
+            <motion.h2
+              variants={slideInLeft}
+              className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight"
+              // style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}
+            >
+              Law x Tech Summit & Awards 2026
+            </motion.h2>
 
-          {/* Subtitle */}
-          <motion.p
-            variants={slideUp}
-            className="mt-3 text-white/80 text-base font-medium"
-          >
-            The Annual Convergence of Law and Technology in Africa
-          </motion.p>
+            {/* Subtitle */}
+            <motion.p
+              variants={slideUp}
+              className="mt-3 text-white/80 text-base font-medium"
+            >
+              The Annual Convergence of Law and Technology in Africa
+            </motion.p>
 
-          {/* Meta */}
-          <motion.p
-            variants={slideUp}
-            className="mt-2 text-white/50 text-sm flex flex-wrap items-center gap-x-2"
-          >
-            <span>Lagos, Nigeria</span>
-            <span className="opacity-40">·</span>
-            <span>October / November 2026</span>
-            <span className="opacity-40">·</span>
-            <span>Hybrid — Physical + Livestream</span>
-          </motion.p>
+            {/* Meta */}
+            <motion.p
+              variants={slideUp}
+              className="mt-2 text-white/50 text-sm flex flex-wrap items-center gap-x-2"
+            >
+              <span>Lagos, Nigeria</span>
+              <span className="opacity-40">·</span>
+              <span>October / November 2026</span>
+              <span className="opacity-40">·</span>
+              <span>Hybrid — Physical + Livestream</span>
+            </motion.p>
 
-          {/* CTAs */}
+            {/* CTAs */}
+            <motion.div
+              variants={slideInRight}
+              className="mt-8 flex flex-wrap gap-3"
+            >
+              <Link
+                href="https://luma.com/ftzpb2ki"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-6 py-3.5 bg-navy text-white text-sm font-semibold rounded-lg hover:bg-navy/80 transition-colors duration-200"
+              >
+                Register Interest
+              </Link>
+              <Link
+                href="mailto:info@lawxtech.org"
+                className="inline-flex items-center justify-center px-6 py-3.5 border border-white/40 text-white text-sm font-semibold rounded-lg hover:bg-white/10 hover:border-white/60 transition-all duration-200"
+              >
+                Become a Sponsor
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Countdown */}
           <motion.div
             variants={slideInRight}
-            className="mt-8 flex flex-wrap gap-3"
+            className="w-full lg:w-auto lg:shrink-0"
           >
-            <Link
-              href="https://luma.com/ftzpb2ki"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-3.5 bg-navy text-white text-sm font-semibold rounded-lg hover:bg-navy/80 transition-colors duration-200"
-            >
-              Register Interest
-            </Link>
-            <Link
-              href="mailto:info@lawxtech.org"
-              className="inline-flex items-center justify-center px-6 py-3.5 border border-white/40 text-white text-sm font-semibold rounded-lg hover:bg-white/10 hover:border-white/60 transition-all duration-200"
-            >
-              Become a Sponsor
-            </Link>
+            <Countdown />
           </motion.div>
         </motion.div>
       </div>
