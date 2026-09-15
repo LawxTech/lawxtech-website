@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { SUMMIT_TICKETS_URL } from "@/lib/constants";
 
 const pageLinks = [
   { href: "/", label: "Home" },
@@ -24,7 +25,7 @@ const getInvolvedLinks = [
     label: "Apply for Careers",
   },
   {
-    href: "https://luma.com/ftzpb2ki",
+    href: SUMMIT_TICKETS_URL,
     label: "Register for Summit",
   },
   {
