@@ -9,7 +9,11 @@ import {
   slideUp,
 } from "@/lib/animations";
 import Countdown from "@/components/summit/Countdown";
-import { SUMMIT_DATE_LABEL, SUMMIT_TIME_LABEL } from "@/lib/constants";
+import {
+  SUMMIT_DATE_LABEL,
+  SUMMIT_TICKETS_URL,
+  SUMMIT_TIME_LABEL,
+} from "@/lib/constants";
 
 export default function SummitBanner() {
   return (
@@ -136,12 +140,12 @@ export default function SummitBanner() {
               className="mt-8 flex flex-wrap gap-3"
             >
               <Link
-                href="https://luma.com/ftzpb2ki"
+                href={SUMMIT_TICKETS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-6 py-3.5 bg-navy text-white text-sm font-semibold rounded-lg hover:bg-navy/80 transition-colors duration-200"
               >
-                Register Interest
+                Grab Your Tickets
               </Link>
               <Link
                 href="mailto:info@lawxtech.org"
