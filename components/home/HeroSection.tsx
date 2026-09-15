@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { SUMMIT_TICKETS_URL } from "@/lib/constants";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -82,7 +83,7 @@ export default function HeroSection() {
           </Link>
 
           <Link
-            href="https://luma.com/ftzpb2ki"
+            href={SUMMIT_TICKETS_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors duration-200 backdrop-blur-sm"
