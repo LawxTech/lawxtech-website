@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { buildMetadata } from "@/lib/metadata";
 import UpcomingSummitSection from "@/components/summit/UpcomingSummitSection";
 import PastEditionsSection from "@/components/summit/PastEditionsSection";
@@ -45,12 +46,12 @@ export default function SummitAwardsPage() {
                 most engaged legal tech community. Reach decision-makers,
                 innovators, and the next generation of legal professionals.
               </p>
-              <a
-                href="mailto:info@lawxtech.org?subject=Summit Sponsorship Enquiry"
+              <Link
+                href="/sponsors"
                 className="inline-flex items-center px-6 py-3 bg-teal text-white font-semibold rounded-lg hover:bg-teal-dark transition-colors text-sm"
               >
-                Get in Touch
-              </a>
+                See Packages
+              </Link>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
               <h3 className="text-xl font-bold text-white mb-3">

@@ -3,15 +3,9 @@
 import { motion } from "framer-motion";
 import { staggerContainer, slideUp } from "@/lib/animations";
 import Counter from "@/components/common/Counter";
+import { sponsorStats } from "@/lib/data/sponsorship";
 
-const stats = [
-  { value: 5, label: "Mini Series", suffix: "" },
-  { value: 8, label: "Major Series", suffix: "" },
-  { value: 2000, label: "Community Members", suffix: "+" },
-  { value: 5, label: "Team Members", suffix: "+" },
-];
-
-export default function StatsStrip() {
+export default function SponsorStatsStrip() {
   return (
     <section className="bg-navy py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,7 +16,7 @@ export default function StatsStrip() {
           viewport={{ once: true, margin: "-80px" }}
           className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4"
         >
-          {stats.map((stat) => (
+          {sponsorStats.map((stat) => (
             <motion.div
               key={stat.label}
               variants={slideUp}
