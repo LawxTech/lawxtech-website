@@ -61,4 +61,19 @@ export const partners: Partner[] = [
     ctaUrl: "https://mypocketcounsel.com",
     tags: ["#LawxTech", "#ContractAutomation", "#LegalTech", "#AIandLaw"],
   },
+  {
+    slug: "keyedge-resource-consult",
+    name: "Keyedge Resource Consult",
+    logo: "/assets/partners/keyedge-resource-consult.png",
+    websiteUrl: "https://keyedgeresourceconsult.com",
+    tagline: "Your partner in corporate strategy achievement.",
+    body: [
+      "We're pleased to welcome Keyedge Resource Consult, a consulting firm working with individuals and organisations on growth, capacity, and long-term strategy.",
+      "Keyedge works across corporate strategy development, market analysis, operational efficiency, and digital transformation, alongside training in areas like communication skills and workplace productivity.",
+      "For the Law x Tech community, the partnership opens up practical support on the business side of legal practice, from building a firm's operating strategy to the professional development that sits behind it.",
+    ],
+    ctaLabel: "Visit Keyedge",
+    ctaUrl: "https://keyedgeresourceconsult.com",
+    tags: ["#LawxTech", "#CorporateStrategy", "#Consulting", "#ProfessionalDevelopment"],
+  },
 ];
