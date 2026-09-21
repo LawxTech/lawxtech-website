@@ -40,7 +40,7 @@ export default async function PartnerDetailPage({ params }: Props) {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <Link
           href="/partners"
-          className="inline-flex items-center gap-2 text-muted-brand hover:text-navy text-sm font-medium mb-8 transition-colors"
+          className="inline-flex items-center gap-2 text-muted-brand hover:text-navy text-sm font-medium my-8 transition-colors"
         >
           <ArrowLeft size={16} />
           Back to partners
