@@ -8,3 +8,10 @@ export const SUMMIT_TICKETS_URL =
 export const MINI_SERIES_9_DATE_ISO = "2026-09-24T16:00:00+01:00";
 export const MINI_SERIES_9_DATE = new Date(MINI_SERIES_9_DATE_ISO);
 export const MINI_SERIES_9_DATE_LABEL = "Thurs., Sep. 24, 2026 · 4:00 PM WAT";
+
+export const AWARDS_NOMINATION_URL = "https://forms.gle/qFve8enENc2Xq6Ur7";
+export const AWARDS_NOMINATION_DEADLINE_ISO = "2026-10-30T23:59:59+01:00";
+export const AWARDS_NOMINATION_DEADLINE = new Date(
+  AWARDS_NOMINATION_DEADLINE_ISO
+);
+export const AWARDS_NOMINATION_DEADLINE_LABEL = "30 October 2026";

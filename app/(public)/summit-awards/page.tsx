@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { buildMetadata } from "@/lib/metadata";
 import UpcomingSummitSection from "@/components/summit/UpcomingSummitSection";
+import AwardsNominationsSection from "@/components/summit/AwardsNominationsSection";
 import PastEditionsSection from "@/components/summit/PastEditionsSection";
 
 export const metadata = buildMetadata({
@@ -31,6 +32,7 @@ export default function SummitAwardsPage() {
       </section>
 
       <UpcomingSummitSection />
+      <AwardsNominationsSection />
       {/* <PastEditionsSection /> */}
 
       {/* Bottom CTA */}
