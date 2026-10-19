@@ -3,15 +3,24 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { Dialog } from "@base-ui/react/dialog";
 import { motion } from "framer-motion";
 import { fadeIn, slideInLeft, slideInRight } from "@/lib/animations";
-import { ArrowUpRight, CalendarClock, MapPin, Trophy } from "lucide-react";
+import {
+  ArrowUpRight,
+  CalendarClock,
+  MapPin,
+  Maximize2,
+  Trophy,
+} from "lucide-react";
 import { getTimeRemaining } from "@/lib/countdown";
 import {
   AWARDS_NOMINATION_DEADLINE,
   AWARDS_NOMINATION_DEADLINE_LABEL,
   AWARDS_NOMINATION_URL,
 } from "@/lib/constants";
+import { nominationsFlyer } from "./flyers";
+import FlyerLightbox from "./FlyerLightbox";
 
 const details = [
   {
@@ -25,6 +34,7 @@ const details = [
 
 export default function AwardsNominationsSection() {
   const [closed, setClosed] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     setClosed(getTimeRemaining(AWARDS_NOMINATION_DEADLINE).isPast);
@@ -64,14 +74,31 @@ export default function AwardsNominationsSection() {
                 Nominations are free
               </span>
             )}
-            <Image
-              src="/assets/summit/summit-awards-2026-nominations-open.jpeg"
-              alt={`Law x Tech Awards & Honours 2026 flyer: nominations are now open. Nominate a trailblazer, celebrate an innovator, honour an impact maker. Deadline ${AWARDS_NOMINATION_DEADLINE_LABEL}.`}
-              width={1200}
-              height={1600}
-              sizes="(min-width: 1024px) 384px, 90vw"
-              className="order-1 lg:order-2 w-full max-w-sm h-auto rounded-2xl shadow-2xl"
-            />
+            <FlyerLightbox
+              flyers={[nominationsFlyer]}
+              index={0}
+              onIndexChange={() => {}}
+              open={open}
+              onOpenChange={setOpen}
+            >
+              <Dialog.Trigger
+                aria-label="View nominations flyer full size"
+                className="group relative order-1 lg:order-2 block w-full max-w-sm overflow-hidden rounded-2xl shadow-2xl cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
+              >
+                <Image
+                  src={nominationsFlyer.src}
+                  alt={nominationsFlyer.alt}
+                  width={nominationsFlyer.width}
+                  height={nominationsFlyer.height}
+                  sizes="(min-width: 1024px) 384px, 90vw"
+                  className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+                <span className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-navy/80 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm">
+                  <Maximize2 size={12} />
+                  View full size
+                </span>
+              </Dialog.Trigger>
+            </FlyerLightbox>
           </motion.div>
 
           <motion.div
