@@ -8,6 +8,11 @@ import { ArrowRight } from "lucide-react";
 
 const featured = [
   {
+    src: "/assets/series/Mini Series 10.jpeg",
+    title: "MyPocketCounsel",
+    number: "10",
+  },
+  {
     src: "/assets/series/Mini Series 9.jpeg",
     title: "Legaltech Product Demo",
     number: "09",
@@ -16,11 +21,6 @@ const featured = [
     src: "/assets/series/Mini Series 8.jpeg",
     title: "Mini Series 8",
     number: "08",
-  },
-  {
-    src: "/assets/series/Mini Series 7.jpeg",
-    title: "Case Rader",
-    number: "07",
   },
 ];
 

@@ -9,11 +9,11 @@ const AUTOPLAY_MS = 5000;
 
 const flyers = [
   {
-    src: "/assets/events/summit-awards-2026-flyer.jpeg",
+    src: "/assets/summit/summit-awards-2026-flyer.jpeg",
     alt: "Law x Tech Summit & Awards 2026 flyer: Spotlighting Nigerian Legal Technology. 28 November 2026, 9am at The Zone, Plot 9, Gbagada Industrial Scheme, beside UPS, Gbagada-Oworonshoki Expressway, Lagos.",
   },
   {
-    src: "/assets/events/summit-awards-2026-location.jpeg",
+    src: "/assets/summit/summit-awards-2026-location.jpeg",
     alt: "Law x Tech Summit & Awards 2026 location confirmed: The Zone, Gbagada, Lagos. 28 November 2026.",
   },
 ];
