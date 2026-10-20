@@ -49,24 +49,42 @@ export default function FlyerLightbox({
       {children}
 
       <Dialog.Portal>
-        <Dialog.Backdrop className="fixed inset-0 z-[100] bg-black/80 transition-opacity duration-200 data-[starting-style]:opacity-0 data-[ending-style]:opacity-0" />
+        <Dialog.Backdrop className="fixed inset-0 z-100 bg-black/80 transition-opacity duration-200 data-starting-style:opacity-0 data-ending-style:opacity-0" />
+        {/* Fixed 4:5 frame (the shape of most flyers) so the controls never
+            move while an image loads or when stepping to a different shape. */}
         <Dialog.Popup
           onKeyDown={onKeyDown}
-          className="fixed left-1/2 top-1/2 z-[100] -translate-x-1/2 -translate-y-1/2 outline-none transition-all duration-200 data-[starting-style]:scale-95 data-[starting-style]:opacity-0 data-[ending-style]:scale-95 data-[ending-style]:opacity-0"
+          className="fixed left-1/2 top-1/2 z-100 aspect-4/5 w-[min(92vw,70vh)] -translate-x-1/2 -translate-y-1/2 outline-none transition-all duration-200 data-starting-style:scale-95 data-starting-style:opacity-0 data-ending-style:scale-95 data-ending-style:opacity-0"
         >
           <Dialog.Title className="sr-only">
             Law x Tech Summit & Awards 2026 flyer
             {count > 1 && ` ${index + 1} of ${count}`}
           </Dialog.Title>
           <Image
-            key={current.src}
+            key={current.src.src}
             src={current.src}
             alt={current.alt}
-            width={current.width}
-            height={current.height}
+            fill
+            placeholder="blur"
             sizes="(min-width: 768px) 70vh, 92vw"
-            className="block h-auto w-auto max-h-[88vh] max-w-[92vw] rounded-xl"
+            className="rounded-xl object-contain"
           />
+          {count > 1 &&
+            [index - 1, index + 1].map((i) => {
+              const flyer = flyers[(i + count) % count];
+              return (
+                <Image
+                  key={`preload-${flyer.src.src}`}
+                  src={flyer.src}
+                  alt=""
+                  aria-hidden
+                  fill
+                  loading="eager"
+                  sizes="(min-width: 768px) 70vh, 92vw"
+                  className="invisible"
+                />
+              );
+            })}
           <Dialog.Close
             aria-label="Close flyer"
             className="absolute top-3 right-3 inline-flex items-center justify-center rounded-full bg-white/90 p-2 text-navy shadow-lg hover:bg-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
