@@ -54,18 +54,19 @@ export default function FlyerCarousel() {
           >
             {flyers.map((flyer, i) => (
               <Dialog.Trigger
-                key={flyer.src}
+                key={flyer.src.src}
                 aria-label={`View flyer ${i + 1} of ${count} full size`}
                 aria-hidden={i !== index}
                 tabIndex={i === index ? 0 : -1}
-                className="group relative block w-full shrink-0 aspect-[4/5] cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-teal"
+                className="group relative block w-full shrink-0 aspect-4/5 cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-teal"
               >
                 <Image
                   src={flyer.src}
                   alt={flyer.alt}
                   fill
                   sizes="(min-width: 640px) 384px, 90vw"
-                  priority={i === 0}
+                  placeholder="blur"
+                  preload={i === 0}
                   className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 />
                 <span className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-navy/80 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm">
@@ -103,7 +104,7 @@ export default function FlyerCarousel() {
         <div className="mt-4 flex justify-center gap-2">
           {flyers.map((flyer, i) => (
             <button
-              key={flyer.src}
+              key={flyer.src.src}
               type="button"
               onClick={() => setIndex(i)}
               aria-label={`Show flyer ${i + 1}`}

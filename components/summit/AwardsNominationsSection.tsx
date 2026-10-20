@@ -88,8 +88,7 @@ export default function AwardsNominationsSection() {
                 <Image
                   src={nominationsFlyer.src}
                   alt={nominationsFlyer.alt}
-                  width={nominationsFlyer.width}
-                  height={nominationsFlyer.height}
+                  placeholder="blur"
                   sizes="(min-width: 1024px) 384px, 90vw"
                   className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
                 />
