@@ -9,6 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-montserrat);
   --font-serif: var(--font-playfair);
+  --font-display: var(--font-anton);
   --color-navy: var(--navy);
   --color-teal: var(--teal);
   --color-teal-dark: var(--teal-dark);
@@ -131,5 +132,41 @@
 @layer utilities {
   .animate-marquee {
     animation: marquee 140s linear infinite;
+  }
+}
+
+/* Speaker hero autoplay: fills a bar over one slide's duration. */
+@keyframes speaker-progress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@layer utilities {
+  .animate-speaker-progress {
+    animation: speaker-progress 6s linear forwards;
+  }
+}
+
+/* Summit countdown: drifts the halftone band through the day digits. */
+@keyframes halftone-drift {
+  from {
+    mask-position: 0% 50%;
+    -webkit-mask-position: 0% 50%;
+  }
+
+  to {
+    mask-position: 100% 50%;
+    -webkit-mask-position: 100% 50%;
+  }
+}
+
+@layer utilities {
+  .animate-halftone-drift {
+    animation: halftone-drift 9s ease-in-out infinite alternate;
   }
 }

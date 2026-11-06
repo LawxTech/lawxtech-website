@@ -20,8 +20,11 @@ const units: { key: keyof Omit<TimeRemaining, "isPast">; label: string }[] = [
 
 export default function Countdown({
   targetDate = SUMMIT_DATE,
+  variant = "default",
 }: {
   targetDate?: Date;
+  /** "compact" is a small inline row, sized to sit under hero CTAs. */
+  variant?: "default" | "compact";
 }) {
   const [time, setTime] = useState<TimeRemaining | null>(null);
 
@@ -32,6 +35,40 @@ export default function Countdown({
     }, 1000);
     return () => clearInterval(id);
   }, [targetDate]);
+
+  const value = (key: (typeof units)[number]["key"]) =>
+    time ? (key === "days" ? time[key] : formatTwoDigits(time[key])) : "--";
+
+  if (variant === "compact") {
+    if (time?.isPast) {
+      return (
+        <p className="text-sm font-semibold text-white">
+          The Law x Tech Summit &amp; Awards is happening today.
+        </p>
+      );
+    }
+    return (
+      <div
+        role="timer"
+        aria-label="Time until the summit"
+        className="grid grid-cols-4 gap-2 max-w-sm"
+      >
+        {units.map(({ key, label }) => (
+          <div
+            key={key}
+            className="flex flex-col items-center rounded-xl border border-white/10 bg-white/5 px-1 py-2.5 backdrop-blur-sm"
+          >
+            <span className="text-xl sm:text-2xl font-bold text-white tabular-nums leading-none">
+              {value(key)}
+            </span>
+            <span className="mt-1.5 text-[10px] uppercase tracking-widest text-white/55">
+              {label}
+            </span>
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   if (time?.isPast) {
     return (
@@ -63,11 +100,7 @@ export default function Countdown({
           className="flex flex-col items-center bg-white/5 border border-white/10 rounded-2xl px-2 py-6 sm:px-8 sm:py-10"
         >
           <span className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white tabular-nums">
-            {time
-              ? key === "days"
-                ? time[key]
-                : formatTwoDigits(time[key])
-              : "--"}
+            {value(key)}
           </span>
           <span className="mt-2 text-xs sm:text-sm uppercase tracking-widest text-white/60">
             {label}
