@@ -133,3 +133,20 @@
     animation: marquee 140s linear infinite;
   }
 }
+
+/* Speaker hero autoplay: fills a bar over one slide's duration. */
+@keyframes speaker-progress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@layer utilities {
+  .animate-speaker-progress {
+    animation: speaker-progress 6s linear forwards;
+  }
+}

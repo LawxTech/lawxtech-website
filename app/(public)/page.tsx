@@ -1,5 +1,7 @@
 import { buildMetadata } from "@/lib/metadata";
-import HeroSection from "@/components/home/HeroSection";
+// Restore HeroSection in place of SpeakerHighlightHero after the summit (28 Nov 2026).
+// import HeroSection from "@/components/home/HeroSection";
+import SpeakerHighlightHero from "@/components/home/SpeakerHighlightHero";
 import StatsStrip from "@/components/home/StatsStrip";
 import WhatWeDoSection from "@/components/home/WhatWeDoSection";
 import SeriesPreviewSection from "@/components/home/SeriesPreviewSection";
@@ -17,7 +19,7 @@ export const metadata = buildMetadata({
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
+      <SpeakerHighlightHero />
       <StatsStrip />
       <WhatWeDoSection />
       <SeriesPreviewSection />
