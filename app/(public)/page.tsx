@@ -6,7 +6,7 @@ import StatsStrip from "@/components/home/StatsStrip";
 import WhatWeDoSection from "@/components/home/WhatWeDoSection";
 import SeriesPreviewSection from "@/components/home/SeriesPreviewSection";
 import PartnersPreviewSection from "@/components/home/PartnersPreviewSection";
-import SummitBanner from "@/components/home/SummitBanner";
+import SummitCountdownSection from "@/components/summit/SummitCountdownSection";
 import CommunityVoicesSection from "@/components/home/CommunityVoicesSection";
 import SpeakersWallSection from "@/components/home/SpeakersWallSection";
 import JoinMovementSection from "@/components/home/JoinMovementSection";
@@ -24,7 +24,7 @@ export default function HomePage() {
       <WhatWeDoSection />
       <SeriesPreviewSection />
       <PartnersPreviewSection />
-      <SummitBanner />
+      <SummitCountdownSection />
       <CommunityVoicesSection />
       <SpeakersWallSection />
       <JoinMovementSection />
