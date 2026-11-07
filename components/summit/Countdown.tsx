@@ -23,8 +23,8 @@ export default function Countdown({
   variant = "default",
 }: {
   targetDate?: Date;
-  /** "compact" is a small inline row, sized to sit under hero CTAs. */
-  variant?: "default" | "compact";
+  /** "bar" is a single slim row, sized for the header announcement bar. */
+  variant?: "default" | "bar";
 }) {
   const [time, setTime] = useState<TimeRemaining | null>(null);
 
@@ -39,11 +39,11 @@ export default function Countdown({
   const value = (key: (typeof units)[number]["key"]) =>
     time ? (key === "days" ? time[key] : formatTwoDigits(time[key])) : "--";
 
-  if (variant === "compact") {
+  if (variant === "bar") {
     if (time?.isPast) {
       return (
         <p className="text-sm font-semibold text-white">
-          The Law x Tech Summit &amp; Awards is happening today.
+          Happening today
         </p>
       );
     }
@@ -51,20 +51,22 @@ export default function Countdown({
       <div
         role="timer"
         aria-label="Time until the summit"
-        className="grid grid-cols-4 gap-2 max-w-sm"
+        className="flex items-center gap-1 sm:gap-1.5"
       >
         {units.map(({ key, label }) => (
-          <div
+          <span
             key={key}
-            className="flex flex-col items-center rounded-xl border border-white/10 bg-white/5 px-1 py-2.5 backdrop-blur-sm"
+            className="inline-flex items-baseline gap-0.5 rounded-md bg-white/15 px-1.5 py-0.5 sm:px-2"
           >
-            <span className="text-xl sm:text-2xl font-bold text-white tabular-nums leading-none">
+            <span className="text-sm font-bold tabular-nums leading-tight">
               {value(key)}
             </span>
-            <span className="mt-1.5 text-[10px] uppercase tracking-widest text-white/55">
-              {label}
+            <span className="text-[10px] font-medium uppercase tracking-wide text-white/75">
+              {/* "D H M S" on phones, full words from sm up */}
+              {label[0]}
+              <span className="hidden sm:inline">{label.slice(1)}</span>
             </span>
-          </div>
+          </span>
         ))}
       </div>
     );

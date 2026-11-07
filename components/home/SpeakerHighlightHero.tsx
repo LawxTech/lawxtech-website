@@ -14,20 +14,20 @@ import Link from "next/link";
 import { Dialog } from "@base-ui/react/dialog";
 import { AnimatePresence, motion, type PanInfo } from "framer-motion";
 import {
-  ArrowRight,
   ChevronLeft,
   ChevronRight,
   Maximize2,
   RotateCw,
   Ticket,
 } from "lucide-react";
-import Countdown from "@/components/summit/Countdown";
 import FlyerLightbox from "@/components/summit/FlyerLightbox";
 import { summitSpeakers as speakers } from "@/components/summit/speakers";
 import {
   SUMMIT_DATE_LABEL,
   SUMMIT_TICKETS_URL,
   SUMMIT_TIME_LABEL,
+  SUMMIT_VENUE_LABEL,
+  SUMMIT_VENUE_MAPS_URL,
 } from "@/lib/constants";
 import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 
@@ -194,8 +194,9 @@ export default function SpeakerHighlightHero() {
               </span>
               Summit &amp; Awards 2026
             </span>
-            <h1 className="mt-5 text-[34px] font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
-              Meet the <span className="text-[#5eead4]">speakers</span>
+            <h1 className="mt-5 text-5xl font-bold leading-[0.98] tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-8xl">
+              Meet the
+              <span className="block text-[#5eead4]">speakers</span>
             </h1>
             <p className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-white/70 sm:text-base">
               <span>{SUMMIT_DATE_LABEL}</span>
@@ -206,7 +207,15 @@ export default function SpeakerHighlightHero() {
               <span aria-hidden className="text-white/30">
                 ·
               </span>
-              <span>The Zone, Gbagada, Lagos</span>
+              <a
+                href={SUMMIT_VENUE_MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${SUMMIT_VENUE_LABEL} (opens in Google Maps)`}
+                className="rounded-sm transition-colors hover:text-[#5eead4] focus-visible:text-[#5eead4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+              >
+                {SUMMIT_VENUE_LABEL}
+              </a>
             </p>
           </motion.div>
 
@@ -364,7 +373,7 @@ export default function SpeakerHighlightHero() {
             </div>
           </motion.div>
 
-          {/* C — active speaker, actions, countdown, picker */}
+          {/* C — active speaker, actions, picker */}
           <motion.div
             custom={0.25}
             variants={fadeUp}
@@ -401,84 +410,55 @@ export default function SpeakerHighlightHero() {
               {`Speaker ${index + 1} of ${count}: ${speaker.name}, ${speaker.role}, ${speaker.org}.${flipped ? " Showing bio." : ""}`}
             </p>
 
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 href={SUMMIT_TICKETS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-teal px-6 py-3 font-semibold text-white transition-colors duration-200 hover:bg-teal-dark sm:w-auto"
+                className="inline-flex min-h-14 w-full items-center justify-center gap-2.5 rounded-xl bg-teal px-9 py-4 text-lg font-bold text-white shadow-[0_12px_40px_-10px_rgba(45,212,191,0.7)] transition-[background-color,box-shadow] duration-200 hover:bg-teal-dark hover:shadow-[0_14px_44px_-8px_rgba(45,212,191,0.85)] sm:w-auto"
               >
-                <Ticket size={18} />
+                <Ticket size={21} />
                 Get Tickets
               </Link>
               <button
                 type="button"
                 onClick={() => setFlipped((f) => !f)}
                 aria-pressed={flipped}
-                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg border border-white/20 px-6 py-3 font-semibold text-white backdrop-blur-sm transition-colors duration-200 hover:bg-white/10 sm:w-auto"
+                className="inline-flex min-h-14 w-full items-center justify-center gap-2.5 rounded-xl border border-white/25 px-8 py-4 text-lg font-semibold text-white backdrop-blur-sm transition-colors duration-200 hover:bg-white/10 sm:w-auto"
               >
                 <RotateCw
-                  size={16}
+                  size={19}
                   className={`transition-transform duration-500 ${flipped ? "rotate-180" : ""}`}
                 />
                 {flipped ? "Back to spotlight" : "Read bio"}
               </button>
             </div>
-            <Link
-              href="/summit-awards"
-              className="group mt-4 inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-white/75 transition-colors hover:text-white"
-            >
-              Summit details
-              <ArrowRight
-                size={15}
-                className="transition-transform group-hover:translate-x-0.5"
-              />
-            </Link>
-
-            <div className="mt-6">
-              <Countdown variant="compact" />
-            </div>
-
             {/* Speaker picker */}
             <div
               role="group"
               aria-label="Choose a speaker"
-              className="mt-7 flex gap-3"
+              className="mt-5 flex gap-2"
             >
               {speakers.map((s, i) => {
                 const active = i === index;
                 return (
-                  <div
+                  // The bar is the control; the button's height gives it a
+                  // comfortable tap target around the thin track.
+                  <button
                     key={s.slug}
-                    className="flex flex-col items-center gap-2"
+                    type="button"
+                    onClick={() => show(i)}
+                    aria-label={`Show ${s.name}`}
+                    aria-pressed={active}
+                    className="group flex h-11 w-12 items-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal sm:w-14"
                   >
-                    <button
-                      type="button"
-                      onClick={() => show(i)}
-                      aria-label={`Show ${s.name}`}
-                      aria-pressed={active}
-                      className={`relative size-11 overflow-hidden rounded-full ring-2 ring-offset-2 ring-offset-[#030d1a] transition-all duration-300 focus-visible:outline-none focus-visible:ring-teal sm:size-12 lg:size-14 ${
-                        active
-                          ? "ring-[#2dd4bf] opacity-100"
-                          : "ring-white/15 opacity-60 hover:opacity-100 hover:ring-white/40"
-                      }`}
-                    >
-                      <Image
-                        src={s.spotlight}
-                        alt=""
-                        fill
-                        sizes="112px"
-                        className="object-cover"
-                        style={{
-                          objectPosition: s.facePosition,
-                          transform: "scale(2.6)",
-                          transformOrigin: s.facePosition,
-                        }}
-                      />
-                    </button>
                     <span
                       aria-hidden
-                      className="relative h-[3px] w-full overflow-hidden rounded-full bg-white/15"
+                      className={`relative h-1 w-full overflow-hidden rounded-full transition-colors ${
+                        active
+                          ? "bg-white/20"
+                          : "bg-white/15 group-hover:bg-white/40"
+                      }`}
                     >
                       {active && (
                         <span
@@ -502,7 +482,7 @@ export default function SpeakerHighlightHero() {
                         />
                       )}
                     </span>
-                  </div>
+                  </button>
                 );
               })}
             </div>

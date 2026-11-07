@@ -119,22 +119,6 @@
   }
 }
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@layer utilities {
-  .animate-marquee {
-    animation: marquee 140s linear infinite;
-  }
-}
-
 /* Speaker hero autoplay: fills a bar over one slide's duration. */
 @keyframes speaker-progress {
   from {
