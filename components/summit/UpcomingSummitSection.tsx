@@ -8,7 +8,6 @@ import {
   SUMMIT_TICKETS_URL,
   SUMMIT_TIME_LABEL,
 } from "@/lib/constants";
-import Countdown from "./Countdown";
 import FlyerCarousel from "./FlyerCarousel";
 
 const details = [
@@ -113,13 +112,6 @@ export default function UpcomingSummitSection() {
             <div className="lg:col-span-2 bg-white/5 border-t lg:border-t-0 lg:border-l border-white/10 p-8 lg:p-10 flex items-center justify-center">
               <FlyerCarousel />
             </div>
-          </div>
-
-          <div className="border-t border-white/10 px-10 py-10 lg:px-14 lg:py-12">
-            <p className="text-white/40 text-xs uppercase tracking-widest mb-6 text-center">
-              Counting Down To The Summit
-            </p>
-            <Countdown />
           </div>
         </motion.div>
       </div>

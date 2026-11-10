@@ -1,4 +1,5 @@
 import type { StaticImageData } from "next/image";
+import { SUMMIT_VENUE_ADDRESS } from "@/lib/constants";
 import mainFlyerImg from "@/public/assets/summit/summit-awards-2026-flyer.jpeg";
 import locationImg from "@/public/assets/summit/summit-awards-2026-location.jpeg";
 import ticketsImg from "@/public/assets/summit/summit-awards-2026-tickets.jpeg";
@@ -13,8 +14,7 @@ export type Flyer = {
   alt: string;
 };
 
-const venue =
-  "The Zone, Plot 9, Gbagada Industrial Scheme, beside UPS, Gbagada-Oworonshoki Expressway, Lagos";
+const venue = SUMMIT_VENUE_ADDRESS;
 
 export const nominationsFlyer: Flyer = {
   src: nominationsOpenImg,

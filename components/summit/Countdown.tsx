@@ -20,8 +20,11 @@ const units: { key: keyof Omit<TimeRemaining, "isPast">; label: string }[] = [
 
 export default function Countdown({
   targetDate = SUMMIT_DATE,
+  variant = "default",
 }: {
   targetDate?: Date;
+  /** "bar" is a single slim row, sized for the header announcement bar. */
+  variant?: "default" | "bar";
 }) {
   const [time, setTime] = useState<TimeRemaining | null>(null);
 
@@ -32,6 +35,42 @@ export default function Countdown({
     }, 1000);
     return () => clearInterval(id);
   }, [targetDate]);
+
+  const value = (key: (typeof units)[number]["key"]) =>
+    time ? (key === "days" ? time[key] : formatTwoDigits(time[key])) : "--";
+
+  if (variant === "bar") {
+    if (time?.isPast) {
+      return (
+        <p className="text-sm font-semibold text-white">
+          Happening today
+        </p>
+      );
+    }
+    return (
+      <div
+        role="timer"
+        aria-label="Time until the summit"
+        className="flex items-center gap-1 sm:gap-1.5"
+      >
+        {units.map(({ key, label }) => (
+          <span
+            key={key}
+            className="inline-flex items-baseline gap-0.5 rounded-md bg-white/15 px-1.5 py-0.5 sm:px-2"
+          >
+            <span className="text-sm font-bold tabular-nums leading-tight">
+              {value(key)}
+            </span>
+            <span className="text-[10px] font-medium uppercase tracking-wide text-white/75">
+              {/* "D H M S" on phones, full words from sm up */}
+              {label[0]}
+              <span className="hidden sm:inline">{label.slice(1)}</span>
+            </span>
+          </span>
+        ))}
+      </div>
+    );
+  }
 
   if (time?.isPast) {
     return (
@@ -63,11 +102,7 @@ export default function Countdown({
           className="flex flex-col items-center bg-white/5 border border-white/10 rounded-2xl px-2 py-6 sm:px-8 sm:py-10"
         >
           <span className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white tabular-nums">
-            {time
-              ? key === "days"
-                ? time[key]
-                : formatTwoDigits(time[key])
-              : "--"}
+            {value(key)}
           </span>
           <span className="mt-2 text-xs sm:text-sm uppercase tracking-widest text-white/60">
             {label}

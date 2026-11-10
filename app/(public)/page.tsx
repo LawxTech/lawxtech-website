@@ -1,10 +1,12 @@
 import { buildMetadata } from "@/lib/metadata";
-import HeroSection from "@/components/home/HeroSection";
+// Restore HeroSection in place of SpeakerHighlightHero after the summit (28 Nov 2026).
+// import HeroSection from "@/components/home/HeroSection";
+import SpeakerHighlightHero from "@/components/home/SpeakerHighlightHero";
 import StatsStrip from "@/components/home/StatsStrip";
 import WhatWeDoSection from "@/components/home/WhatWeDoSection";
 import SeriesPreviewSection from "@/components/home/SeriesPreviewSection";
 import PartnersPreviewSection from "@/components/home/PartnersPreviewSection";
-import SummitBanner from "@/components/home/SummitBanner";
+import SummitCountdownSection from "@/components/summit/SummitCountdownSection";
 import CommunityVoicesSection from "@/components/home/CommunityVoicesSection";
 import SpeakersWallSection from "@/components/home/SpeakersWallSection";
 import JoinMovementSection from "@/components/home/JoinMovementSection";
@@ -17,12 +19,12 @@ export const metadata = buildMetadata({
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
+      <SpeakerHighlightHero />
       <StatsStrip />
       <WhatWeDoSection />
       <SeriesPreviewSection />
       <PartnersPreviewSection />
-      <SummitBanner />
+      <SummitCountdownSection />
       <CommunityVoicesSection />
       <SpeakersWallSection />
       <JoinMovementSection />
