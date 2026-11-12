@@ -21,7 +21,10 @@ import {
   Ticket,
 } from "lucide-react";
 import FlyerLightbox from "@/components/summit/FlyerLightbox";
-import { summitSpeakers as speakers } from "@/components/summit/speakers";
+import {
+  speakerTitle,
+  summitSpeakers as speakers,
+} from "@/components/summit/speakers";
 import {
   SUMMIT_DATE_LABEL,
   SUMMIT_TICKETS_URL,
@@ -381,7 +384,9 @@ export default function SpeakerHighlightHero() {
             animate="visible"
             className="lg:self-start"
           >
-            <div className="min-h-[5.5rem] sm:min-h-[6.25rem]">
+            {/* Tall enough for the longest name and title in the line-up, so
+                the buttons below don't jump as speakers change. */}
+            <div className="min-h-33 sm:min-h-28">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={speaker.slug}
@@ -393,12 +398,18 @@ export default function SpeakerHighlightHero() {
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#5eead4]">
                     Speaker {String(index + 1).padStart(2, "0")} /{" "}
                     {String(count).padStart(2, "0")}
+                    {speaker.billing && (
+                      <span className="text-white/60">
+                        {" "}
+                        · {speaker.billing}
+                      </span>
+                    )}
                   </p>
                   <p className="mt-2 text-2xl font-bold text-white sm:text-3xl">
                     {speaker.name}
                   </p>
                   <p className="mt-1 text-sm text-white/70 sm:text-base">
-                    {speaker.role}, {speaker.org}
+                    {speakerTitle(speaker)}
                   </p>
                 </motion.div>
               </AnimatePresence>
@@ -407,7 +418,7 @@ export default function SpeakerHighlightHero() {
               aria-live={autoplay && !paused ? "off" : "polite"}
               className="sr-only"
             >
-              {`Speaker ${index + 1} of ${count}: ${speaker.name}, ${speaker.role}, ${speaker.org}.${flipped ? " Showing bio." : ""}`}
+              {`Speaker ${index + 1} of ${count}${speaker.billing ? ` (${speaker.billing})` : ""}: ${speaker.name}, ${speakerTitle(speaker)}.${flipped ? " Showing bio." : ""}`}
             </p>
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -437,20 +448,22 @@ export default function SpeakerHighlightHero() {
             <div
               role="group"
               aria-label="Choose a speaker"
-              className="mt-5 flex gap-2"
+              className="mt-5 flex w-full max-w-md"
             >
               {speakers.map((s, i) => {
                 const active = i === index;
                 return (
-                  // The bar is the control; the button's height gives it a
-                  // comfortable tap target around the thin track.
+                  // The bar is the control; the button's height and side
+                  // padding give it a comfortable tap target around the thin
+                  // track. Buttons share the row, so the full line-up fits
+                  // on a phone without the bars turning into dots.
                   <button
                     key={s.slug}
                     type="button"
                     onClick={() => show(i)}
                     aria-label={`Show ${s.name}`}
                     aria-pressed={active}
-                    className="group flex h-11 w-12 items-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal sm:w-14"
+                    className="group flex h-11 min-w-0 flex-1 items-center rounded-sm px-[3px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
                   >
                     <span
                       aria-hidden
