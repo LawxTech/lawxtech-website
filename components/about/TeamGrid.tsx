@@ -24,9 +24,9 @@ const team = [
     dir: "members",
   },
   {
-    name: "Joel Akhonani",
+    name: "Joel Akonani",
     role: "Projects Manager II",
-    image: "joel-akhonani.jpg",
+    image: "joel-akonani.jpg",
     dir: "members",
   },
   {
