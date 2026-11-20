@@ -21,10 +21,6 @@ const getInvolvedLinks = [
     label: "Volunteer With Us",
   },
   {
-    href: "https://surveymars.com/q/y2hFxhumV",
-    label: "Apply for Careers",
-  },
-  {
     href: SUMMIT_TICKETS_URL,
     label: "Register for Summit",
   },
