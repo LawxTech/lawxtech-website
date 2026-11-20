@@ -4,6 +4,7 @@ import UpcomingSummitSection from "@/components/summit/UpcomingSummitSection";
 import SummitCountdownSection from "@/components/summit/SummitCountdownSection";
 import AwardsNominationsSection from "@/components/summit/AwardsNominationsSection";
 import PastEditionsSection from "@/components/summit/PastEditionsSection";
+import SummitSponsorsSection from "@/components/sponsors/SummitSponsorsSection";
 
 export const metadata = buildMetadata({
   title: "Summit & Awards",
@@ -34,6 +35,7 @@ export default function SummitAwardsPage() {
 
       <UpcomingSummitSection />
       <SummitCountdownSection />
+      <SummitSponsorsSection />
       <AwardsNominationsSection />
       {/* <PastEditionsSection /> */}
 

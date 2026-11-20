@@ -56,15 +56,19 @@ export default async function PartnerDetailPage({ params }: Props) {
           />
         </div>
 
-        <a
-          href={partner.websiteUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-teal text-sm font-semibold hover:underline mb-6"
-        >
-          {partner.websiteUrl.replace(/^https?:\/\//, "")}
-          <ExternalLink size={13} />
-        </a>
+        {partner.websiteUrl ? (
+          <a
+            href={partner.websiteUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-teal text-sm font-semibold hover:underline mb-6"
+          >
+            {partner.websiteUrl.replace(/^https?:\/\//, "")}
+            <ExternalLink size={13} />
+          </a>
+        ) : (
+          <div className="mb-6" />
+        )}
 
         <h1 className="text-3xl sm:text-4xl font-bold text-navy leading-tight tracking-tight mb-6">
           {partner.tagline}

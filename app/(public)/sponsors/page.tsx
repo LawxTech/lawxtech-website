@@ -7,6 +7,7 @@ import WhySponsorSection from "@/components/sponsors/WhySponsorSection";
 import SponsorshipPackages from "@/components/sponsors/SponsorshipPackages";
 import TicketsBand from "@/components/sponsors/TicketsBand";
 import SponsorContactSection from "@/components/sponsors/SponsorContactSection";
+import SummitSponsorsSection from "@/components/sponsors/SummitSponsorsSection";
 
 export const metadata = buildMetadata({
   title: "Sponsors & Partners",
@@ -65,6 +66,7 @@ export default function SponsorsPage() {
         </div>
       </section>
 
+      <SummitSponsorsSection />
       <SponsorStatsStrip />
       <WhySponsorSection />
       <SponsorshipPackages />
